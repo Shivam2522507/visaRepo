@@ -1,0 +1,169 @@
+.herosec{
+    position: relative;
+}
+.herosec .hero-sec-header{
+    position: absolute;
+    top: 13%;
+    left: 10%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3rem;
+}
+.herosec a{
+    background: #087A2E;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 24px;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    color: #FFFFFF;
+    padding: 6px 18px;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 24px;
+}
+.herosec a:hover{
+    color: #FFFFFF;
+    background: #02581f;
+}
+.herosec .bottom-text{
+    position: absolute;
+    bottom: 0;
+    left: 36%;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+}
+.herosec .bottom-text h1{
+    font-size: 3rem;
+}
+.herosec .bottom-text p{
+    font-size: 1.5rem;
+}
+.second-sec-selector div input[type=radio]{
+    accent-color: #087A2E!important;
+    height: 1.2rem;
+    width: 1.2rem;
+    
+}
+.second-sec-selector div label{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    
+}
+.visa-card{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    width: 300px;
+    height: 353px;
+}
+.visa-card h3{
+    color: #087A2E;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+.visa-card a{
+    border: 1px solid #000000;
+    padding: 8px 12px;
+    color: #087A2E;
+    border-radius: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+}
+.AssistanceContact{
+    height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.AssistanceContact h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    margin-top: 60px;
+}
+.AssistanceContact a{
+    display: inline-block;
+    background: #087A2E;
+    border-radius: 24px;
+    padding: 6px 20px;
+    color: #FFFFFF;
+    font-size: 24px;
+}
+.AssistanceContact a:hover{
+    background: #04551f;
+    color: #FFFFFF;
+   
+}
+.ELIGIBILITY_CRITERIA_Card,.Documents_Required_Card,.GUIDELINES_Card{
+    border-radius: 24px!important;
+}
+.ELIGIBILITY_CRITERIA_Card h2, .GUIDELINES_Card h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    color: #087A2E;
+}
+.ELIGIBILITY_CRITERIA_Card ol li,.ELIGIBILITY_CRITERIA_Card ol p,.Documents_Required_Card ol li,.GUIDELINES_Card ol li{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+}
+.Documents_Required_Card h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+}
+.Documents_Required_Card h2 span{
+    color: #087A2E;
+}
+.faq{
+    margin-top: 68px;
+}
+.faq h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3rem;
+    color: #087A2E;
+}
+.faq p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}
+.accordion-button{
+    transition: all 0.6s ease!important;
+}
+.accordion-button:active{
+    color: #ffffff!important;
+    background-color: #087A2E!important;
+}
+.accordion-button:not(.collapsed){
+    color: #ffffff!important;
+    background-color: #087A2E!important;
+}
+.accordion-button:not(.collapsed)::after {
+    background-image: url(./arrow-204-xxl.png)!important;
+}
+.footer-seprator-img{
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
