@@ -70,7 +70,6 @@ function Navbar() {
                     <div class="d-flex align-items-center justify-content-center mb-2">
                         <button type="submit" name="mess_send" class="btn btn-success">SEND</button>
                     </div>
-
                   </div>
                 </div>
             </form>
