@@ -28,6 +28,10 @@ function Signup(){
                                 <label class="form-label">Password<span className="text-danger">*</span></label>
                                 <input name="pass" required type="password" class="form-control shadow-none bg-light" placeholder="Password"/>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Conform Password<span className="text-danger">*</span></label>
+                                <input name="conformPass" required type="password" class="form-control shadow-none bg-light" placeholder="Password"/>
+                            </div>
                             <div class="mb-4 d-flex align-itmes-center">
                 
                             <input class="form-check-input mt-0 shadow-none me-2 mt-1" type="checkbox" value="" aria-label="Checkbox for following text input"/>
@@ -35,7 +39,7 @@ function Signup(){
                             </div>
 
                             <div class="d-flex align-items-center justify-content-center mb-2">
-                                <button type="submit" name="login" class="btn btn-success w-100">Create account</button>
+                                <button type="submit" name="Signup" class="btn btn-success w-100">Create account</button>
                             </div>
                         </div>
                     </form>

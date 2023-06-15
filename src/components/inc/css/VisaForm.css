@@ -1,0 +1,39 @@
+.steps-no-form{
+    height: 50px;
+    width: 60px;
+    background-color: #087a2e;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+}
+.card-head{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+}
+#step-1-form input,#step-2-form input{
+    width: 75%;
+    border-top: none!important;
+    border-left: none!important;
+    border-right: none!important;
+}
+#step-1-form div,#step-2-form input,#step-2-form div ,#step-2-form select{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.59);
+}
+#Title{
+    width: 95%;
+}
+#step-2-form select{
+    border: none!important;
+    border-bottom: 0.06rem solid #087a2e!important;
+    border-radius: 5px;
+}
+#step-2-form select option{
+    background-color: #ffffff;
+    color: #000000;
+}
+

@@ -3,6 +3,9 @@ import "../inc/css/ApplyVisa.css";
 import creditCardIMG from "../images/credit-card-img.png";
 import googleDocsIMG from "../images/google-docs-img.png";
 import passportIMG from "../images/passport-img.png";
+import { ArrowRight} from "react-bootstrap-icons";
+import VisaFormStep1 from "../inc/VisaFormStep1";
+import VisaFormStep2 from "../inc/VisaFormStep2";
 
 function ApplyVisa(){
     return (
@@ -71,7 +74,36 @@ function ApplyVisa(){
                     </div>
 
                 </div>
-                <div></div>
+                <div className="form-steps mt-5 mb-5 p-4 d-flex justify-content-between align-items-center">
+                    <div className="steps d-flex justify-content-center align-items-center">
+                        <div className="steps-no me-2 text-center" id="step-1">1</div>
+                        Itinerary
+                    </div>
+                    <div className="steps-arrow">
+                    <ArrowRight  size={28} />
+                    </div>
+                    <div className="steps d-flex justify-content-center align-items-center">
+                        <div className="steps-no me-2 text-center" id="step-2">2</div>
+                        Traveller Details
+                    </div>
+                    <div className="steps-arrow">
+                    <ArrowRight  size={28} />
+                    </div>
+                    <div className="steps d-flex justify-content-center align-items-center">
+                        <div className="steps-no me-2 text-center" id="step-3">3</div>
+                        Upload Documents
+                    </div>
+                    <div className="steps-arrow">
+                    <ArrowRight  size={28} />
+                    </div>
+                    <div className="steps d-flex justify-content-center align-items-center">
+                        <div className="steps-no me-2 text-center" id="step-4">4</div>
+                        Make Payment
+                    </div>
+                </div>
+
+                <VisaFormStep1/>
+                <VisaFormStep2/>
             </div>
         </div>
     );
