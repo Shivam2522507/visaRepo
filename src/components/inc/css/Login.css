@@ -1,0 +1,53 @@
+.login-form-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.login-form-cont h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700!important;
+    font-size: 32px!important;
+}
+
+.social-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social-login a{
+    border: 1px solid black;
+    padding: 12px 30px;
+}
+.social-login a .google-icon{
+    height: 26px;
+}
+.social-login a .facebook-icon{
+    height: 26px;
+}
+.login-form-card .division{
+    position: relative;
+}
+.login-form-card .division .or{
+    position: absolute;
+    top: 1.5px;
+    left: 43%;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
+}
+
+.form-check-input{
+    font-size: 18px;
+}
+.form-check-input:checked{
+    background-color: #087A2E !important;
+    border: 0;
+ }
+ .form-check-input:focus, .label::after, label.form-check-label:focus, .form-check-input::after, .form-check-input:not(:disabled):not(.disabled):active:focus {
+    color: black;
+    outline: 0;
+    border: 0;
+    box-shadow: 0 0 0 0.06rem #087A2E !important;
+ }

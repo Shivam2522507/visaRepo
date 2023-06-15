@@ -29,7 +29,9 @@ function Navbar() {
         </li>
         <li class="nav-item">
         <a href="/" class="nav-link me-2" role='button'  data-bs-toggle="modal" data-bs-target="#contact">Contact</a>
-          
+        </li>
+        <li class="nav-item">
+        <Link to="/Login" class="nav-link active"><u> Login </u></Link>
         </li>
       </ul>
     </div>

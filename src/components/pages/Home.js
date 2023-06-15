@@ -72,7 +72,7 @@ function Home() {
       </div>
       <Requirement/>
 
-      <img src={sepratorIMG} alt="whatsappIcon" class="footer-seprator-img" />
+      <img src={sepratorIMG} alt="seprator" class="footer-seprator-img" />
       <div><Footer/></div>
   
     </div>

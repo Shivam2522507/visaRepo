@@ -4,6 +4,8 @@ import Home from './components/pages/Home';
 import ApplyVisa from './components/pages/ApplyVisa';
 import TrackApllication from './components/pages/TrackApllication';
 import Contact from './components/pages/Contact';
+import Login from './components/pages/login';
+import Signup from './components/pages/Signup';
 import {BrowserRouter as Router, Routes ,Route} from 'react-router-dom';
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
           <Route path='/ApplyVisa' element={<ApplyVisa/>} />
           <Route path='/TrackApllication' element={<TrackApllication/>} />
           <Route path='/Contact' element={<Contact/>} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/Signup' element={<Signup/>} />
         </Routes>
       </div>
    </Router>
