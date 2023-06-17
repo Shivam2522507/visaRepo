@@ -4,6 +4,9 @@
     align-items: center;
     height: 80vh;
 }
+.signup{
+    height: 85vh;
+}
 .login-form-cont h2{
     font-family: 'Inter';
     font-style: normal;

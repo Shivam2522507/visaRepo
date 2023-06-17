@@ -66,7 +66,7 @@ function Footer() {
         </div>
         <div className="col-lg-5 d-flex justify-content-center align-items-center">
           <form method="post" className="footer-contact-form">
-            <h3 class="modal-title text-center mt-5 mb-5 text-success">
+            <h3 class="modal-title mt-5 mb-5 text-success">
             Contact Us
             </h3>
               <div className="row">

@@ -51,7 +51,7 @@ function Home() {
             <div class="form-check d-flex justify-content-center align-items-center">
                 <input class="with-gap me-2" name="visaType" type="radio" value="all" id="all" onChange={onOptionChange} />
                 <label for="all">All</label>
-                <input class="with-gap ms-4 me-2" type="radio" name="visaType" value="SingleEntry" id="SingleEntry"onChange={onOptionChange} />
+                <input class="with-gap ms-4 me-2" type="radio" name="visaType" value="SingleEntry" id="SingleEntry" onChange={onOptionChange} />
                 <label for="SingleEntry">Single Entry</label>
                 <input class="with-gap ms-4 me-2" type="radio" name="visaType" value="MultipleEntry" id="MultipleEntry" onChange={onOptionChange} />
                 <label for="MultipleEntry">Multiple Entry</label>

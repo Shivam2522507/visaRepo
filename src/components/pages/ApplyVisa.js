@@ -5,7 +5,8 @@ import googleDocsIMG from "../images/google-docs-img.png";
 import passportIMG from "../images/passport-img.png";
 import { ArrowRight} from "react-bootstrap-icons";
 import VisaFormStep1 from "../inc/VisaFormStep1";
-import VisaFormStep2 from "../inc/VisaFormStep2";
+import sepratorIMG from "../images/seprator.svg";
+import Footer from "../inc/Footer";
 
 function ApplyVisa(){
     return (
@@ -103,8 +104,10 @@ function ApplyVisa(){
                 </div>
 
                 <VisaFormStep1/>
-                <VisaFormStep2/>
+                
             </div>
+            <img src={sepratorIMG} alt="seprator" class="footer-seprator-img mt-5" />
+                 <div><Footer/></div>
         </div>
     );
 }

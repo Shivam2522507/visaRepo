@@ -1,8 +1,15 @@
 import React from "react";
 import "../inc/css/VisaForm.css"
+import { useState } from "react";
+import VisaFormStep2 from "./VisaFormStep2";
 
 function VisaFormStep1(){
+    const[step2Form,setStep2Form] = useState("");
+    const step2 = (e)=>{
+        setStep2Form(<VisaFormStep2/>)
+    }
     return (
+      
         <div className="container">
             <div className="card mt-4 pb-5">
                 <div className="card-head pt-4 mb-4 d-flex  align-items-center">
@@ -24,11 +31,13 @@ function VisaFormStep1(){
                             <input name="Passenger" required type="number" class="form-control shadow-none  mt-2"/>
                         </div>
                         <div className="col-lg-1 col-md-1 d-flex align-items-center">
-                            <button type="submit" name="Step-1-Next" class="btn btn-success">Next</button>
+                            <button type="submit" name="Step-1-Next" class="btn btn-success" onClick={step2}>Next</button>
                         </div>
                     </div>
                 </form>
             </div>
+
+            {step2Form}
 
         </div>
     );

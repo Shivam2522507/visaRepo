@@ -1,7 +1,14 @@
 import React from "react";
-import "../inc/css/VisaForm.css"
+import "../inc/css/VisaForm.css";
+import {Plus} from "react-bootstrap-icons";
+import { useState } from "react";
+import VisaFormStep3 from "./VisaFormStep3";
 
 function VisaFormStep2(){
+        const[step3Form,setStep3Form] = useState("");
+        const step3 = (e)=>{
+            setStep3Form(<VisaFormStep3/>)
+        }
     return (
         <div className="container">
             <div className="card mt-4 pb-4">
@@ -12,7 +19,6 @@ function VisaFormStep2(){
 
                 <div className="row justify-content-center " id="step-2-form">
                     <div className="col-lg-1 col-md-1 d-flex align-items-end">
-                        {/* <input name="Title" required type="text" class="form-control shadow-none  mt-2" placeholder="Title"/> */}
                         <select id="Title" name="Title">
                             <option >Title :</option>
                             <option value="x">abc</option>
@@ -27,7 +33,7 @@ function VisaFormStep2(){
                         <input name="LastName" required type="text" class="form-control shadow-none  mt-2" placeholder="Last Name"/>
                     </div>
                     <div className="col-lg-3 col-md-3">
-                        D.O.B
+                         D.O.B
                         <input name="dob" required type="date" class="form-control shadow-none  mt-2"/>
                     </div>
                     <div className="col-lg-5 col-md-5 mt-lg-5 mt-md-5">
@@ -46,7 +52,29 @@ function VisaFormStep2(){
                         <input name="Email" required type="email" class="form-control shadow-none" placeholder="Email"/>
                     </div>
                 </div>
+                <div className="addTraveler d-flex align-items-center mt-5">
+                    <div className="addIcon d-flex align-items-center justify-content-center me-2 "><Plus  size={28} /></div>
+                    Add another traveler
+                </div>
+                <div className="px-4 mt-3">
+                    <hr/>
+                </div>
+                <div className="GSTInvoice px-4 d-flex align-items-center">
+                    <input class="form-check-input mt-0 shadow-none me-2" type="checkbox" value="" aria-label="Checkbox for following text input"/>
+                    I need a business GST invoice
+                    <input name="GSTNo" required type="text" class="form-control shadow-none ms-5" placeholder="GST Number"/>
+                </div>
+                <div className="px-4 mt-1">
+                    <hr/>
+                </div>
+                <div className="GSTInvoice px-4 mt-4 d-flex justify-content-end align-items-center">
+                    <input class="form-check-input mt-0 shadow-none me-2" type="checkbox" value="" aria-label="Checkbox for following text input"/>
+                    I accept the rules of this trip
+                    <button type="submit" name="Step-2-Next" class="btn btn-success ms-4" onClick={step3}>Continue</button>
+                </div>
             </div>
+
+           {step3Form} 
 
         </div>
     );
