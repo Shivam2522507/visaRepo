@@ -9,6 +9,15 @@ function VisaFormStep2(){
         const step3 = (e)=>{
             setStep3Form(<VisaFormStep3/>)
         }
+        const[GSTInput,setGSTInput] = useState("");
+        const getGSTInput = (e)=>{
+            if(e.target.value==="gst_yes"){ 
+                setGSTInput(<input name="GSTNo" required type="text" class="form-control shadow-none ms-5" placeholder="GST Number"/>);
+            }
+            else{
+                setGSTInput("");
+            }
+        }
     return (
         <div className="container">
             <div className="card mt-4 pb-4">
@@ -60,9 +69,10 @@ function VisaFormStep2(){
                     <hr/>
                 </div>
                 <div className="GSTInvoice px-4 d-flex align-items-center">
-                    <input class="form-check-input mt-0 shadow-none me-2" type="checkbox" value="" aria-label="Checkbox for following text input"/>
+                    <input class="form-check-input mt-0 shadow-none me-2" type="checkbox" value="gst_yes" onChange={getGSTInput} aria-label="Checkbox for following text input"/>
                     I need a business GST invoice
-                    <input name="GSTNo" required type="text" class="form-control shadow-none ms-5" placeholder="GST Number"/>
+                    {GSTInput}
+                    {/* <input name="GSTNo" required type="text" class="form-control shadow-none ms-5" placeholder="GST Number"/> */}
                 </div>
                 <div className="px-4 mt-1">
                     <hr/>

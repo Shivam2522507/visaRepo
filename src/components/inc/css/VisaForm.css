@@ -98,7 +98,7 @@
     border: 1px solid #087a2e;
   }
   .couponCode input[type="text"]{
-    width: 18%;
+    width: 40%;
   }
   .total{
     font-family: 'Inter';

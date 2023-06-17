@@ -1,8 +1,20 @@
 import React from "react";
 import "../inc/css/VisaForm.css"
 import {BoxArrowUpRight} from "react-bootstrap-icons";
+import { useState } from "react";
+
 
 function VisaFormStep4(){
+    const[couponCodeInput,setcouponCodeInput] = useState("");
+    const couponCode = (e)=>{
+        if(e.target.value==="couponCode"){ 
+            setcouponCodeInput(<div className="d-flex align-items-center"><input name="couponCode" required type="text" class="form-control shadow-none ms-5" placeholder="Coupon Code"/>
+            <button type="submit" name="couponCodeApply" class="btn btn-success ms-4">Apply Now</button></div>);
+        }
+        else{
+            setcouponCodeInput("");
+        }
+    }
     return (
         <div className="container">
             <div className="card mt-4 pb-5">
@@ -11,10 +23,10 @@ function VisaFormStep4(){
                     Make Payment
                 </div>
                 <div className="couponCode px-4 d-flex align-items-center">
-                    <input class="form-check-input mt-0 shadow-none me-2" type="checkbox" value="" aria-label="Checkbox for following text input"/>
+                    <input class="form-check-input mt-0 shadow-none me-2" type="checkbox" value="couponCode" aria-label="Checkbox for following text input" onChange={couponCode}/>
                     I have a coupon code
-                    <input name="couponCode" required type="text" class="form-control shadow-none ms-5" placeholder="Coupon Code"/>
-                    <button type="submit" name="couponCodeApply" class="btn btn-success ms-4">Apply Now</button>
+                    {couponCodeInput}
+                    
                 </div>
                 <div className="px-4 mt-1">
                     <hr/>
