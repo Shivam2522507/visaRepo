@@ -1,3 +1,14 @@
+.home-body{
+    position: relative;
+}
+.whatapp-icon{
+    left: 1%!important;
+    right: 97%!important;
+    bottom: 2%!important;
+}
+.whatapp-icon img{
+    height: 60px;
+}
 .herosec{
     position: relative;
 }
@@ -7,7 +18,7 @@
     left: 10%;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 500!important;
     font-size: 3rem;
 }
 .herosec a{
@@ -21,8 +32,11 @@
     color: #FFFFFF;
     padding: 6px 18px;
     font-family: 'Inter';
-    font-weight: 700;
+    font-weight: 700!important;
     font-size: 24px;
+}
+.herosec a .BoxArrowInRight{
+    font-size: 40px;
 }
 .herosec a:hover{
     color: #FFFFFF;
@@ -35,7 +49,7 @@
     color: #FFFFFF;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 500!important;
 }
 .herosec .bottom-text h1{
     font-size: 3rem;
@@ -52,7 +66,7 @@
 .second-sec-selector div label{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 700!important;
     font-size: 24px;
     
 }
@@ -66,7 +80,7 @@
     color: #087A2E;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 700!important;
     font-size: 24px;
     line-height: 29px;
 }
@@ -77,8 +91,11 @@
     border-radius: 25px;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 700!important;
     font-size: 24px;
+}
+.visa-card a .BoxArrowInRight{
+    font-size: 38px;
 }
 .AssistanceContact{
     height: 45vh;
@@ -90,7 +107,7 @@
 .AssistanceContact h1{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 700!important;
     font-size: 40px;
     margin-top: 60px;
 }
@@ -113,20 +130,20 @@
 .ELIGIBILITY_CRITERIA_Card h2, .GUIDELINES_Card h2{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 700!important;
     font-size: 30px;
     color: #087A2E;
 }
 .ELIGIBILITY_CRITERIA_Card ol li,.ELIGIBILITY_CRITERIA_Card ol p,.Documents_Required_Card ol li,.GUIDELINES_Card ol li{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 600!important;
     font-size: 20px;
 }
 .Documents_Required_Card h2{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 700!important;
     font-size: 30px;
 }
 .Documents_Required_Card h2 span{
@@ -138,14 +155,14 @@
 .faq h1{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 400!important;
     font-size: 3rem;
     color: #087A2E;
 }
 .faq p{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 500!important;
     font-size: 20px;
 }
 .accordion-button{
@@ -167,3 +184,188 @@
     object-fit: cover;
     object-position: 50% 50%;
 }
+
+@media screen and (max-width: 1246px) {
+    .herosec .hero-sec-header {
+        font-size: 2rem;
+    }
+    .herosec a {
+        top: 41%;
+        padding: 5px 12px;
+        font-size: 16px;
+    }
+    .herosec a .BoxArrowInRight{
+        font-size: 30px;
+    }
+    .herosec .bottom-text h1 {
+        font-size: 2rem;
+    }
+    .herosec .bottom-text p {
+        font-size: 1rem;
+    }
+    
+  }
+@media screen and (max-width: 952px) {
+    .herosec .bottom-text {
+        left: 33%;
+    }
+    .ELIGIBILITY_CRITERIA_Card ol li, .ELIGIBILITY_CRITERIA_Card ol p, .Documents_Required_Card ol li, .GUIDELINES_Card ol li {
+        font-size: 18px;
+    }
+    
+  }
+@media screen and (max-width: 792px) {
+    .herosec a {
+        top: 48%;
+    }
+    .herosec a .BoxArrowInRight {
+        font-size: 25px;
+    }
+    .herosec .bottom-text h1 {
+        margin-bottom: 0;
+    }
+    .herosec .bottom-text p {
+        margin-bottom: 0;
+    }
+    .herosec .bottom-text {
+        left: 30%;
+    }
+    .second-sec-selector div label {
+        font-size: 21px;
+    }
+    .visa-card h3 {
+        font-size: 21px;
+    }
+    .visa-card h5 {
+        font-size: 1rem;
+    }
+    .visa-card h1 {
+        font-size: 2rem;
+    }
+    .visa-card a {
+        padding: 4px 10px;
+        font-size: 18px;
+    }
+    .visa-card a .BoxArrowInRight{
+        font-size: 29px;
+    }
+    .visa-card p{
+        margin-bottom: 0;
+    }
+    .AssistanceContact h1 {
+        font-size: 38px;
+    }
+  
+  }
+@media screen and (max-width: 642px) {
+    .ELIGIBILITY_CRITERIA_Card h2, .GUIDELINES_Card h2 {
+        font-size: 22px;
+    }
+    .ELIGIBILITY_CRITERIA_Card ol li, .ELIGIBILITY_CRITERIA_Card ol p, .Documents_Required_Card ol li, .GUIDELINES_Card ol li {
+        font-size: 13px;
+    }
+    .faq h1 {
+       margin-bottom: 0!important;
+    }
+    .faq p {
+        font-size: 17px;
+    }
+    .herosec .hero-sec-header,.herosec .bottom-text h1  {
+        font-size: 1.5rem;
+    }
+    .herosec a {
+        padding: 3px 10px;
+        font-size: 11px;
+    }
+    .herosec a .BoxArrowInRight {
+        font-size: 19px;
+    }
+    .herosec .bottom-text p {
+        font-size: 0.8rem;
+    }
+    .tawk-min-container .tawk-button-circle.tawk-button-large {
+        width: 40px!important;
+        height: 40px!important;
+    }
+    .whatapp-icon img {
+        height: 43px!important;
+    }
+  }
+  @media screen and (max-width: 492px) {
+    .herosec .hero-sec-header, .herosec .bottom-text h1 {
+        font-size: 1.2rem;
+    }
+    .herosec a {
+        font-size: 10px;
+        border: 1px solid #FFFFFF;
+    }
+    .herosec .bottom-text p {
+        font-size: 0.6rem;
+    }
+    .second-sec-selector div label {
+        font-size: 13px;
+    }
+    .second-sec-selector div input[type=radio] {
+        height: 1rem;
+        width: 1rem;
+    }
+    .visa-card h3 {
+        font-size: 17px;
+    }
+    .visa-card h1 {
+        font-size: 1.5rem;
+    }
+    .visa-card a {
+        font-size: 15px;
+    }
+    .visa-card a .BoxArrowInRight {
+        font-size: 22px;
+    }
+    .AssistanceContact h1 {
+        font-size: 27px;
+        margin-top: 0px;
+    }
+    .AssistanceContact a {
+        font-size: 21px;
+    }
+    .Documents_Required_Card h2 {
+        font-size: 23px;
+    }
+    .ELIGIBILITY_CRITERIA_Card h2, .GUIDELINES_Card h2 {
+        font-size: 19px;
+    }
+    .ELIGIBILITY_CRITERIA_Card ol li, .ELIGIBILITY_CRITERIA_Card ol p, .Documents_Required_Card ol li, .GUIDELINES_Card ol li {
+        font-size: 11px;
+    }
+    .faq p {
+        font-size: 13px;
+    }
+    .footer-seprator-img {
+        height: 30px;
+    }
+    .AssistanceContact{
+        height: 30vh;
+    }
+
+  }
+  @media screen and (max-width: 420px) {
+    .herosec .bottom-text {
+        left: 25%;
+    }
+    .AssistanceContactLink{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        transform: scale(0.6);
+
+    }
+    .AssistanceContactLink a{
+        display: flex;
+        flex-direction: row;
+        padding: 10px 20px;
+    }
+    .AssistanceContactBtn{
+        width: 179px;
+    }
+  }

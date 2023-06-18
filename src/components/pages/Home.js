@@ -1,7 +1,6 @@
 import React from "react";
 import herosecimg from "../images/hero-sec-img.png";
 import whatsappIcon from "../images/whatsappIcon.png";
-import sepratorIMG from "../images/seprator.svg";
 import "../inc/css/Home.css";
 import { Link } from "react-router-dom";
 import { BoxArrowInRight, PersonRolodex} from "react-bootstrap-icons";
@@ -10,8 +9,6 @@ import AllVisaCard from "../inc/AllVisaCard";
 import SingleEntryVisaCard from "../inc/SingleEntryVisaCard";
 import MultipleVisaCard from "../inc/MultipleEntryVisaCard";
 import Requirement from "../inc/Requirement";
-import Footer from "../inc/Footer";
-
 
 
 
@@ -31,7 +28,7 @@ function Home() {
         
     }
   return (
-    <div className="bg-light">
+    <div className="bg-light home-body">
       <div className="container-fluid herosec p-0">
         <img src={herosecimg} alt="Hero-img" class="w-100" />
 
@@ -39,7 +36,7 @@ function Home() {
           Apply for Dubai Visa in Just a Few <br /> Clicks
         </h1>
         <Link to="/ApplyVisa" class="nav-link ">
-          Apply Now <BoxArrowInRight className="ms-1" size={36} />
+          Apply Now <BoxArrowInRight className="ms-1 BoxArrowInRight"  />
         </Link>
         <div className="bottom-text">
           <h1 className="text-center">Select your VISA type</h1>
@@ -61,19 +58,21 @@ function Home() {
             </div>
         </div>
       </div>
-      <div className="container AssistanceContact mt-5 mb-5">
-        <h1 className="text-center mb-4">Need Assistance Contact Our Experts</h1>
+      <div className="container AssistanceContact mt-lg-5 mt-md-3 mb-lg-5 mb-md-3">
+        <h1 className="text-center mt-md-3 mb-4">Need Assistance Contact Our Experts</h1>
         <div className="AssistanceContactLink text-center">
 
         <a href="https://wa.me/8826450975" class="nav-link me-4"><img src={whatsappIcon} alt="whatsappIcon" class="me-1" />WhatsApp</a>
-        <a href="/" class="nav-link me-2 text-light" role='button'  data-bs-toggle="modal" data-bs-target="#contact"><PersonRolodex className="me-2" size={33} />Contact Us</a>
+        <a href="/" class="nav-link me-2 text-light AssistanceContactBtn " role='button'  data-bs-toggle="modal" data-bs-target="#contact"><PersonRolodex className="me-1" size={33} />Contact Us</a>
           
         </div>
       </div>
       <Requirement/>
-
-      <img src={sepratorIMG} alt="seprator" class="footer-seprator-img" />
-      <div><Footer/></div>
+      <div className="whatapp-icon fixed-bottom"> <Link to="https://wa.me/8826450975" class="nav-link ">
+          <img src={whatsappIcon} alt="whatsappIcon" />
+        </Link>
+        
+        </div> 
   
     </div>
   );

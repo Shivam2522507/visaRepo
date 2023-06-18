@@ -44,3 +44,48 @@ input[type="number"] {
 .footer-contact-form button:hover{
   background: linear-gradient(180deg, #2CAB57 0%, #087A2E 100%)!important;
 }
+
+@media screen and (max-width: 864px) {
+  .footer-sub-btn{
+      justify-content: start!important;
+      margin-top: 13px!important;
+  }
+}
+
+@media screen and (max-width: 763px) {
+ .footer-cont{
+  justify-content: center;
+ }
+ .footer-cont .left-cont{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+ }
+ .footer-cont .left-cont .social-link{
+  margin-top: 0!important;
+ }
+ .footer-cont .left-cont p{
+  margin-bottom: 0;
+ }
+ .footer-cont .left-cont-ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+ }
+ .footer-cont .left-cont-ul li{
+ margin: 10px;
+ }
+
+}
+
+@media screen and (max-width: 492px) {
+  .footer-sub-btn{
+      justify-content: center!important;
+  }
+  
+  .navbar-brand img{
+    height: 34px!important;
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./components/inc/Navbar";
+import Footer from "./components/inc/Footer";
 import Home from './components/pages/Home';
 import ApplyVisa from './components/pages/ApplyVisa';
 import TrackApllication from './components/pages/TrackApllication';
@@ -21,6 +22,7 @@ function App() {
           <Route path='/login' element={<Login/>} />
           <Route path='/Signup' element={<Signup/>} />
         </Routes>
+        <Footer/>
       </div>
    </Router>
   );

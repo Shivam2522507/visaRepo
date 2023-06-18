@@ -11,9 +11,9 @@ function SingleEntry(){
                     <div className="card-body d-flex flex-column justify-content-center align-items-center p-3">
                         <h3>48 hours transit visa</h3>
                         <h5 className="text-center">Single Entry <br/> Visa</h5>
-                        <h1 className="mt-3 fw-bold">5,000 INR</h1>
+                        <h1 className="mt-lg-3 mt-md-2 fw-bold">5,000 INR</h1>
                         <Link to="/ApplyVisa" class="nav-link mt-2">
-                            Apply Now <BoxArrowInRight className="ms-1 text-black" size={36} />
+                            Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
                         </Link>
                         <p className="mt-4"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
                     </div>
@@ -24,9 +24,9 @@ function SingleEntry(){
                     <div className="card-body d-flex flex-column justify-content-center align-items-center p-3">
                         <h3>48 hours transit visa</h3>
                         <h5 className="text-center">Single Entry <br/> Visa</h5>
-                        <h1 className="mt-3 fw-bold">5,000 INR</h1>
+                        <h1 className="mt-lg-3 mt-md-2 fw-bold">5,000 INR</h1>
                         <Link to="/ApplyVisa" class="nav-link mt-2">
-                            Apply Now <BoxArrowInRight className="ms-1 text-black" size={36} />
+                            Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
                         </Link>
                         <p className="mt-4"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
                     </div>
@@ -37,9 +37,9 @@ function SingleEntry(){
                     <div className="card-body d-flex flex-column justify-content-center align-items-center p-3">
                         <h3>48 hours transit visa</h3>
                         <h5 className="text-center">Single Entry <br/> Visa</h5>
-                        <h1 className="mt-3 fw-bold">5,000 INR</h1>
+                        <h1 className="mt-lg-3 mt-md-2 fw-bold">5,000 INR</h1>
                         <Link to="/ApplyVisa" class="nav-link mt-2">
-                            Apply Now <BoxArrowInRight className="ms-1 text-black" size={36} />
+                            Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
                         </Link>
                         <p className="mt-4"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
                     </div>
@@ -50,9 +50,9 @@ function SingleEntry(){
                     <div className="card-body d-flex flex-column justify-content-center align-items-center p-3">
                         <h3>48 hours transit visa</h3>
                         <h5 className="text-center">Single Entry <br/> Visa</h5>
-                        <h1 className="mt-3 fw-bold">5,000 INR</h1>
+                        <h1 className="mt-lg-3 mt-md-2 fw-bold">5,000 INR</h1>
                         <Link to="/ApplyVisa" class="nav-link mt-2">
-                            Apply Now <BoxArrowInRight className="ms-1 text-black" size={36} />
+                            Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
                         </Link>
                         <p className="mt-4"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
                     </div>

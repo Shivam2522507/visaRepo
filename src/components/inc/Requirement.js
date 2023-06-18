@@ -3,7 +3,7 @@ import React from "react";
 
 function Requirement(){
     return (
-        <div className="container mt-5 mb-5 bg-light">
+        <div className="container mt-5 pb-5 bg-light">
             <div className="card ELIGIBILITY_CRITERIA_Card p-4 mt-5">
                 <h2 className="mb-4">ELIGIBILITY CRITERIA FOR DUBAI (UAE) VISA</h2>
                 <ol class="list-group list-group-numbered border-0 ">

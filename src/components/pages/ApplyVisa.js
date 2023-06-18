@@ -1,12 +1,14 @@
 import React from "react";
 import "../inc/css/ApplyVisa.css";
+import whatsappIcon from "../images/whatsappIcon.png";
 import creditCardIMG from "../images/credit-card-img.png";
 import googleDocsIMG from "../images/google-docs-img.png";
 import passportIMG from "../images/passport-img.png";
 import { ArrowRight} from "react-bootstrap-icons";
 import VisaFormStep1 from "../inc/VisaFormStep1";
-import sepratorIMG from "../images/seprator.svg";
-import Footer from "../inc/Footer";
+
+// import Footer from "../inc/Footer";
+import { Link } from "react-router-dom";
 
 function ApplyVisa(){
     return (
@@ -102,12 +104,15 @@ function ApplyVisa(){
                         Make Payment
                     </div>
                 </div>
+                <div className="whatapp-icon fixed-bottom"> <Link to="https://wa.me/8826450975" class="nav-link ">
+                    <img src={whatsappIcon} alt="whatsappIcon" />
+                    </Link>
+                    
+                </div>
 
                 <VisaFormStep1/>
                 
             </div>
-            <img src={sepratorIMG} alt="seprator" class="footer-seprator-img mt-5" />
-                 <div><Footer/></div>
         </div>
     );
 }

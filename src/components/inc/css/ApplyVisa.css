@@ -6,6 +6,14 @@ h2 {
 h2 span {
   color: #087a2e;
 }
+.whatapp-icon{
+  left: 1%!important;
+  right: 97%!important;
+  bottom: 2%!important;
+}
+.whatapp-icon img{
+  height: 60px;
+}
 .card h6 {
   font-family: "Inter";
   font-style: normal;
