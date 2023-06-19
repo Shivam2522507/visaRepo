@@ -6,8 +6,6 @@ import googleDocsIMG from "../images/google-docs-img.png";
 import passportIMG from "../images/passport-img.png";
 import { ArrowRight} from "react-bootstrap-icons";
 import VisaFormStep1 from "../inc/VisaFormStep1";
-
-// import Footer from "../inc/Footer";
 import { Link } from "react-router-dom";
 
 function ApplyVisa(){
@@ -39,7 +37,7 @@ function ApplyVisa(){
                             <p className="m-0 Instructions-para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, tempore magnam omnis sint totam soluta quasi rerum labore nobis adipisci ipsum illum aspernatur maiores incidunt eum, nulla architecto cupiditate ex. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, tempore magnam omnis sint totam soluta quasi rerum labore nobis adipisci ipsum illum aspernatur maiores incidunt eum, nulla architecto cupiditate ex.</p>
                         </div>
                     </div>
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 mt-lg-0 mt-md-3 mt-3">
                     <div className="card p-4 get-visa-steps">
                                 <h5 className="mb-3">STEPS TO GET YOUR VISA</h5>
                                 <div className="d-flex">
@@ -80,28 +78,35 @@ function ApplyVisa(){
                 <div className="form-steps mt-5 mb-5 p-4 d-flex justify-content-between align-items-center">
                     <div className="steps d-flex justify-content-center align-items-center">
                         <div className="steps-no me-2 text-center" id="step-1">1</div>
+                        <p className="m-0">
+
                         Itinerary
+                        </p>
                     </div>
-                    <div className="steps-arrow">
-                    <ArrowRight  size={28} />
+                    <div className="steps-arrow d-flex align-items-center">
+                    <ArrowRight />
                     </div>
                     <div className="steps d-flex justify-content-center align-items-center">
                         <div className="steps-no me-2 text-center" id="step-2">2</div>
+                        <p className="m-0">
                         Traveller Details
+                        </p>
                     </div>
-                    <div className="steps-arrow">
-                    <ArrowRight  size={28} />
+                    <div className="steps-arrow d-flex align-items-center">
+                    <ArrowRight />
                     </div>
                     <div className="steps d-flex justify-content-center align-items-center">
                         <div className="steps-no me-2 text-center" id="step-3">3</div>
-                        Upload Documents
+                       <p className="m-0">
+                       Upload Documents
+                        </p>
                     </div>
-                    <div className="steps-arrow">
-                    <ArrowRight  size={28} />
+                    <div className="steps-arrow d-flex align-items-center">
+                    <ArrowRight  />
                     </div>
                     <div className="steps d-flex justify-content-center align-items-center">
                         <div className="steps-no me-2 text-center" id="step-4">4</div>
-                        Make Payment
+                        <p className="m-0">Make Payment</p>
                     </div>
                 </div>
                 <div className="whatapp-icon fixed-bottom"> <Link to="https://wa.me/8826450975" class="nav-link ">

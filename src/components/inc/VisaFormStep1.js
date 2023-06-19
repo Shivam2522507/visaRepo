@@ -17,20 +17,20 @@ function VisaFormStep1(){
                     Itinerary
                 </div>
                 <form method="post">
-                    <div className="row justify-content-center " id="step-1-form">
-                        <div className="col-lg-3 col-md-3">
+                    <div className="row justify-content-center p-lg-0 p-md-0 p-3" id="step-1-form">
+                        <div className="col-lg-3 col-md-3 col-6">
                             Onward Date
                             <input name="OnwordDate" required type="date" class="form-control shadow-none  mt-2"/>
                         </div>
-                        <div className="col-lg-3 col-md-3">
+                        <div className="col-lg-3 col-md-3 col-6">
                             Return Date
                             <input name="ReturnDate" required type="date" class="form-control shadow-none  mt-2"/>
                         </div>
-                        <div className="col-lg-3 col-md-3">
+                        <div className="col-lg-3 col-md-3 col-6 mt-lg-0 mt-md-0 mt-3">
                             Passengers
                             <input name="Passenger" required type="number" class="form-control shadow-none  mt-2"/>
                         </div>
-                        <div className="col-lg-1 col-md-1 d-flex align-items-center">
+                        <div className="col-lg-1 col-md-1 col-6 d-flex  Step-1-Next-btn">
                             <button type="submit" name="Step-1-Next" class="btn btn-success" onClick={step2}>Next</button>
                         </div>
                     </div>

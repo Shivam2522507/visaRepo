@@ -1,108 +1,189 @@
-.steps-no-form{
-    height: 50px;
-    width: 60px;
-    background-color: #087a2e;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
+.steps-no-form {
+  height: 50px;
+  width: 60px;
+  background-color: #087a2e;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
 }
-.card-head{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
+.card-head {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
 }
-#step-1-form input,#step-2-form input{
-    width: 75%;
-    border-top: none!important;
-    border-left: none!important;
-    border-right: none!important;
+.steps-arrow{
+  font-size: 28px;
 }
-#step-1-form div,#step-2-form input,#step-2-form div ,#step-2-form select{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.59);
+#step-1-form input,
+#step-2-form input {
+  width: 75%;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
 }
-#Title{
-    width: 95%;
+#step-1-form div,
+#step-2-form input,
+#step-2-form div,
+#step-2-form select {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.59);
 }
-#step-2-form select{
-    border: none!important;
-    border-bottom: 0.06rem solid #087a2e!important;
-    border-radius: 5px;
+.Step-1-Next-btn {
+  align-items: center;
 }
-#step-2-form select option{
-    background-color: #ffffff;
-    color: #000000;
+#Title {
+  width: 95%;
+}
+#step-2-form select {
+  border: none !important;
+  border-bottom: 0.06rem solid #087a2e !important;
+  border-radius: 5px;
+}
+#step-2-form select option {
+  background-color: #ffffff;
+  color: #000000;
 }
 
-.addTraveler{
-    margin-left: 30px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
+.addTraveler {
+  margin-left: 30px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
 }
 
-.addTraveler .addIcon{
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    background-color: #087a2e;
-    color: #fff;
+.addTraveler .addIcon {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #087a2e;
+  color: #fff;
 }
-.GSTInvoice{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
+.GSTInvoice {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
 }
-.GSTInvoice input[type="text"]{
-    width: 30%;
-    border-top: none!important;
-    border-left: none!important;
-    border-right: none!important;
+.GSTInvoice input[type="text"] {
+  width: 30%;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
 }
 
 .upload-doc label {
-    background-color: rgb(255, 255, 255);
-    color: #087a2e;
-    border: 1px solid #087a2e;
-    padding: 0.5rem;
-    font-family: 'Inter';
-    border-radius: 0.3rem;
-    cursor: pointer;
-    margin-top: 1rem;
-  }
-  .upload-doc .doc-title h4{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700!important;
-    font-size: 22px!important;
-  }
-  .board .board-head h3{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700!important;
-    font-size: 22px!important;
-  }
-  .board .board-head h3 span{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400!important;
-    font-size: 18px!important;
-  }
+  background-color: rgb(255, 255, 255);
+  color: #087a2e;
+  border: 1px solid #087a2e;
+  padding: 0.5rem;
+  font-family: "Inter";
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 104px;
+}
+.upload-doc .doc-title h4 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700 !important;
+  font-size: 22px !important;
+}
+.board .board-head h3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700 !important;
+  font-size: 22px !important;
+}
+.board .board-head h3 span {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+}
 
-  input[type="checkbox"]{
-    border: 1px solid #087a2e;
+input[type="checkbox"] {
+  border: 1px solid #087a2e;
+}
+.couponCode input[type="text"] {
+  width: 40%;
+}
+.total {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 1246px) {
+  .upload-inp {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
   }
-  .couponCode input[type="text"]{
-    width: 40%;
+  .Insurance-body {
+    flex-wrap: wrap;
   }
-  .total{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
+  .board-body {
+    flex-wrap: wrap;
   }
+}
+@media screen and (max-width: 993px) {
+  .steps .steps-no {
+    height: 20px;
+    width: 20px;
+}
+.steps-arrow {
+  font-size: 21px;
+}
+.steps {
+  font-size: 13px;
+}
+}
+@media screen and (max-width: 770px) {
+  .Step-1-Next-btn {
+    align-items: end !important;
+  }
+  #Title {
+    width: 65%;
+  }
+  .GSTInvoice {
+    flex-wrap: wrap;
+  }
+  .GSTInvoice input[type="text"] {
+    width: 53%;
+  }
+  .couponCode {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 714px) {
+
+.upload-doc .doc-title h4 {
+  font-size: 16px !important;
+}
+.board .board-head h3 {
+  font-size: 17px !important;
+}
+.Insurance-head h3{
+  font-size: 17px!important;
+}
+.total {
+  font-size: 17px;
+}
+}
+@media screen and (max-width: 581px) {
+  .steps p{
+   display: none!important;
+  }
+ }
+@media screen and (max-width: 479px) {
+ .upload-doc{
+  flex-wrap: wrap;
+ }
+ }

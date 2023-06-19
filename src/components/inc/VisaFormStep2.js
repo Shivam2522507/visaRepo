@@ -20,14 +20,14 @@ function VisaFormStep2(){
         }
     return (
         <div className="container">
-            <div className="card mt-4 pb-4">
+            <div className="card mt-4  pb-4">
                 <div className="card-head pt-4 mb-4 d-flex  align-items-center">
                     <div className="steps-no-form me-4 d-flex justify-content-center align-items-center">2</div>
                     Travellers Details
                 </div>
 
-                <div className="row justify-content-center " id="step-2-form">
-                    <div className="col-lg-1 col-md-1 d-flex align-items-end">
+                <div className="row justify-content-center p-lg-0 p-md-3 p-3 " id="step-2-form">
+                    <div className="col-lg-1 col-md-4 col-6 d-flex align-items-end">
                         <select id="Title" name="Title">
                             <option >Title :</option>
                             <option value="x">abc</option>
@@ -35,28 +35,28 @@ function VisaFormStep2(){
                             <option value="x">Efi</option>
                         </select>
                     </div>
-                    <div className="col-lg-3 col-md-3 d-flex align-items-end">
+                    <div className="col-lg-3 col-md-4 col-6 d-flex align-items-end">
                         <input name="FirstName" required type="text" class="form-control shadow-none  mt-2" placeholder="First Name"/>
                     </div>
-                    <div className="col-lg-3 col-md-3 d-flex align-items-end">
+                    <div className="col-lg-3 col-md-4 col-6 d-flex align-items-end mt-3">
                         <input name="LastName" required type="text" class="form-control shadow-none  mt-2" placeholder="Last Name"/>
                     </div>
-                    <div className="col-lg-3 col-md-3">
+                    <div className="col-lg-3 col-md-6 col-6 d-flex justify-content-end  flex-column mt-3">
                          D.O.B
                         <input name="dob" required type="date" class="form-control shadow-none  mt-2"/>
                     </div>
-                    <div className="col-lg-5 col-md-5 mt-lg-5 mt-md-5">
+                    <div className="col-lg-5 col-md-6 col-6 mt-lg-5 mt-md-5 mt-3">
                          Nationality
                         <input name="Nationality" required type="text" class="form-control shadow-none"/>
                     </div>
-                    <div className="col-lg-5 col-md-5 mt-lg-5 mt-md-5 d-flex align-items-end">
+                    <div className="col-lg-5 col-md-4 col-6 mt-lg-5 mt-md-5 d-flex align-items-end mt-3">
                         <input name="PassportNo" required type="number" class="form-control shadow-none" placeholder="Passport No"/>
                     </div>
-                    <div className="col-lg-5 col-md-5 mt-lg-5 mt-md-5">
+                    <div className="col-lg-5 col-md-4 col-6 mt-lg-5 mt-md-5 mt-3">
                         Contact No
                         <input name="ContactNo" required type="number" class="form-control shadow-none" placeholder="Contact No"/>
                     </div>
-                    <div className="col-lg-5 col-md-5 mt-lg-5 mt-md-5">
+                    <div className="col-lg-5 col-md-4 col-6 mt-lg-5 mt-md-5 mt-3">
                         Email
                         <input name="Email" required type="email" class="form-control shadow-none" placeholder="Email"/>
                     </div>
@@ -72,7 +72,6 @@ function VisaFormStep2(){
                     <input class="form-check-input mt-0 shadow-none me-2" type="checkbox" value="gst_yes" onChange={getGSTInput} aria-label="Checkbox for following text input"/>
                     I need a business GST invoice
                     {GSTInput}
-                    {/* <input name="GSTNo" required type="text" class="form-control shadow-none ms-5" placeholder="GST Number"/> */}
                 </div>
                 <div className="px-4 mt-1">
                     <hr/>

@@ -106,3 +106,26 @@ ul li {
   background-color: #087a2e;
   color: #fff;
 }
+@media screen and (max-width: 714px) {
+  .steps {
+    font-size: 10px;
+}
+.steps-arrow {
+  font-size: 13px;
+}
+.steps .steps-no {
+  height: 16px;
+  width: 16px;
+}
+
+}
+@media screen and (max-width: 343px) {
+.card ul {
+  flex-wrap: wrap;
+  align-items: center;
+}
+.card ul li{
+  margin: 10px!important;
+}
+
+}
