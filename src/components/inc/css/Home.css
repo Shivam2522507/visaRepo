@@ -36,7 +36,7 @@
     font-size: 24px;
 }
 .herosec a .BoxArrowInRight{
-    font-size: 40px;
+    font-size: 30px;
 }
 .herosec a:hover{
     color: #FFFFFF;
@@ -72,7 +72,7 @@
 }
 .visa-card{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 24px;
+    border-radius: 30px;
     width: 300px;
     height: 353px;
 }
@@ -86,16 +86,16 @@
 }
 .visa-card a{
     border: 1px solid #000000;
-    padding: 8px 12px;
+    padding: 4px 12px;
     color: #087A2E;
     border-radius: 25px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700!important;
-    font-size: 24px;
+    font-size: 20px;
 }
 .visa-card a .BoxArrowInRight{
-    font-size: 38px;
+    font-size: 28px;
 }
 .AssistanceContact{
     height: 45vh;
@@ -124,6 +124,9 @@
     color: #FFFFFF;
    
 }
+.AssistanceContactLink .whatsapp-img{
+    height: 26px;
+}
 .ELIGIBILITY_CRITERIA_Card,.Documents_Required_Card,.GUIDELINES_Card{
     border-radius: 24px!important;
 }
@@ -139,6 +142,7 @@
     font-style: normal;
     font-weight: 600!important;
     font-size: 20px;
+    margin: 10px 0;
 }
 .Documents_Required_Card h2{
     font-family: 'Inter';
@@ -195,7 +199,7 @@
         font-size: 16px;
     }
     .herosec a .BoxArrowInRight{
-        font-size: 30px;
+        font-size: 24px;
     }
     .herosec .bottom-text h1 {
         font-size: 2rem;
@@ -219,7 +223,7 @@
         top: 48%;
     }
     .herosec a .BoxArrowInRight {
-        font-size: 25px;
+        font-size: 23px;
     }
     .herosec .bottom-text h1 {
         margin-bottom: 0;
@@ -247,7 +251,7 @@
         font-size: 18px;
     }
     .visa-card a .BoxArrowInRight{
-        font-size: 29px;
+        font-size: 24px;
     }
     .visa-card p{
         margin-bottom: 0;
@@ -278,7 +282,7 @@
         font-size: 11px;
     }
     .herosec a .BoxArrowInRight {
-        font-size: 19px;
+        font-size: 18px;
     }
     .herosec .bottom-text p {
         font-size: 0.8rem;
@@ -319,7 +323,7 @@
         font-size: 15px;
     }
     .visa-card a .BoxArrowInRight {
-        font-size: 22px;
+        font-size: 18px;
     }
     .AssistanceContact h1 {
         font-size: 27px;

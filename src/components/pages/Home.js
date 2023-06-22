@@ -60,11 +60,11 @@ function Home() {
       </div>
       <div className="container AssistanceContact mt-lg-5 mt-md-3 mb-lg-5 mb-md-3">
         <h1 className="text-center mt-md-3 mb-4">Need Assistance Contact Our Experts</h1>
-        <div className="AssistanceContactLink text-center">
+        <div className="AssistanceContactLink d-flex text-center">
 
-        <a href="https://wa.me/8826450975" class="nav-link me-4"><img src={whatsappIcon} alt="whatsappIcon" class="me-1" />WhatsApp</a>
-        <a href="/" class="nav-link me-2 text-light AssistanceContactBtn " role='button'  data-bs-toggle="modal" data-bs-target="#contact"><PersonRolodex className="me-1" size={33} />Contact Us</a>
-          
+          <a href="https://wa.me/8826450975" class="nav-link me-4 d-flex justify-content-center align-items-center"><img src={whatsappIcon} alt="whatsappIcon" class="me-2 whatsapp-img" />WhatsApp</a>
+          <a href="/" class="nav-link me-2 text-light AssistanceContactBtn d-flex justify-content-center align-items-center" role='button'  data-bs-toggle="modal" data-bs-target="#contact"><PersonRolodex className="me-2"  />Contact Us</a>
+            
         </div>
       </div>
       <Requirement/>

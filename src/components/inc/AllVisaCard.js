@@ -15,7 +15,7 @@ function AllVisaCard(){
                             <Link to="/ApplyVisa" class="nav-link mt-2">
                                 Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
                             </Link>
-                            <p className="mt-4"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
+                            <p className="mt-5"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@ function AllVisaCard(){
                             <Link to="/ApplyVisa" class="nav-link mt-2">
                                 Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
                             </Link>
-                            <p className="mt-4"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
+                            <p className="mt-5"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@ function AllVisaCard(){
                             <Link to="/ApplyVisa" class="nav-link mt-2">
                                 Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
                             </Link>
-                            <p className="mt-4"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
+                            <p className="mt-5"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ function AllVisaCard(){
                             <Link to="/ApplyVisa" class="nav-link mt-2">
                                 Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
                             </Link>
-                            <p className="mt-4"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
+                            <p className="mt-5"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@ function AllVisaCard(){
                             <Link to="/ApplyVisa" class="nav-link mt-2">
                                 Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
                             </Link>
-                            <p className="mt-4"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
+                            <p className="mt-5"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ function AllVisaCard(){
                             <Link to="/ApplyVisa" class="nav-link mt-2">
                                 Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
                             </Link>
-                            <p className="mt-4"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
+                            <p className="mt-5"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
                         </div>
                     </div>
                 </div>
@@ -93,7 +93,7 @@ function AllVisaCard(){
                             <Link to="/ApplyVisa" class="nav-link mt-2">
                                 Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
                             </Link>
-                            <p className="mt-4"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
+                            <p className="mt-5"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@ function AllVisaCard(){
                             <Link to="/ApplyVisa" class="nav-link mt-2">
                                 Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
                             </Link>
-                            <p className="mt-4"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
+                            <p className="mt-5"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
                         </div>
                     </div>
                 </div>
