@@ -55,25 +55,25 @@ function Footer() {
 
               <div className="social-link d-flex mt-4">
                 <Link to="/" class="nav-link active p-0 me-2">
-                  <Facebook size={16} />
+                  <Facebook className="social-link-icon"/>
                 </Link>
                 <Link to="/" class="nav-link active p-0 me-2">
-                  <Instagram size={16} />
+                  <Instagram className="social-link-icon" />
                 </Link>
                 <Link to="/" class="nav-link active p-0">
-                  <Twitter size={16} />
+                  <Twitter  className="social-link-icon"/>
                 </Link>
               </div>
               <p className="p-0">Copyright ©2023 Merkabah.com</p>
             </div>
           </div>
-          <div className="col-lg-5 col-md-6 d-flex justify-content-center align-items-center">
+          <div className="col-lg-4 col-md-6 d-flex justify-content-center align-items-center">
             <form method="post" className="footer-contact-form">
-              <h3 class="modal-title mt-5 mb-lg-5 mb-md-3 mb-2 text-success">
+              <h3 class="modal-title mt-2  mb-2 text-success">
               Contact Us
               </h3>
                 <div className="row">
-                  <div class="col-lg-6 col-md-6 mb-lg-3 mb-md-2 mb-1">
+                  <div class="col-lg-6 col-md-6 mb-1">
                     <label class="form-label">First Name</label>
                     <input
                       type="text"
@@ -83,7 +83,7 @@ function Footer() {
                       required
                     />
                   </div>
-                  <div class="col-lg-6 col-md-6 mb-lg-3 mb-md-2 mb-1">
+                  <div class="col-lg-6 col-md-6 mb-1">
                     <label class="form-label">Last Name</label>
                     <input
                       type="text"
@@ -92,7 +92,7 @@ function Footer() {
                       placeholder="Last Name"
                     />
                   </div>
-                  <div class="col-lg-12 col-md-6 mb-lg-3 mb-md-2 mb-1">
+                  <div class="col-lg-12 col-md-6 mb-1">
                     <label class="form-label">Contact No.</label>
                     <input
                       type="number"
@@ -102,7 +102,7 @@ function Footer() {
                       required
                     />
                   </div>
-                  <div class="col-lg-12 col-md-6 mb-lg-3 mb-md-2 mb-1">
+                  <div class="col-lg-12 col-md-6 mb-1">
                     <label class="form-label">Email</label>
                     <input
                       type="email"
@@ -112,7 +112,7 @@ function Footer() {
                       required
                     />
                   </div>
-                  <div class="col-lg-12 mb-lg-3 mb-md-2 mb-1">
+                  <div class="col-lg-12 mb-lg-3  mb-1">
                     <label class="form-label">Message</label>
                     <textarea
                       class="form-control shadow-none"

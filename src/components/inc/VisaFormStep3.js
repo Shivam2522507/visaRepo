@@ -38,7 +38,7 @@ function VisaFormStep3(){
         setStep4Form(<VisaFormStep4/>)
     }
     return (
-        <div className="container">
+        <>
             <div className="card mt-4 pb-4">
                 <div className="card-head pt-4  d-flex  align-items-center">
                     <div className="steps-no-form me-4 d-flex justify-content-center align-items-center">3</div>
@@ -52,7 +52,7 @@ function VisaFormStep3(){
                         <p className="doc-desc">*Description--------</p>
                     </div>
                     <div  className="upload-inp">
-                        <span id="file-chosen-Photograph" className="me-3" >{photographFile}</span> 
+                        <span id="file-chosen-Photograph">{photographFile}</span> 
                         <div>
                             <input type="file" id="Photograph" name="Photograph" hidden onChange={photographHandleFile}/>
                             <label for="Photograph">Upload <Upload className="ms-2"  size={20} /></label>
@@ -68,7 +68,7 @@ function VisaFormStep3(){
                         <p className="doc-desc">*Description--------</p>
                     </div>
                     <div  className="upload-inp">
-                        <span id="file-chosen-passport" className="me-3" >{passportFile}</span>
+                        <span id="file-chosen-passport"  >{passportFile}</span>
                         <div>  
                             <input type="file" id="passport" name="passport" hidden onChange={passportHandleFile}/>
                             <label for="passport">Upload <Upload className="ms-2"  size={20} /></label>
@@ -84,7 +84,7 @@ function VisaFormStep3(){
                         <p className="doc-desc">*Description--------</p>
                     </div>
                     <div  className="upload-inp">
-                        <span id="file-chosen-qualifying-criteria" className="me-3" >{qualifyingCriteriaFile}</span> 
+                        <span id="file-chosen-qualifying-criteria"  >{qualifyingCriteriaFile}</span> 
                         <div> 
                             <input type="file" id="qualifyingCriteria" name="qualifyingCriteria" hidden onChange={qualifyingCriteriaHandleFile}/>
                             <label for="qualifyingCriteria">Upload <Upload className="ms-2"  size={20} /></label>
@@ -100,7 +100,7 @@ function VisaFormStep3(){
                         <p className="doc-desc">*Description--------</p>
                     </div>
                     <div  className="upload-inp">
-                        <span id="file-chosen-Address-proof" className="me-3" >{addressProofFile}</span>  
+                        <span id="file-chosen-Address-proof"  >{addressProofFile}</span>  
                         <div>
                             <input type="file" id="addressProof" name="addressProof" hidden onChange={addressProofHandleFile}/>
                             <label for="addressProof">Upload <Upload className="ms-2"  size={20} /></label>
@@ -116,7 +116,7 @@ function VisaFormStep3(){
                         <p className="doc-desc">*Description--------</p>
                     </div>
                     <div className="upload-inp">
-                        <span id="file-chosen-PAN-Card" className="me-3" >{PANCardFile}</span>  
+                        <span id="file-chosen-PAN-Card"  >{PANCardFile}</span>  
                         <div>
                             <input type="file" id="PANCard" name="PANCard" hidden onChange={PANCardHandleFile}/>
                             <label for="PANCard">Upload <Upload className="ms-2"  size={20} /></label>
@@ -132,7 +132,7 @@ function VisaFormStep3(){
                         <p className="doc-desc">*Description--------</p>
                     </div>
                     <div  className="upload-inp">
-                        <span id="file-chosen-Return-Ticket" className="me-3" >{returnTicketFile}</span>  
+                        <span id="file-chosen-Return-Ticket"  >{returnTicketFile}</span>  
                         <div>
                             <input type="file" id="returnTicket" name="returnTicket" hidden onChange={returnTicketHandleFile}/>
                             <label for="returnTicket">Upload <Upload className="ms-2"  size={20} /></label>
@@ -148,7 +148,7 @@ function VisaFormStep3(){
                         <p className="doc-desc">*Description--------</p>
                     </div>
                     <div  className="upload-inp">
-                        <span id="file-chosen-Hotel-Confirmation" className="me-3" >{hotelConfirmationFile}</span>  
+                        <span id="file-chosen-Hotel-Confirmation"  >{hotelConfirmationFile}</span>  
                         <div>
                             <input type="file" id="hotelConfirmation" name="hotelConfirmation" hidden onChange={hotelConfirmationHandleFile}/>
                             <label for="hotelConfirmation">Upload <Upload className="ms-2"  size={20} /></label>
@@ -203,7 +203,7 @@ function VisaFormStep3(){
 
             {step4Form}
 
-        </div>
+        </>
     ); 
 }
 

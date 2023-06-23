@@ -26,7 +26,11 @@ input[type="number"] {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500!important;
-  font-size: 14px!important;
+  font-size: 18px!important;
+}
+.social-link .social-link-icon{
+  height: 29px;
+  width: 42px;
 }
 .footer-contact-form h3{
   font-family: 'Inter';
@@ -34,6 +38,7 @@ input[type="number"] {
   font-weight: 700;
   font-size: 40px;
 }
+
 .form-control{
   border: 0.5px solid #087A2E!important;
 }

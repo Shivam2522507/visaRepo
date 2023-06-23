@@ -19,7 +19,7 @@ function VisaFormStep2(){
             }
         }
     return (
-        <div className="container">
+        <>
             <div className="card mt-4  pb-4">
                 <div className="card-head pt-4 mb-4 d-flex  align-items-center">
                     <div className="steps-no-form me-4 d-flex justify-content-center align-items-center">2</div>
@@ -85,7 +85,7 @@ function VisaFormStep2(){
 
            {step3Form} 
 
-        </div>
+        </>
     );
 }
 export default VisaFormStep2;
