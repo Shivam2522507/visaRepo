@@ -2,8 +2,9 @@ const express= require("express");
 const post_route = express();
 
 const bodyParser = require('body-parser');
+
 post_route.use(bodyParser.json());
-post_route.use(bodyParser.urlencoded({extended:true}));
+post_route.use(bodyParser.urlencoded({extended: true}));
 
 const multer = require('multer');
 const path = require('path');
@@ -30,7 +31,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage:storage});
 
-const postController = require ('../controllers/postController');
+const postController = require('../controllers/postController');
 
 post_route.post('/contact',postController.user_contact);   
 
