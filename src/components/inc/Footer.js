@@ -1,10 +1,62 @@
-import React from "react";
+import React,{useState} from "react";
 import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter } from "react-bootstrap-icons";
 import sepratorIMG from "../images/seprator.svg";
+import PostServices from "../../services/PostServices";
+
 
 function Footer() {
+  // const currentDate = new Date();
+  const month = new Date().toLocaleString("en-US", { month: "long" });
+  const day = new Date().toLocaleString("en-US", { day : '2-digit'});
+  const year = new Date().getFullYear();
+  const currentDate = day+"-"+month+"-"+year;
+  
+  const [firstName,setFirstName] = useState('');
+  const [lastName,setLastName] = useState('');
+  const [contact,setContact] = useState('');
+  const [email,setEmail] = useState('');
+  const [message,setMessage] = useState('');
+  const [subMessage,setSubMessage] = useState('');
+
+  console.log({firstName})
+  console.log({lastName})
+  console.log({contact})
+  console.log({email})
+  console.log({message})
+  console.log({currentDate})
+
+  const handleContactSubmit = async(event) =>{
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('firstName',firstName);
+    formData.append('lastName',lastName);
+    formData.append('contact',contact);
+    formData.append('email',email);
+    formData.append('message',message);
+    formData.append('date',currentDate);
+
+    const ContactResponse = await PostServices.create(formData);
+   if(ContactResponse.data.success == true){
+    setSubMessage('Your response has been submitted successfully.');
+  }
+  else{
+     setSubMessage('Server Failed!.');
+   }
+
+   setTimeout(function(){
+      setSubMessage('');
+   },3000);
+
+    event.target.reset();
+
+  }
+
+ 
+
+
   return (
     <div className="bg-light">
               <img src={sepratorIMG} alt="seprator" class="footer-seprator-img mt-5" />
@@ -68,8 +120,8 @@ function Footer() {
             </div>
           </div>
           <div className="col-lg-4 col-md-6 d-flex justify-content-center align-items-center">
-            <form method="post" className="footer-contact-form">
-              <h3 class="modal-title mt-2  mb-2 text-success">
+            <form onSubmit={handleContactSubmit} className="footer-contact-form">
+              <h3 class="modal-title mt-2  mb-2">
               Contact Us
               </h3>
                 <div className="row">
@@ -77,9 +129,10 @@ function Footer() {
                     <label class="form-label">First Name</label>
                     <input
                       type="text"
-                      name="first_name"
+                      name="firstName"
                       class="form-control shadow-none"
                       placeholder="First Name"
+                      onChange={event=>setFirstName(event.target.value)}
                       required
                     />
                   </div>
@@ -87,18 +140,20 @@ function Footer() {
                     <label class="form-label">Last Name</label>
                     <input
                       type="text"
-                      name="last_name"
+                      name="lastName"
                       class="form-control shadow-none"
                       placeholder="Last Name"
+                      onChange={event=>setLastName(event.target.value)}
                     />
                   </div>
                   <div class="col-lg-12 col-md-6 mb-1">
                     <label class="form-label">Contact No.</label>
                     <input
                       type="number"
-                      name="phone"
+                      name="contact"
                       class="form-control shadow-none"
                       placeholder="Please Enter Contact No."
+                      onChange={event=>setContact(event.target.value)}
                       required
                     />
                   </div>
@@ -109,6 +164,7 @@ function Footer() {
                       name="email"
                       class="form-control shadow-none"
                       placeholder="Please Enter Email Address"
+                      onChange={event=>setEmail(event.target.value)}
                       required
                     />
                   </div>
@@ -119,6 +175,7 @@ function Footer() {
                       name="message"
                       rows="2"
                       placeholder="Write your message"
+                      onChange={event=>setMessage(event.target.value)}
                     ></textarea>
                   </div>
                   <div class="d-flex footer-sub-btn align-items-center justify-content-end mb-2">
@@ -129,6 +186,9 @@ function Footer() {
                     >
                       SUBMIT
                     </button>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center mb-2">
+                  <p className="subMessageText">{subMessage}</p>
                   </div>
                 </div>
             </form>

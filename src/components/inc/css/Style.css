@@ -6,7 +6,7 @@
 .nav-item a{
     font-family: 'Inter', sans-serif!important;
     font-weight: 500!important;
-    font-size: 20px!important;
+    font-size: 18px!important;
     color: #087A2E!important;
 }
 input::-webkit-outer-spin-button,
@@ -37,6 +37,7 @@ input[type="number"] {
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
+  color: #087A2E;
 }
 
 .form-control{
@@ -49,7 +50,12 @@ input[type="number"] {
 .footer-contact-form button:hover{
   background: linear-gradient(180deg, #2CAB57 0%, #087A2E 100%)!important;
 }
-
+.subMessageText{
+  color: #087A2E;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+}
 @media screen and (max-width: 864px) {
   .footer-sub-btn{
       justify-content: start!important;
