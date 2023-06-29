@@ -27,12 +27,12 @@ function VisaFormStep2(){
                 </div>
 
                 <div className="row justify-content-center p-lg-0 p-md-3 p-3 " id="step-2-form">
-                    <div className="col-lg-1 col-md-4 col-6 d-flex align-items-end">
+                    <div className="col-lg-1 col-md-4 d-flex align-items-end">
                         <select id="Title" name="Title">
                             <option >Title :</option>
-                            <option value="x">abc</option>
-                            <option value="x">def</option>
-                            <option value="x">Efi</option>
+                            <option value="Mr">Mr.</option>
+                            <option value="Ms">Ms.</option>
+                            <option value="Mrs">Mrs.</option>
                         </select>
                     </div>
                     <div className="col-lg-3 col-md-4 col-6 d-flex align-items-end">
@@ -41,23 +41,21 @@ function VisaFormStep2(){
                     <div className="col-lg-3 col-md-4 col-6 d-flex align-items-end mt-3">
                         <input name="LastName" required type="text" class="form-control shadow-none  mt-2" placeholder="Last Name"/>
                     </div>
-                    <div className="col-lg-3 col-md-6 col-6 d-flex justify-content-end  flex-column mt-3">
-                         D.O.B
-                        <input name="dob" required type="date" class="form-control shadow-none  mt-2"/>
+                    <div className="col-lg-3 col-md-6 col-6 d-flex align-items-end mt-3">
+                         
+                        <input name="dob" required type="date" placeholder="D.O.B" class="form-control shadow-none  mt-2"/>
                     </div>
-                    <div className="col-lg-5 col-md-6 col-6 mt-lg-5 mt-md-5 mt-3">
-                         Nationality
-                        <input name="Nationality" required type="text" class="form-control shadow-none"/>
+                    <div className="col-lg-5 col-md-6 col-6 d-flex align-items-end mt-lg-5 mt-md-5 mt-3">
+                         
+                        <input name="Nationality" required type="text" placeholder="Nationality" class="form-control shadow-none"/>
                     </div>
-                    <div className="col-lg-5 col-md-4 col-6 mt-lg-5 mt-md-5 d-flex align-items-end mt-3">
-                        <input name="PassportNo" required type="number" class="form-control shadow-none" placeholder="Passport No"/>
-                    </div>
-                    <div className="col-lg-5 col-md-4 col-6 mt-lg-5 mt-md-5 mt-3">
-                        Contact No
-                        <input name="ContactNo" required type="number" class="form-control shadow-none" placeholder="Contact No"/>
+                    <div className="col-lg-5 col-md-4 mt-lg-5 mt-md-5 d-flex align-items-end mt-3">
+                        <input name="PassportNo" required type="number" id="PassportNo" class="form-control shadow-none" placeholder="Passport No"/>
                     </div>
                     <div className="col-lg-5 col-md-4 col-6 mt-lg-5 mt-md-5 mt-3">
-                        Email
+                        <input name="ContactNo" required type="number" maxLength="10" class="form-control shadow-none" placeholder="Contact No"/>
+                    </div>
+                    <div className="col-lg-5 col-md-4 col-6 mt-lg-5 mt-md-5 mt-3">
                         <input name="Email" required type="email" class="form-control shadow-none" placeholder="Email"/>
                     </div>
                 </div>

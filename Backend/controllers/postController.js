@@ -18,8 +18,19 @@ const user_contact = async(req,res)=>{
       }
  }
 
+ const getContact = async(req,res)=>{
+   try {
+
+      const contacts = await Contact.find({});
+      res.status(200).send({ success:true,msg:'Contacts Data',data:contacts});
+      
+   } catch (error) {
+      res.status(400).send({ success:false,msg:error.message});
+   }
+ }
 
 
  module.exports = {
-    user_contact
+    user_contact,
+    getContact
  }

@@ -2,6 +2,8 @@ const express= require("express");
 const app = express();
 const cors = require('cors');
 const post_route = require('./routes/postRoute');
+const dotenv = require('dotenv');
+dotenv.config({path:"./config/config.env"})
 
 app.use(express.json());
 
@@ -31,9 +33,12 @@ mongoose.connect("mongodb://127.0.0.1:27017/Dubai_Visa",{
 });
 
 
-app.listen(8000,function(){
-    console.log('server is running at 8000');
-})
+// app.listen(8000,function(){
+//     console.log('server is running at 8000');
+// })
 
+app.listen(process.env.PORT,()=>{
+    console.log(`server is running at ${process.env.PORT}`);
+})
 
 

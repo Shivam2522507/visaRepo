@@ -189,6 +189,17 @@
     object-position: 50% 50%;
 }
 
+.accordion-header button{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500!important;
+}
+.accordion-body{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500!important;
+}
+
 @media screen and (max-width: 1246px) {
     .herosec .hero-sec-header {
         font-size: 2rem;
@@ -350,7 +361,12 @@
     .AssistanceContact{
         height: 30vh;
     }
-
+    .accordion-header button{
+        font-size: 15px;
+    }
+    .accordion-body{
+       font-size: 13px;
+    }
   }
   @media screen and (max-width: 420px) {
     .herosec .bottom-text {

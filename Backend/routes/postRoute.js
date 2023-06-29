@@ -32,7 +32,10 @@ const storage = multer.diskStorage({
 const upload = multer({storage:storage});
 
 const postController = require('../controllers/postController');
+const postUser = require('../controllers/userController');
 
 post_route.post('/contact',postController.user_contact);   
+post_route.get('/getContact',postController.getContact);   
+post_route.post('/signup',postUser.user);   
 
 module.exports = post_route;

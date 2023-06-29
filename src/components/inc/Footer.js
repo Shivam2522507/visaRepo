@@ -20,12 +20,12 @@ function Footer() {
   const [message,setMessage] = useState('');
   const [subMessage,setSubMessage] = useState('');
 
-  console.log({firstName})
-  console.log({lastName})
-  console.log({contact})
-  console.log({email})
-  console.log({message})
-  console.log({currentDate})
+  // console.log({firstName})
+  // console.log({lastName})
+  // console.log({contact})
+  // console.log({email})
+  // console.log({message})
+  // console.log({currentDate})
 
   const handleContactSubmit = async(event) =>{
     event.preventDefault();
@@ -39,7 +39,7 @@ function Footer() {
     formData.append('date',currentDate);
 
     const ContactResponse = await PostServices.create(formData);
-   if(ContactResponse.data.success == true){
+   if(ContactResponse.data.success === true){
     setSubMessage('Your response has been submitted successfully.');
   }
   else{
@@ -62,7 +62,7 @@ function Footer() {
               <img src={sepratorIMG} alt="seprator" class="footer-seprator-img mt-5" />
       <div className="container pb-4">
         <div className="row justify-content-center align-items-center">
-          <div className="col-lg-5 col-md-6 d-flex mt-lg-0 mt-md-0 mt-4 footer-cont  align-items-center">
+          <div className="col-lg-5 col-md-6 order-lg-1 order-md-1 order-2 d-flex mt-lg-0 mt-md-0 mt-4 footer-cont  align-items-center">
             <div className="left-cont">
               <Link to="/" class="navbar-brand d-flex align-items-center">
                 <img
@@ -119,7 +119,7 @@ function Footer() {
               <p className="p-0">Copyright ©2023 Merkabah.com</p>
             </div>
           </div>
-          <div className="col-lg-4 col-md-6 d-flex justify-content-center align-items-center">
+          <div className="col-lg-4 col-md-6 order-lg-2 order-md-1 order-1 d-flex justify-content-center align-items-center">
             <form onSubmit={handleContactSubmit} className="footer-contact-form">
               <h3 class="modal-title mt-2  mb-2">
               Contact Us

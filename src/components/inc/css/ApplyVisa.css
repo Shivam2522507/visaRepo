@@ -48,6 +48,7 @@ ul li {
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
+  width: 240px;
   padding: 7px;
 }
 .Visa-Type-card select option {

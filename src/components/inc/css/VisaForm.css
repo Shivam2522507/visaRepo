@@ -123,6 +123,7 @@ input[type="checkbox"] {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+  width: 60%;
 }
 
 @media screen and (max-width: 1246px) {
@@ -188,4 +189,14 @@ input[type="checkbox"] {
  .upload-doc{
   flex-wrap: wrap;
  }
+ .upload-inp {
+  width: 100%;
+}
+#step-2-form input[type='text'],#step-2-form input[type='date'],#step-2-form input[type='number'],#step-2-form input[type='email']{
+  width: 137px;
+}
+#step-2-form #PassportNo{
+  width: 100%;
+}
+
  }
