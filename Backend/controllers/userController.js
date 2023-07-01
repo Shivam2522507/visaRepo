@@ -18,6 +18,20 @@ const user = async(req,res)=>{
 
  
 
+ //Login User
+ const loginUser = async(req,res,next)=>{
+   try {
+      const {email,password} = req.body;
+
+      if(!email || !password){
+         
+      }
+      
+   } catch (error) {
+      res.status(400).send({ success:false,msg:error.message});
+   }
+ }
+
 
  module.exports = {
     user

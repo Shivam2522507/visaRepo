@@ -20,7 +20,7 @@ app.use(cors({
 
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://127.0.0.1:27017/Dubai_Visa",{
+mongoose.connect(process.env.DB_URI,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -32,10 +32,6 @@ mongoose.connect("mongodb://127.0.0.1:27017/Dubai_Visa",{
     console.error(err);
 });
 
-
-// app.listen(8000,function(){
-//     console.log('server is running at 8000');
-// })
 
 app.listen(process.env.PORT,()=>{
     console.log(`server is running at ${process.env.PORT}`);

@@ -33,9 +33,17 @@ const upload = multer({storage:storage});
 
 const postController = require('../controllers/postController');
 const postUser = require('../controllers/userController');
+const visaCard = require('../controllers/visaCardController');
+const roe = require('../controllers/roeController')
 
 post_route.post('/contact',postController.user_contact);   
 post_route.get('/getContact',postController.getContact);   
 post_route.post('/signup',postUser.user);   
+post_route.post('/createVisaCard',visaCard.createVisaCard);   
+post_route.get('/getAllVisaCard',visaCard.getAllVisaCard);
+post_route.put('/VisaCard/:id',visaCard.updateVisaCard);
+post_route.delete('/VisaCardDelete/:id',visaCard.deleteVisaCard);  
+post_route.get('/getRoe',roe.getRoe);
+post_route.put('/Roe/:id',roe.updateRoe);
 
 module.exports = post_route;
