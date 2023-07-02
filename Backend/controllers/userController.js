@@ -1,6 +1,7 @@
 const User = require('../models/postUserModel');
+const sendToken = require('../utils/jwtToken');
 
-
+//register a user
 const user = async(req,res)=>{
       try {
         const user = new User({
@@ -9,8 +10,7 @@ const user = async(req,res)=>{
          date: req.body.date,
          });
           await user.save();
-         const token = user.getJWTToken();
-         res.status(200).json({success: true,token})
+         sendToken(user,201,res);
       } catch (error) {
          res.status(400).send({ success:false,msg:error.message});
       }
@@ -24,8 +24,31 @@ const user = async(req,res)=>{
       const {email,password} = req.body;
 
       if(!email || !password){
-         
+         return res.status(400).json({
+            success:false,
+            message:"Please Enter Email & Password"
+        })
       }
+
+      const user = await User.findOne({email}).select("+password");
+
+      if(!user){
+         return res.status(401).json({
+            success:false,
+            message:"Invalid email or password"
+        })
+      }
+
+      const isPasswordMatched = await user.comparePassword(password);
+
+      if(!isPasswordMatched){
+         return res.status(401).json({
+            success:false,
+            message:"Invalid email or password"
+        })
+      }
+
+      sendToken(user,200,res);
       
    } catch (error) {
       res.status(400).send({ success:false,msg:error.message});
@@ -33,6 +56,23 @@ const user = async(req,res)=>{
  }
 
 
+ // Logout User
+
+ const logoutUser = async(req,res,next)=>{
+
+   res.cookie("token",null,{
+      expires: new Date(Date.now()),
+      httpOnly:true
+   })
+
+   res.status(200).json({
+      success: true,
+      message: "Logged Out"
+   })
+ }
+
  module.exports = {
-    user
+    user,
+    loginUser,
+    logoutUser
  }

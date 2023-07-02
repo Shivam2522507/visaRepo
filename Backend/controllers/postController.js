@@ -1,4 +1,5 @@
 const Contact = require('../models/postModel');
+const ApiFeatures = require("../utils/apiFeatures");
 
 
 const user_contact = async(req,res)=>{
@@ -20,8 +21,8 @@ const user_contact = async(req,res)=>{
 
  const getContact = async(req,res)=>{
    try {
-
-      const contacts = await Contact.find({});
+      const apiFeature = new ApiFeatures(Contact.find(),req.query).search();
+      const contacts = await apiFeature.query;
       res.status(200).send({ success:true,msg:'Contacts Data',data:contacts});
       
    } catch (error) {

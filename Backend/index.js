@@ -4,8 +4,13 @@ const cors = require('cors');
 const post_route = require('./routes/postRoute');
 const dotenv = require('dotenv');
 dotenv.config({path:"./config/config.env"})
+const errorMiddleware = require('./middleware/error');
+const cookieParser = require("cookie-parser");
 
 app.use(express.json());
+app.use(cookieParser());
+
+app.use(errorMiddleware);
 
 app.use(
     express.urlencoded({
@@ -16,7 +21,6 @@ app.use(
 app.use(cors({
     origin:'*'
 }))
-
 
 const mongoose = require('mongoose');
 
