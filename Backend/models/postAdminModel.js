@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 
-const userSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema({
     email:{
         required: true,
         type: String,
@@ -16,17 +16,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         minLength:[8,"Password should be 8 character or greater than 8"]
     },
-    date:{
-        required: true,
-        type: String
-    },
 
     resetPasswordToken: String,
     resetPasswordExpire: Date,
 
 });
 
-userSchema.pre("save",async function(next){
+adminSchema.pre("save",async function(next){
     if(!this.isModified("password")){
         next();
     }
@@ -35,24 +31,25 @@ userSchema.pre("save",async function(next){
 });
 
 //JWT TOKEN
-userSchema.methods.getJWTToken = function (){
+adminSchema.methods.getJWTToken = function (){
     return jwt.sign({id:this._id},process.env.JWT_SECRET,{
         expiresIn: process.env.JWT_EXPIRE,
     });
 };
 
 // Compare Password
-userSchema.methods.comparePassword = async function(enteredPassword){
+adminSchema.methods.comparePassword = async function(enteredPassword){
     return await bcrypt.compare(enteredPassword,this.password)
 }
 
+
 // Generating Password Reset Token
-userSchema.methods.getResetPasswordToken = function(){
+adminSchema.methods.getResetPasswordToken = function(){
 
     // Generating token
     const resetToken = crypto.randomBytes(20).toString("hex");
 
-    //Hashing and adding resetPasswordToken to userSchema
+    //Hashing and adding resetPasswordToken to adminSchema
     this.resetPasswordToken = crypto.createHash("sha256").update(resetToken).digest("hex");
 
     this.resetPasswordExpire = Date.now() + 15*60*1000;
@@ -60,4 +57,6 @@ userSchema.methods.getResetPasswordToken = function(){
     return resetToken;
 }
 
-module.exports = mongoose.model("User",userSchema);
+
+
+module.exports = mongoose.model("Admin",adminSchema);

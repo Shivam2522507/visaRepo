@@ -1,6 +1,6 @@
 const express= require("express");
 const post_route = express();
-const {isAuthenticatedUser} = require("../middleware/auth")
+const {isAuthenticatedUser,isAuthenticatedAdmin} = require("../middleware/auth")
 
 const bodyParser = require('body-parser');
 
@@ -34,6 +34,7 @@ const upload = multer({storage:storage});
 
 const postController = require('../controllers/postController');
 const postUser = require('../controllers/userController');
+const postAdmin = require('../controllers/adminController');
 const visaCard = require('../controllers/visaCardController');
 const roe = require('../controllers/roeController')
 
@@ -46,21 +47,38 @@ post_route.get('/getContact',postController.getContact);
 //user routes
 post_route.post('/signup',postUser.user); 
 post_route.post('/login',postUser.loginUser); 
+post_route.post('/password/forgot',postUser.forgotPassword); 
+post_route.put('/password/reset/:token',postUser.resetPassword); 
 post_route.get('/logout',postUser.logoutUser); 
+post_route.get('/me',isAuthenticatedUser,postUser.getUserDetails); 
+post_route.put('/password/update',isAuthenticatedUser,postUser.updateUserPassword); 
+post_route.put('/me/update',isAuthenticatedUser,postUser.updateUserProfile); 
+
+
+
+//Admin routes
+post_route.post('/adminSignup',postAdmin.admin); 
+post_route.post('/adminLogin',postAdmin.loginadmin); 
+post_route.post('/adminpassword/forgot',postAdmin.forgotAdminPassword); 
+post_route.put('/adminpassword/reset/:token',postAdmin.resetAdminPassword); 
+post_route.get('/adminLogout',postAdmin.logoutadmin); 
+post_route.get('/admin',isAuthenticatedAdmin,postAdmin.getAdminDetails); 
+post_route.put('/adminPassword/update',isAuthenticatedAdmin,postAdmin.updateAdminPassword); 
+post_route.put('/admin/update',isAuthenticatedAdmin,postAdmin.updateAdminProfile); 
 
 
 // visaCard Routes
-post_route.post('/createVisaCard',visaCard.createVisaCard);   
-post_route.get('/getAllVisaCard',isAuthenticatedUser,visaCard.getAllVisaCard);
+post_route.post('/createVisaCard',isAuthenticatedAdmin,visaCard.createVisaCard);   
+post_route.get('/getAllVisaCard',visaCard.getAllVisaCard);
 post_route.get('/getMultiAllVisaCard',visaCard.getMultiAllVisaCard);
 post_route.get('/getSigAllVisaCard',visaCard.getSigAllVisaCard);
-post_route.put('/VisaCard/:id',visaCard.updateVisaCard);
-post_route.get('/VisaCard/:id',visaCard.getVisaCardDetails);
-post_route.delete('/VisaCardDelete/:id',visaCard.deleteVisaCard);  
+post_route.put('/VisaCard/:id',isAuthenticatedAdmin,visaCard.updateVisaCard);
+post_route.get('/VisaCard/:id',isAuthenticatedUser,visaCard.getVisaCardDetails);
+post_route.delete('/VisaCardDelete/:id',isAuthenticatedAdmin,visaCard.deleteVisaCard);  
 
 
 //Roe Routes
-post_route.get('/getRoe',roe.getRoe);
-post_route.put('/Roe/:id',roe.updateRoe);
+post_route.get('/getRoe',isAuthenticatedAdmin,roe.getRoe);
+post_route.put('/Roe/:id',isAuthenticatedAdmin,roe.updateRoe);
 
 module.exports = post_route;
