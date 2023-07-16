@@ -53,6 +53,9 @@ post_route.get('/logout',postUser.logoutUser);
 post_route.get('/me',isAuthenticatedUser,postUser.getUserDetails); 
 post_route.put('/password/update',isAuthenticatedUser,postUser.updateUserPassword); 
 post_route.put('/me/update',isAuthenticatedUser,postUser.updateUserProfile); 
+post_route.get('/admin/allUsers',isAuthenticatedAdmin,postUser.getAllUsers);
+post_route.get('/admin/user/:id',isAuthenticatedAdmin,postUser.getSingleUser);
+post_route.delete('/admin/user/:id',isAuthenticatedAdmin,postUser.deleteUser);
 
 
 
@@ -65,6 +68,7 @@ post_route.get('/adminLogout',postAdmin.logoutadmin);
 post_route.get('/admin',isAuthenticatedAdmin,postAdmin.getAdminDetails); 
 post_route.put('/adminPassword/update',isAuthenticatedAdmin,postAdmin.updateAdminPassword); 
 post_route.put('/admin/update',isAuthenticatedAdmin,postAdmin.updateAdminProfile); 
+ 
 
 
 // visaCard Routes
