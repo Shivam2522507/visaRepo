@@ -1,19 +1,17 @@
 import React, {useRef, useState, useEffect} from "react";
 import "../inc/css/Login.css";
 import { Link } from "react-router-dom";
-import GoogleImg from "../images/google-Logo.png";
-import FacebookImg from "../images/facebookLogo.png";
 import {useDispatch,useSelector} from "react-redux";
-import {clearErrors, login} from "../../actions/userAction"
+import {clearErrors, loginAdmin} from "../../actions/adminAction"
 import {useAlert} from "react-alert"
 import Loader from "../inc/Loader/Loader";
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const AdminLogin = () => {
     const Navigate = useNavigate(); 
     const dispatch = useDispatch();
     const alert = useAlert();
-    const {error,loading,isAuthenticated} = useSelector(state => state.user)
+    const {error,loading,isAuthenticated} = useSelector(state => state.admin)
 
     const loginTab = useRef(null);
 
@@ -22,7 +20,7 @@ const Login = () => {
  
     const loginSubmit = (e) => {
         e.preventDefault();
-        dispatch(login(loginEmail, loginPassword))
+        dispatch(loginAdmin(loginEmail, loginPassword))
     }
 
     useEffect(() =>{
@@ -31,7 +29,7 @@ const Login = () => {
             dispatch(clearErrors());
         }
         if(isAuthenticated){
-            Navigate("/ApplyVisa")
+            Navigate("/Admin/Dashboard")
         }
     },[dispatch,error,alert,Navigate,isAuthenticated])
   return (
@@ -39,28 +37,9 @@ const Login = () => {
     {loading?<Loader/>:(
         <div className="container login-form-cont">
         <div className="card login-form-card p-4 shadow">
-          <h2 className="text-center mt-2">Login</h2>
-          <div className="social-login mt-3 px-5">
-            <a href="/" class="nav-link me-4">
-              <img src={GoogleImg} alt="googleIcon" class="me-2 google-icon" />
-              Google
-            </a>
-            <a href="/" class="nav-link">
-              <img
-                src={FacebookImg}
-                alt="facebookIcon"
-                class="me-2 facebook-icon"
-              />
-              Facebook
-            </a>
-          </div>
-          <div className="division mt-3">
-            <div className="line">
-              <hr />
-            </div>
-            <div className="or m-0 p-0">or</div>
-          </div>
-          <div className="login-form">
+          <h2 className="text-center mt-2">Admin Login</h2>
+  
+          <div className="login-form mt-3">
             <form ref={loginTab} onSubmit={loginSubmit}>
               <div class="p-4 py-3 pb-0">
                 <div class="mb-3">
@@ -106,13 +85,6 @@ const Login = () => {
                 </div>
               </div>
             </form>
-            <p className=" d-flex justify-content-center">
-              Don't have an account?{" "}
-              <Link to="/Signup" class="nav-link text-danger ms-2">
-                {" "}
-                Sign up here
-              </Link>
-            </p>
           </div>
         </div>
       </div>
@@ -120,4 +92,4 @@ const Login = () => {
     </>
   );
 }
-export default Login;
+export default AdminLogin;

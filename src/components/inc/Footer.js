@@ -20,12 +20,6 @@ function Footer() {
   const [message,setMessage] = useState('');
   const [subMessage,setSubMessage] = useState('');
 
-  // console.log({firstName})
-  // console.log({lastName})
-  // console.log({contact})
-  // console.log({email})
-  // console.log({message})
-  // console.log({currentDate})
 
   const handleContactSubmit = async(event) =>{
     event.preventDefault();

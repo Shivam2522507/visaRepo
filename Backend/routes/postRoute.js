@@ -77,7 +77,7 @@ post_route.get('/getAllVisaCard',visaCard.getAllVisaCard);
 post_route.get('/getMultiAllVisaCard',visaCard.getMultiAllVisaCard);
 post_route.get('/getSigAllVisaCard',visaCard.getSigAllVisaCard);
 post_route.put('/VisaCard/:id',isAuthenticatedAdmin,visaCard.updateVisaCard);
-post_route.get('/VisaCard/:id',isAuthenticatedUser,visaCard.getVisaCardDetails);
+post_route.get('/VisaCard/:id',visaCard.getVisaCardDetails);
 post_route.delete('/VisaCardDelete/:id',isAuthenticatedAdmin,visaCard.deleteVisaCard);  
 
 

@@ -1,3 +1,18 @@
+*{
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* firefox  */
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+
 .App {
   text-align: center;
 }

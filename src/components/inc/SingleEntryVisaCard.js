@@ -1,66 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { BoxArrowInRight } from "react-bootstrap-icons";
+import React, { useEffect } from "react";
+import { clearErrors, getSingleVisaCard } from "../../actions/visaAction";
+import { useSelector, useDispatch } from "react-redux";
+import VisaCard from "./visaCards";
+import Loader from "./Loader/Loader";
+import { useAlert } from "react-alert";
 
-function SingleEntry(){
-    return (
+function SingleEntry() {
+  const dispatch = useDispatch();
+  const { loading, error, visaCards } = useSelector((state) => state.visaCards);
+  const alert = useAlert();
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+    dispatch(getSingleVisaCard());
+  }, [dispatch, error, alert]);
+  return (
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
         <div className="container mt-3 mb-5">
-        <div className="row justify-content-center align-items-center  px-5">
-            <div className="col-lg-4 col-md-6 mt-5 d-flex justify-content-center align-items-center">
-                <div className="card visa-card">
-                    <div className="card-body d-flex flex-column justify-content-center align-items-center p-3">
-                        <h3>48 hours transit visa</h3>
-                        <h5 className="text-center">Single Entry <br/> Visa</h5>
-                        <h1 className="mt-lg-3 mt-md-2 fw-bold">5,000 INR</h1>
-                        <Link to="/ApplyVisa" class="nav-link mt-2">
-                            Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
-                        </Link>
-                        <p className="mt-5"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
-                    </div>
-                </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mt-5 d-flex justify-content-center align-items-center">
-                <div className="card visa-card">
-                    <div className="card-body d-flex flex-column justify-content-center align-items-center p-3">
-                        <h3>48 hours transit visa</h3>
-                        <h5 className="text-center">Single Entry <br/> Visa</h5>
-                        <h1 className="mt-lg-3 mt-md-2 fw-bold">5,000 INR</h1>
-                        <Link to="/ApplyVisa" class="nav-link mt-2">
-                            Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
-                        </Link>
-                        <p className="mt-5"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
-                    </div>
-                </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mt-5 d-flex justify-content-center align-items-center">
-                <div className="card visa-card">
-                    <div className="card-body d-flex flex-column justify-content-center align-items-center p-3">
-                        <h3>48 hours transit visa</h3>
-                        <h5 className="text-center">Single Entry <br/> Visa</h5>
-                        <h1 className="mt-lg-3 mt-md-2 fw-bold">5,000 INR</h1>
-                        <Link to="/ApplyVisa" class="nav-link mt-2">
-                            Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
-                        </Link>
-                        <p className="mt-5"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
-                    </div>
-                </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mt-5 d-flex justify-content-center align-items-center">
-                <div className="card visa-card">
-                    <div className="card-body d-flex flex-column justify-content-center align-items-center p-3">
-                        <h3>48 hours transit visa</h3>
-                        <h5 className="text-center">Single Entry <br/> Visa</h5>
-                        <h1 className="mt-lg-3 mt-md-2 fw-bold">5,000 INR</h1>
-                        <Link to="/ApplyVisa" class="nav-link mt-2">
-                            Apply Now <BoxArrowInRight className=" ms-1 text-black BoxArrowInRight"   />
-                        </Link>
-                        <p className="mt-5"> Connecting Flight Air Ticket Required Processing Time 2 to 4 working days</p>
-                    </div>
-                </div>
-            </div>
+          <div className="row justify-content-center align-items-center px-5">
+            {visaCards &&
+              visaCards.map((visaCard) => <VisaCard visaCard={visaCard} />)}
+          </div>
         </div>
-
-    </div>
-    );
+      )}
+    </>
+  );
 }
 export default SingleEntry;

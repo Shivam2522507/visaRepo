@@ -30,7 +30,7 @@ exports.getAllVisaCard = async(req,res) =>{
 }
 exports.getMultiAllVisaCard = async(req,res) =>{
     try {
-        const visaCards = await VisaCard.find({visaType:"multi"});
+        const visaCards = await VisaCard.find({visaType:"Multiple"});
         res.status(200).json({
             success:true,
             visaCards
@@ -42,7 +42,7 @@ exports.getMultiAllVisaCard = async(req,res) =>{
 }
 exports.getSigAllVisaCard = async(req,res) =>{
     try {
-        const visaCards = await VisaCard.find({visaType:"sig"});
+        const visaCards = await VisaCard.find({visaType:"Single"});
         res.status(200).json({
             success:true,
             visaCards
