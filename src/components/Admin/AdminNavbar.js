@@ -44,19 +44,25 @@ function AdminNav() {
               id="adminDropdown"
             >
               <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                  <Link class="nav-link text-white" to="/AdminProfile">
-                    Profile
-                  </Link>
-                </li>
+                
                 <li class="nav-item">
                   <Link class="nav-link text-white" to="/AllUser">
                     AllUser
                   </Link>
                 </li>
                 <li class="nav-item">
+                  <Link class="nav-link text-white" to="/AdminVisaCard">
+                    Visa Card
+                  </Link>
+                </li>
+                <li class="nav-item">
                   <Link class="nav-link text-white" to="/AdminRoe">
                     Roe
+                  </Link>
+                </li>
+                <li class="nav-item">
+                  <Link class="nav-link text-white" to="/AdminProfile">
+                    Profile
                   </Link>
                 </li>
               </ul>

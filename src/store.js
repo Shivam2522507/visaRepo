@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { VisaCardReducer,VisaCardDetailsReducer } from "./reducers/visaReducer";
+import { VisaCardReducer,VisaCardDetailsReducer,VisaUpdateReducer } from "./reducers/visaReducer";
 import {userReducer,updateUserReducer } from "./reducers/userReducer"
 import {adminReducer, updateAdminReducer } from "./reducers/adminReducer"
 import {RoeReducer,RoeUpdateReducer} from "./reducers/roeReducers";
@@ -17,6 +17,7 @@ const reducer = combineReducers({
   updateRoe:RoeUpdateReducer,
   updateAdmin:updateAdminReducer,
   allUser:allUserReducer,
+  updateVisa:VisaUpdateReducer,
 });
 
 let initialState = {};

@@ -16,18 +16,17 @@ import AdminLogin from "./components/Admin/AdminLogin";
 import AdminDashbord from "./components/Admin/AdminDashbord";
 import { useSelector } from "react-redux";
 import { loadAdmin } from "./actions/adminAction";
-// import { getAllUser } from "./actions/allUserActions";
 import AllUser from "./components/Admin/AllUser/AllUser";
 import Profile from "./components/pages/Profile";
 import AdminProfile from "./components/Admin/AdminProfile";
 import AdminRoe from "./components/Admin/AdminRoe";
+import AllVisaCards from "./components/Admin/AllVisaCard/allVisaCards";
 
 function App() {
   const { isAuthenticatedAdmin } = useSelector((state) => state.admin);
   React.useEffect(() => {
     store.dispatch(loadUser());
     store.dispatch(loadAdmin());
-    // store.dispatch(getAllUser())
   }, []);
   return (
     <Router>
@@ -40,6 +39,8 @@ function App() {
               <Route path="/AllUser" element={<AllUser />} />
               <Route path="/AdminProfile" element={<AdminProfile />} />
               <Route path="/AdminRoe" element={<AdminRoe />} />
+              <Route path="/AdminVisaCard" element={<AllVisaCards />} />
+
             </Routes>
           </>
         ) : (
