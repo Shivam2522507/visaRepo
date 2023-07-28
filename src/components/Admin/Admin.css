@@ -1,0 +1,9 @@
+#dashboard-menu{
+    position: fixed;
+    height: 100%;
+    z-index: 11;
+  }
+#dashboard-menu .nav-pills li a{
+   color: #fff!important;
+  }
+

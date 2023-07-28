@@ -1,30 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import logo from "../images/logo.png";
-import { Link, useNavigate } from "react-router-dom";
-// import { PersonRolodex } from "react-bootstrap-icons";
-import { useDispatch, useSelector } from "react-redux";
-import { clearErrors } from "../../actions/adminAction";
-import { useAlert } from "react-alert";
-import Adminnav from "../admin/adminnav";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { logoutUser } from "../../actions/userAction";
+import { useDispatch } from "react-redux";
+import {useAlert} from "react-alert";
 
 function Navbar() {
-  const Navigate = useNavigate();
+  const { isAuthenticated} = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const alert = useAlert();
-  const { error, isAuthenticated } = useSelector((state) => state.admin);
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
-    }
-    if (!isAuthenticated) {
-      Navigate("/login/Admin");
-    }
-  }, [dispatch, error, alert, Navigate, isAuthenticated]);
+  function Logout(){
+    dispatch(logoutUser());
+    alert.success("Logout Successfully")
+  }
   return (
-    <>
-    {isAuthenticated ?<Adminnav/>:(
-
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
         <div class="container-fluid">
@@ -74,11 +64,26 @@ function Navbar() {
                   Contact
                 </a>
               </li>
-              <li class="nav-item">
-                <Link to="/Login" class="nav-link active">
-                  <u> Login </u>
-                </Link>
-              </li>
+              {isAuthenticated ? (
+                <div class="btn-group">
+                            <button type="button" class="btn btn-outline-light shadow-none dropdown-toggle border-none myaccount-btn" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                               My Account
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-lg-end">
+                                <li><Link to="/Profile" class="dropdown-item">Profile</Link></li>
+                                <li><Link to="/" onClick={Logout} class="dropdown-item text-danger">Logout</Link></li>
+                                
+                            </ul>
+                        </div>
+              
+                
+              ) : (
+                <li class="nav-item">
+                  <Link to="/Login" class="nav-link active">
+                    <u> Login </u>
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>
@@ -172,8 +177,6 @@ function Navbar() {
           </div>
         </div>
       </div>
-    </>
-    )}
     </>
   );
 }

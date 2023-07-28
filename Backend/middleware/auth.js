@@ -13,7 +13,7 @@ exports.isAuthenticatedUser = async(req,res,next) =>{
                 message:"Please Login To access this resource"
             })
         }
-        const decodedData = jwt.verify(token, process.env.JWT_SECRET)
+        const decodedData = jwt.verify(token, "jwt-secret-key")
 
         req.user = await User.findById(decodedData.id);
 
@@ -35,7 +35,7 @@ exports.isAuthenticatedAdmin = async(req,res,next) =>{
                 message:"Please Admin Login To access this resource"
             })
         }
-        const decodedData = jwt.verify(token, process.env.JWT_SECRET)
+        const decodedData = jwt.verify(token, "jwt-secret-key")
 
         req.admin = await Admin.findById(decodedData.id);
 

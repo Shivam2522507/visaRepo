@@ -48,12 +48,10 @@ function Footer() {
 
   }
 
- 
-
 
   return (
     <div className="bg-light">
-              <img src={sepratorIMG} alt="seprator" class="footer-seprator-img mt-5" />
+        <img src={sepratorIMG} alt="seprator" class="footer-seprator-img mt-5" />
       <div className="container pb-4">
         <div className="row justify-content-center align-items-center">
           <div className="col-lg-5 col-md-6 order-lg-1 order-md-1 order-2 d-flex mt-lg-0 mt-md-0 mt-4 footer-cont  align-items-center">

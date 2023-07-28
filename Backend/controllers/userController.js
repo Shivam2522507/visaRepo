@@ -2,6 +2,7 @@ const User = require("../models/postUserModel");
 const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
+const jwt = require('jsonwebtoken');
 
 //register a user
 const user = async (req, res) => {
@@ -11,8 +12,11 @@ const user = async (req, res) => {
       password: req.body.password,
       date: req.body.date,
     });
+    // const token = jwt.sign({email: user.email},"jwt-secret-key",{expiresIn: '1d'});
     await user.save();
     sendToken(user, 201, res);
+    // res.cookie('token',token);
+    // return res.json("Success");
   } catch (error) {
     res.status(400).send({ success: false, msg: error.message });
   }
@@ -49,6 +53,13 @@ const loginUser = async (req, res, next) => {
     }
 
     sendToken(user, 200, res);
+    // const token = jwt.sign({email: user.email},"jwt-secret-key",{expiresIn: '1d'});
+    // res.cookie('token',token);
+    // return res.json({
+    //   success: true,
+    //   user,
+    //   token,
+    // });
   } catch (error) {
     res.status(400).send({ success: false, msg: error.message });
   }
@@ -158,7 +169,23 @@ const resetPassword = async (req, res, next) => {
 // get user details
 const getUserDetails = async (req, res, next) => {
   try {
+    // const {token} = req.cookies;
+        
+    //     if(!token){
+    //         return res.status(400).json({
+    //             success:false,
+    //             message:"Please Login To access this resource"
+    //         })
+    //     }
+    //     const decodedData = jwt.verify(token, "jwt-secret-key")
+
+        // req.user = await User.findById(decodedData.id);
+
+        // next();
+
+
     const user = await User.findById(req.user.id);
+    // const user = await User.findById(decodedData.id);
 
     res.status(200).json({
       success: true,

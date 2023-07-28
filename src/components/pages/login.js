@@ -31,7 +31,7 @@ const Login = () => {
             dispatch(clearErrors());
         }
         if(isAuthenticated){
-            Navigate("/ApplyVisa")
+            Navigate("/ApplyVisa");
         }
     },[dispatch,error,alert,Navigate,isAuthenticated])
   return (

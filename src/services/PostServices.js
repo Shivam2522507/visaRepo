@@ -12,5 +12,5 @@ class Post{
     }
 }
 
-// export default new Post();
-export default Post;
+export default new Post();
+// export default Post;

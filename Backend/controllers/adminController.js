@@ -2,6 +2,7 @@ const Admin = require('../models/postAdminModel');
 const sendToken = require('../utils/jwtToken');
 const sendEmail = require('../utils/sendEmail');
 const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 
 //register a admin
 const admin = async(req,res)=>{

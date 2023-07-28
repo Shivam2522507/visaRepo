@@ -8,7 +8,9 @@ const sendToken = (user,statusCode,res)=>{
     // Option for cookie
     const options = {
         maxAge: 5 * 24 * 60 * 60 * 1000,
-        httpOnly:true
+        httpOnly:true,
+        // secure: process.env.NODE_ENV === 'production',
+        // sameSite: 'strict', 
     }
 
     res.status(statusCode).cookie("token", token, options).json({

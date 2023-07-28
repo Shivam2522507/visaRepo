@@ -8,8 +8,8 @@ import { useAlert } from "react-alert";
 function AllVisaCard() {
   
   const dispatch = useDispatch();
-  const { loading, error, visaCards } = useSelector((state) => state.visaCards);
   const alert = useAlert();
+  const { loading, error, visaCards } = useSelector((state) => state.visaCards);
   useEffect(() => {
 
     if(error){
