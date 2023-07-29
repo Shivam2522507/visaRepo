@@ -8,16 +8,18 @@ import {
     CLEAR_ERRORS,
   } from "../constants/contactConstants";
   
-  export const contactReducer = (state = {loading: false, contact: {} }, action) => {
+  export const contactReducer = (state = {loading: false,contactSend: false, contact: {} }, action) => {
     switch (action.type) {
       case CONTACT_USER_REQUEST:
         return {
           loading: true,
+          contactSend: false,
         };
       case CONTACT_USER_SUCCESS:
         return {
           ...state,
           loading: false,
+          contactSend:true,
           contact: action.payload,
         };
       case CONTACT_USER_FAIL:
@@ -25,6 +27,7 @@ import {
           ...state,
           loading: false,
           contact: null,
+          contactSend: false,
           error: action.payload,
         };
       case CLEAR_ERRORS:

@@ -25,9 +25,8 @@ function Footer() {
   const [contact,setContact] = useState('');
   const [email,setEmail] = useState('');
   const [message,setMessage] = useState('');
-  const [subMessage,setSubMessage] = useState('');
 
-  const {error,loading} = useSelector(state => state.contact)
+  const {error,loading,contactSend} = useSelector(state => state.contact)
 
   const handleContactSubmit = async(event) =>{
     event.preventDefault();
@@ -42,21 +41,21 @@ function Footer() {
     formData.set('date',currentDate);
 
     dispatch(conatctAction(formData));
-    setSubMessage('Your response has been submitted successfully.');
     event.target.reset();
 
   }
-  setTimeout(function(){
-    setSubMessage('');
- },4000);
+
 
  useEffect(() =>{
   if(error){
       alert.error(error);
       dispatch(clearErrors());
   }
+ if(contactSend){
+  alert.success("Your response has been submitted successfully.")
+ }
 
-},[dispatch,error,alert])
+},[dispatch,error,alert,contactSend])
 
 
   return (
@@ -189,9 +188,6 @@ function Footer() {
                     >
                       SUBMIT
                     </button>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-center mb-2">
-                  <p className="subMessageText">{subMessage}</p>
                   </div>
                 </div>
             </form>
