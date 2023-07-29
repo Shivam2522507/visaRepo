@@ -14,8 +14,6 @@ export const getAllUser = () => async (dispatch) => {
       "http://localhost:8000/api/admin/allUsers"
     );
     
-
-    console.log(data);
     dispatch({
       type: ALL_USER_SUCCESS,
       payload: data,

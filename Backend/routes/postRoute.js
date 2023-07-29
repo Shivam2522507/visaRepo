@@ -41,7 +41,7 @@ const roe = require('../controllers/roeController')
 
 // user contact route
 post_route.post('/contact',postController.user_contact);   
-post_route.get('/getContact',postController.getContact); 
+post_route.get('/getContact',isAuthenticatedAdmin,postController.getContact); 
 
 
 //user routes

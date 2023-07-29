@@ -22,7 +22,16 @@ const user_contact = async(req,res)=>{
  const getContact = async(req,res)=>{
    try {
       const apiFeature = new ApiFeatures(Contact.find(),req.query).search();
+      apiFeature.query = apiFeature.query.sort({ date: -1 });
       const contacts = await apiFeature.query;
+      contacts.sort((a, b) => {
+         const dateA = new Date(a.date);
+         const dateB = new Date(b.date);
+   
+         if (dateA > dateB) return -1;
+         if (dateA < dateB) return 1;
+         return 0;
+       });
       res.status(200).send({ success:true,msg:'Contacts Data',data:contacts});
       
    } catch (error) {

@@ -61,6 +61,11 @@ function AdminNav() {
                   </Link>
                 </li>
                 <li class="nav-item">
+                  <Link class="nav-link text-white" to="/AllContacts">
+                    Contacts
+                  </Link>
+                </li>
+                <li class="nav-item">
                   <Link class="nav-link text-white" to="/AdminProfile">
                     Profile
                   </Link>

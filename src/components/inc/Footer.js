@@ -1,18 +1,25 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter } from "react-bootstrap-icons";
 import sepratorIMG from "../images/seprator.svg";
-import PostServices from "../../services/PostServices";
+import {useAlert} from "react-alert"
+import {useDispatch,useSelector} from "react-redux";
+import { clearErrors, conatctAction } from "../../actions/contactAction";
+import Loader from "./Loader/Loader";
 
 
 function Footer() {
-  // const currentDate = new Date();
+  
   const month = new Date().toLocaleString("en-US", { month: "long" });
   const day = new Date().toLocaleString("en-US", { day : '2-digit'});
   const year = new Date().getFullYear();
   const currentDate = day+"-"+month+"-"+year;
   
+  const alert = useAlert();
+  const dispatch = useDispatch();
+
+
   const [firstName,setFirstName] = useState('');
   const [lastName,setLastName] = useState('');
   const [contact,setContact] = useState('');
@@ -20,33 +27,36 @@ function Footer() {
   const [message,setMessage] = useState('');
   const [subMessage,setSubMessage] = useState('');
 
+  const {error,loading} = useSelector(state => state.contact)
 
   const handleContactSubmit = async(event) =>{
     event.preventDefault();
 
     const formData = new FormData();
-    formData.append('firstName',firstName);
-    formData.append('lastName',lastName);
-    formData.append('contact',contact);
-    formData.append('email',email);
-    formData.append('message',message);
-    formData.append('date',currentDate);
+  
+    formData.set('firstName',firstName);
+    formData.set('lastName',lastName);
+    formData.set('contact',contact);
+    formData.set('email',email);
+    formData.set('message',message);
+    formData.set('date',currentDate);
 
-    const ContactResponse = await PostServices.create(formData);
-   if(ContactResponse.data.success === true){
+    dispatch(conatctAction(formData));
     setSubMessage('Your response has been submitted successfully.');
-  }
-  else{
-     setSubMessage('Server Failed!.');
-   }
-
-   setTimeout(function(){
-      setSubMessage('');
-   },3000);
-
     event.target.reset();
 
   }
+  setTimeout(function(){
+    setSubMessage('');
+ },4000);
+
+ useEffect(() =>{
+  if(error){
+      alert.error(error);
+      dispatch(clearErrors());
+  }
+
+},[dispatch,error,alert])
 
 
   return (
@@ -111,6 +121,7 @@ function Footer() {
               <p className="p-0">Copyright ©2023 Merkabah.com</p>
             </div>
           </div>
+          {loading?<Loader/>:(
           <div className="col-lg-4 col-md-6 order-lg-2 order-md-1 order-1 d-flex justify-content-center align-items-center">
             <form onSubmit={handleContactSubmit} className="footer-contact-form">
               <h3 class="modal-title mt-2  mb-2">
@@ -185,6 +196,7 @@ function Footer() {
                 </div>
             </form>
           </div>
+           )}
         </div>
       </div>
     </div>

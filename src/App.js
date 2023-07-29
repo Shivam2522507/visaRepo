@@ -21,6 +21,8 @@ import Profile from "./components/pages/Profile";
 import AdminProfile from "./components/Admin/AdminProfile";
 import AdminRoe from "./components/Admin/AdminRoe";
 import AllVisaCards from "./components/Admin/AllVisaCard/allVisaCards";
+import AllContacts from "./components/Admin/AllContacts/AllContacts";
+
 
 function App() {
   const { isAuthenticatedAdmin } = useSelector((state) => state.admin);
@@ -40,6 +42,7 @@ function App() {
               <Route path="/AdminProfile" element={<AdminProfile />} />
               <Route path="/AdminRoe" element={<AdminRoe />} />
               <Route path="/AdminVisaCard" element={<AllVisaCards />} />
+              <Route path="/AllContacts" element={<AllContacts />} />
 
             </Routes>
           </>
