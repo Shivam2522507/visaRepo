@@ -139,12 +139,12 @@ function Signup() {
 
                 />
                 I agree with{" "}
-                <Link to="/" class="nav-link text-danger ms-2">
+                <Link to="/PrivacyPolicy" class="nav-link text-danger ms-2">
                   {" "}
                   Privacy Policy
                 </Link>{" "}
                 and{" "}
-                <Link to="/" class="nav-link text-danger ms-2">
+                <Link to="/TermsAndConditions" class="nav-link text-danger ms-2">
                   {" "}
                   Terms of Conditions
                 </Link>

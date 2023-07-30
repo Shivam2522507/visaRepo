@@ -23,6 +23,9 @@ import AdminRoe from "./components/Admin/AdminRoe";
 import AllVisaCards from "./components/Admin/AllVisaCard/allVisaCards";
 import AllContacts from "./components/Admin/AllContacts/AllContacts";
 import AllCoupons from "./components/Admin/AllCoupon/AllCoupons";
+import PrivacyPolicy from "./components/pages/termsAndConditions/privacyPolicy";
+import TermsAndConditions from "./components/pages/termsAndConditions/termsAndConditions";
+
 
 
 function App() {
@@ -61,6 +64,8 @@ function App() {
               <Route path="/Signup" element={<Signup />} />
               <Route path="/AdminLogin" element={<AdminLogin />} />
               <Route path="/Profile" element={<Profile />} />
+              <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+              <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
             </Routes>
             <Footer />
           </>

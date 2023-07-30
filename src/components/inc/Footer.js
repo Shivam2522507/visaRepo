@@ -104,6 +104,11 @@ function Footer() {
                     Support
                   </Link>
                 </li>
+                <li class="nav-item">
+                <Link to="/PrivacyPolicy#head" class="nav-link active p-0">
+              Privacy Policy
+                </Link>
+                </li>
               </ul>
 
               <div className="social-link d-flex mt-4">
