@@ -22,6 +22,7 @@ import AdminProfile from "./components/Admin/AdminProfile";
 import AdminRoe from "./components/Admin/AdminRoe";
 import AllVisaCards from "./components/Admin/AllVisaCard/allVisaCards";
 import AllContacts from "./components/Admin/AllContacts/AllContacts";
+import AllCoupons from "./components/Admin/AllCoupon/AllCoupons";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
               <Route path="/AdminRoe" element={<AdminRoe />} />
               <Route path="/AdminVisaCard" element={<AllVisaCards />} />
               <Route path="/AllContacts" element={<AllContacts />} />
+              <Route path="/AllCoupons" element={<AllCoupons />} />
 
             </Routes>
           </>

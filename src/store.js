@@ -5,8 +5,9 @@ import { VisaCardReducer,VisaCardDetailsReducer,VisaUpdateReducer } from "./redu
 import {userReducer,updateUserReducer } from "./reducers/userReducer"
 import {adminReducer, updateAdminReducer } from "./reducers/adminReducer"
 import {RoeReducer,RoeUpdateReducer} from "./reducers/roeReducers";
-import {allUserReducer} from "./reducers/allUserReducer";
-import {allContactReducer, contactReducer} from "./reducers/contactReducer";
+import {allUserReducer, deleteUserReducer} from "./reducers/allUserReducer";
+import {allContactReducer, contactReducer, deleteContactReducer} from "./reducers/contactReducer";
+import {createCouponReducer,allCouponReducer,deleteCouponReducer} from "./reducers/couponReducer";
 
 const reducer = combineReducers({
   visaCards:VisaCardReducer,
@@ -21,7 +22,11 @@ const reducer = combineReducers({
   updateVisa:VisaUpdateReducer,
   contact:contactReducer,
   allContact:allContactReducer,
-  
+  createCoupon:createCouponReducer,
+  allCoupon:allCouponReducer,
+  deleteCoupon:deleteCouponReducer,
+  deleteContact:deleteContactReducer,
+  deleteUser:deleteUserReducer,
 });
 
 let initialState = {};

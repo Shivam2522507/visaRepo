@@ -36,12 +36,21 @@ const postController = require('../controllers/postController');
 const postUser = require('../controllers/userController');
 const postAdmin = require('../controllers/adminController');
 const visaCard = require('../controllers/visaCardController');
-const roe = require('../controllers/roeController')
+const roe = require('../controllers/roeController');
+const couponController = require('../controllers/couponController')
+
 
 
 // user contact route
 post_route.post('/contact',postController.user_contact);   
 post_route.get('/getContact',isAuthenticatedAdmin,postController.getContact); 
+post_route.delete('/deleteContact',isAuthenticatedAdmin,postController.deleteContact); 
+
+// coupon route
+post_route.post('/admin/createCoupon',isAuthenticatedAdmin,couponController.createCoupon);
+post_route.get('/admin/getAllCoupon',isAuthenticatedAdmin,couponController.getAllCoupon);
+post_route.delete('/admin/deleteCoupon',isAuthenticatedAdmin,couponController.deleteCoupon);
+post_route.post('/validateCoupon',couponController.validateCoupon);
 
 
 //user routes

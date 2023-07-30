@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import UserData from "./user";
 import Loader from "../../inc/Loader/Loader";
 import { useAlert } from "react-alert";
+import { DELETE_USER_RESET } from "../../../constants/allUserConstants";
 
 function AllUser() {
   const dispatch = useDispatch();
@@ -12,6 +13,21 @@ function AllUser() {
   const alert = useAlert();
   const { loading, error, Users } = useSelector((state) => state.allUser);
   const { isAuthenticatedAdmin } = useSelector((state) => state.admin);
+  const { isDeleted } = useSelector((state) => state.deleteUser);
+
+
+
+  useEffect(() => {
+    if(isDeleted){
+      alert.success("User Deleted Successfully");
+      dispatch({
+        type: DELETE_USER_RESET,
+      })
+      dispatch(getAllUser());
+    }
+  })
+
+
 
   useEffect(() => {
     if (error) {

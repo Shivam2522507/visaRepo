@@ -1,6 +1,13 @@
 import React from "react";
+import { deleteContactAction } from "../../../actions/contactAction";
+import { useDispatch } from "react-redux";
 
 const ContactData = ({ Contact }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+   dispatch(deleteContactAction(Contact._id))
+  };
   return (
     <>
       <tr className="align-middle">
@@ -16,6 +23,7 @@ const ContactData = ({ Contact }) => {
           <button
             type="button"
             className="btn btn-danger shadow-none btn-sm"
+            onClick={handleDelete}
           >
             Delete
           </button>

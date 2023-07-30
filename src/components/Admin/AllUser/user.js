@@ -1,6 +1,13 @@
 import React from "react";
+import { deleteUserAction } from "../../../actions/allUserActions";
+import { useDispatch } from "react-redux";
 
 const UserData = ({ User }) => {
+  const dispatch = useDispatch();
+  
+  const handleDelete = () => {
+    dispatch(deleteUserAction(User._id))
+   };
   return (
     <>
       <tr className="align-middle">
@@ -11,6 +18,7 @@ const UserData = ({ User }) => {
           <button
             type="button"
             className="btn btn-danger shadow-none btn-sm"
+            onClick={handleDelete}
           >
             Delete
           </button>

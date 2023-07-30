@@ -83,7 +83,7 @@ const VisaCard = ({ visaCard }) => {
         <Modal.Body>
           <form onSubmit={handleSubmit}>
             <div className="form-group mb-3">
-              <label htmlFor="visaType">Name</label>
+              <label htmlFor="visaName">Name</label>
               <input
                 type="text"
                 className="form-control"

@@ -6,6 +6,9 @@ import {
     ALL_CONTACT_REQUEST,
     ALL_CONTACT_SUCCESS,
     ALL_CONTACT_FAIL,
+    DELETE_CONTACT_REQUEST,
+    DELETE_CONTACT_SUCCESS,
+    DELETE_CONTACT_FAIL,
     CLEAR_ERRORS,
   } from "../constants/contactConstants";
   
@@ -49,6 +52,27 @@ export const conatctAction = (contactData) => async (dispatch) => {
       });
     }
   };
+
+
+  export const deleteContactAction = (_id) => async (dispatch) => {
+    try {
+      dispatch({ type: DELETE_CONTACT_REQUEST });
+      const config = { headers: { "Content-Type": "application/json" } };
+      axios.defaults.withCredentials = true;
+      const { data } = await axios.delete(
+        `http://localhost:8000/api/deleteContact`,
+        {data: {_id}},
+        config
+      );
+      dispatch({ type: DELETE_CONTACT_SUCCESS, payload: data});
+    } catch (error) {
+      dispatch({
+        type: DELETE_CONTACT_FAIL,
+        payload: error.response.data.message,
+      });
+    }
+  };
+  
   
 
   //clearing error

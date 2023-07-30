@@ -5,6 +5,10 @@ import {
     ALL_CONTACT_REQUEST,
     ALL_CONTACT_SUCCESS,
     ALL_CONTACT_FAIL,
+    DELETE_CONTACT_REQUEST,
+    DELETE_CONTACT_SUCCESS,
+    DELETE_CONTACT_RESET,
+    DELETE_CONTACT_FAIL,
     CLEAR_ERRORS,
   } from "../constants/contactConstants";
   
@@ -74,4 +78,47 @@ import {
     }
   };
 
+
+  export const deleteContactReducer = (
+    state = { loading: false, isDeleted: false },
+    action
+  ) => {
+    switch (action.type) {
+      case DELETE_CONTACT_REQUEST:
+        return {
+          loading: true,
+          isDeleted: false,
+        };
+      case DELETE_CONTACT_SUCCESS:
+        return {
+          ...state,
+          loading: false,
+          isDeleted: true,
+        };
+  
+      case DELETE_CONTACT_FAIL:
+        return {
+          ...state,
+          loading: false,
+          isDeleted: false,
+          error: action.payload,
+        };
+      case DELETE_CONTACT_RESET:
+        return {
+          ...state,
+          isDeleted: false,
+        };
+  
+      case CLEAR_ERRORS:
+        return {
+          ...state,
+          error: null,
+        };
+  
+      default:
+        return state;
+    }
+  };
+  
+  
   

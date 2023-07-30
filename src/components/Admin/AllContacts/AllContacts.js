@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import ContactData from "./contact";
 import Loader from "../../inc/Loader/Loader";
 import { useAlert } from "react-alert";
+import { DELETE_CONTACT_RESET } from "../../../constants/contactConstants";
 
 function AllContacts() {
   const dispatch = useDispatch();
@@ -12,6 +13,17 @@ function AllContacts() {
   const alert = useAlert();
   const { loading, error, Contacts } = useSelector((state) => state.allContact);
   const { isAuthenticatedAdmin } = useSelector((state) => state.admin);
+  const { isDeleted } = useSelector((state) => state.deleteContact);
+
+  useEffect(() =>{
+    if (isDeleted) {
+      alert.success("Contact Deleted Successfully");
+      dispatch({
+        type: DELETE_CONTACT_RESET,
+      });
+      dispatch(getAllContact());
+    }
+  }, [dispatch, alert,isDeleted])
 
   useEffect(() => {
     if (error) {
