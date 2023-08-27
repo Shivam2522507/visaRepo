@@ -95,23 +95,23 @@ function Footer() {
                   </a>
                 </li>
                 <li class="nav-item">
-                  <Link to="/" class="nav-link active p-0">
-                    Sitemap
-                  </Link>
-                </li>
-                <li class="nav-item">
-                  <Link to="/" class="nav-link active p-0">
-                    Support
-                  </Link>
-                </li>
-                <li class="nav-item">
                 <Link to="/PrivacyPolicy#head" class="nav-link active p-0">
               Privacy Policy
                 </Link>
                 </li>
+                <li class="nav-item">
+                <Link to="/TermsAndConditions#head" class="nav-link active p-0">
+              Terms And Conditions
+                </Link>
+                </li>
+                <li class="nav-item">
+                <Link to="/RefundPolicy#head" class="nav-link active p-0">
+              RefundPolicy
+                </Link>
+                </li>
               </ul>
 
-              <div className="social-link d-flex mt-4">
+              <div className="social-link d-flex mt-4 mb-3">
                 <Link to="/" class="nav-link active p-0 me-2">
                   <Facebook className="social-link-icon"/>
                 </Link>

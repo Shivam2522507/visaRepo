@@ -5,9 +5,11 @@ import GoogleImg from "../images/google-Logo.png";
 import FacebookImg from "../images/facebookLogo.png";
 import {useAlert} from "react-alert"
 import {useDispatch,useSelector} from "react-redux";
-import {clearErrors, register} from "../../actions/userAction"
+import {clearErrors, register,loginGoogle} from "../../actions/userAction"
 import Loader from "../inc/Loader/Loader";
 import { useNavigate } from 'react-router-dom';
+import { useGoogleLogin } from "@react-oauth/google";
+
 
 function Signup() {
     const registerTab = useRef(null);
@@ -44,6 +46,21 @@ function Signup() {
         }
     }
 
+    const Googlelogin = useGoogleLogin({
+      // onSuccess: (codeResponse) => console.log(codeResponse.access_token),
+      onSuccess: (codeResponse) => {
+        const access_token = codeResponse.access_token;
+        // console.log(access_token)
+        dispatch(loginGoogle(access_token));
+  
+      },
+      onError: (error) => console.log("Login Failed:", error),
+    });
+
+    const handleGoogleLogin = () => {
+      Googlelogin(); // Call this function when the user clicks the Google login button
+    };
+
     useEffect(() =>{
       if(error){
           alert.error(error);
@@ -63,10 +80,10 @@ function Signup() {
       <div className="card login-form-card p-4 pt-3 pb-3 shadow">
         <h2 className="text-center mt-1">Create an account</h2>
         <div className="social-login mt-2 px-5">
-          <a href="/" class="nav-link me-4">
+          <button onClick={handleGoogleLogin}  class="nav-link me-4">
             <img src={GoogleImg} alt="googleIcon" class="me-2 google-icon" />
             Google
-          </a>
+          </button>
           <a href="/" class="nav-link">
             <img
               src={FacebookImg}

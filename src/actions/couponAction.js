@@ -11,6 +11,9 @@ import {
   DELETE_COUPON_REQUEST,
   DELETE_COUPON_SUCCESS,
   DELETE_COUPON_FAIL,
+  COUPON_UPDATE_REQUEST,
+  COUPON_UPDATE_SUCCESS,
+  COUPON_UPDATE_FAIL,
   CLEAR_ERRORS,
 } from "../constants/couponConstants";
 import axios from "axios";
@@ -90,6 +93,25 @@ export const deleteCouponAction = (code) => async (dispatch) => {
   }
 };
 
+
+export const updateCoupon = (id,couponData) => async (dispatch) => {
+  try {
+    dispatch({ type: COUPON_UPDATE_REQUEST });
+    const config = { headers: { "Content-Type": "application/json" } };
+    axios.defaults.withCredentials = true;
+    const { data } = await axios.put(
+      `http://localhost:8000/api/admin/updateCoupon/${id}`,
+      couponData,
+      config
+    );
+    dispatch({ type: COUPON_UPDATE_SUCCESS, payload: data.success });
+  } catch (error) {
+    dispatch({
+      type: COUPON_UPDATE_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
 
   //clearing error
   export const clearErrors = () => async (dispatch) =>{

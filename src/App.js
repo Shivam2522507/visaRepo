@@ -4,7 +4,6 @@ import Navbar from "./components/inc/Navbar";
 import Footer from "./components/inc/Footer";
 import Home from "./components/pages/Home";
 import ApplyVisa from "./components/pages/ApplyVisa";
-import ApplyVisaCard from "./components/pages/ApplyVisaCard";
 import TrackApllication from "./components/pages/TrackApllication";
 import Contact from "./components/pages/Contact";
 import Login from "./components/pages/login";
@@ -25,7 +24,11 @@ import AllContacts from "./components/Admin/AllContacts/AllContacts";
 import AllCoupons from "./components/Admin/AllCoupon/AllCoupons";
 import PrivacyPolicy from "./components/pages/termsAndConditions/privacyPolicy";
 import TermsAndConditions from "./components/pages/termsAndConditions/termsAndConditions";
-
+import RefundPolicy from "./components/pages/termsAndConditions/refundPolicy";
+import AllOrders from "./components/Admin/AllOrders/AllOrders";
+import OrderDetails from "./components/Admin/AllOrders/OrderDetails";
+import CheckOut from "./components/pages/CheckOut/CheckOut";
+import ResetPassword from "./components/pages/ForgetPassword/ResetPassword";
 
 
 function App() {
@@ -48,6 +51,8 @@ function App() {
               <Route path="/AdminVisaCard" element={<AllVisaCards />} />
               <Route path="/AllContacts" element={<AllContacts />} />
               <Route path="/AllCoupons" element={<AllCoupons />} />
+              <Route path="/AllOrder" element={<AllOrders />} />
+              <Route path="/OrderDetails/:id" element={<OrderDetails />} />
 
             </Routes>
           </>
@@ -56,8 +61,7 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/ApplyVisa" element={<ApplyVisa />} />
-              <Route path="/ApplyVisa/:id" element={<ApplyVisaCard />} />
+              <Route path="/ApplyVisa/:id" element={<ApplyVisa />} />
               <Route path="/TrackApllication" element={<TrackApllication />} />
               <Route path="/Contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
@@ -66,6 +70,9 @@ function App() {
               <Route path="/Profile" element={<Profile />} />
               <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
               <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
+              <Route path="/RefundPolicy" element={<RefundPolicy />} />
+              <Route path="/checkOut/:id" element={<CheckOut />} />
+              <Route path="/api/password/reset/:token" element={<ResetPassword />} />
             </Routes>
             <Footer />
           </>

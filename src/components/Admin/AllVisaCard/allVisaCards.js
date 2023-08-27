@@ -49,17 +49,19 @@ function AllVisaCards() {
                     <table className="table table-hover border text-center">
                       <thead>
                         <tr className="bg-dark text-light">
-                          <th scope="col">#</th>
+                          <th scope="col">Sr no</th>
+                          <th scope="col">id</th>
                           <th scope="col">Visa Name</th>
                           <th scope="col">Visa Type</th>
                           <th scope="col">Price (INR) </th>
+                          <th scope="col">Processing Fee (INR) </th>
                           <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         {visaCards &&
-                          visaCards.map((visaCard) => (
-                            <VisaCard key={visaCard._id} visaCard={visaCard} />
+                          visaCards.map((visaCard,index) => (
+                            <VisaCard key={visaCard._id} visaCard={visaCard} index={index + 1}/>
                           ))}
                       </tbody>
                     </table>

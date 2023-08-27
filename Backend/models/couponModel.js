@@ -10,6 +10,10 @@ const couponSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  startDate: {
+    type: Date,
+    required: true,
+  },
   expiryDate: {
     type: Date,
     required: true,
@@ -29,6 +33,10 @@ const couponSchema = new mongoose.Schema({
   usedCount: {
     type: Number,
     default: 0,
+  },
+  forVisaId: {
+    type: String,
+    default:null,
   },
 });
 

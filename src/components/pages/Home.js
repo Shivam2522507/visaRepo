@@ -35,7 +35,7 @@ function Home() {
         <h1 className="text-light hero-sec-header">
           Apply for Dubai Visa in Just a Few <br /> Clicks
         </h1>
-        <Link to="/ApplyVisa" class="nav-link ">
+        <Link to="/ApplyVisa/:id" class="nav-link ">
           Apply Now <BoxArrowInRight className="ms-1 BoxArrowInRight"  />
         </Link>
         <div className="bottom-text">

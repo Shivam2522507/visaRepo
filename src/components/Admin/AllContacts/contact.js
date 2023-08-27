@@ -2,7 +2,7 @@ import React from "react";
 import { deleteContactAction } from "../../../actions/contactAction";
 import { useDispatch } from "react-redux";
 
-const ContactData = ({ Contact }) => {
+const ContactData = ({ Contact,index }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
@@ -11,6 +11,7 @@ const ContactData = ({ Contact }) => {
   return (
     <>
       <tr className="align-middle">
+        <td>{index}</td>
         <td>{Contact._id}</td>
         <td>{Contact.firstName}</td>
         <td>{Contact.lastName}</td>

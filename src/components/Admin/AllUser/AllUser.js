@@ -61,14 +61,15 @@ function AllUser() {
                   <table className="table table-hover border text-center">
                     <thead>
                       <tr className="bg-dark text-light">
-                        <th scope="col">#</th>
+                        <th scope="col">Sr no</th>
+                        <th scope="col">id</th>
                         <th scope="col">Email</th>
                         <th scope="col">Date</th>
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                     {Users && Users.map((User) => <UserData User={User}/>)}
+                     {Users && Users.map((User,index) => <UserData User={User} index={index + 1}/>)}
                     </tbody>
                   </table>
                 </div>

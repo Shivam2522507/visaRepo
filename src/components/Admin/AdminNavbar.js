@@ -62,12 +62,17 @@ function AdminNav() {
                 </li>
                 <li class="nav-item">
                   <Link class="nav-link text-white" to="/AllContacts">
-                    Contacts
+                    User Querry
                   </Link>
                 </li>
                 <li class="nav-item">
                   <Link class="nav-link text-white" to="/AllCoupons">
                     All Coupons
+                  </Link>
+                </li>
+                <li class="nav-item">
+                  <Link class="nav-link text-white" to="/AllOrder">
+                    All Bookings
                   </Link>
                 </li>
                 <li class="nav-item">

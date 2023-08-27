@@ -2,7 +2,7 @@ import React from "react";
 import { deleteUserAction } from "../../../actions/allUserActions";
 import { useDispatch } from "react-redux";
 
-const UserData = ({ User }) => {
+const UserData = ({ User , index}) => {
   const dispatch = useDispatch();
   
   const handleDelete = () => {
@@ -11,6 +11,7 @@ const UserData = ({ User }) => {
   return (
     <>
       <tr className="align-middle">
+        <td>{index}</td>
         <td>{User._id}</td>
         <td>{User.email}</td>
         <td>{User.date}</td>

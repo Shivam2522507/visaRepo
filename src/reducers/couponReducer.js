@@ -13,6 +13,10 @@ import {
   DELETE_COUPON_SUCCESS,
   DELETE_COUPON_FAIL,
   DELETE_COUPON_RESET,
+  COUPON_UPDATE_REQUEST,
+  COUPON_UPDATE_SUCCESS,
+  COUPON_UPDATE_RESET,
+  COUPON_UPDATE_FAIL,
   CLEAR_ERRORS,
 } from "../constants/couponConstants";
 
@@ -155,6 +159,42 @@ export const deleteCouponReducer = (
       return {
         ...state,
         isDeleted: false,
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const couponUpdateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case COUPON_UPDATE_REQUEST:
+      return {
+        loading: true,
+        ...state,
+      };
+    case COUPON_UPDATE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isUpdated: action.payload,
+      };
+    case COUPON_UPDATE_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case COUPON_UPDATE_RESET:
+      return {
+        ...state,
+        isUpdated: false,
       };
 
     case CLEAR_ERRORS:

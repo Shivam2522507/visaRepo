@@ -49,7 +49,7 @@ function AllContacts() {
               class="col-lg-10 ms-auto p-4 overflow-hidden text-center me-1"
               id="main-content"
             >
-              <h3 className="mb-4">All Contacts</h3>
+              <h3 className="mb-4">All Querry</h3>
          
             <div className="card border-0 shadow mb-4">
               <div className="card-body">
@@ -57,7 +57,8 @@ function AllContacts() {
                   <table className="table table-hover border text-center">
                     <thead>
                       <tr className="bg-dark text-light">
-                        <th scope="col">#</th>
+                        <th scope="col">Sr No</th>
+                        <th scope="col">id</th>
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">Contact No.</th>
@@ -68,7 +69,7 @@ function AllContacts() {
                       </tr>
                     </thead>
                     <tbody>
-                     {Contacts && Contacts.map((Contact) => <ContactData Contact={Contact}/>)}
+                     {Contacts && Contacts.map((Contact,index) => <ContactData Contact={Contact} index={index +1}/>)}
                     </tbody>
                   </table>
                 </div>

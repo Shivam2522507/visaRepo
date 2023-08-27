@@ -10,7 +10,14 @@ import CouponCard from "./coupon";
 import Loader from "../../inc/Loader/Loader";
 import { useAlert } from "react-alert";
 import { Modal, Button } from "react-bootstrap";
-import { CREATE_COUPON_RESET, DELETE_COUPON_RESET } from "../../../constants/couponConstants";
+import {
+  COUPON_UPDATE_RESET,
+  CREATE_COUPON_RESET,
+  DELETE_COUPON_RESET,
+} from "../../../constants/couponConstants";
+import { getVisaCard } from "../../../actions/visaAction";
+
+import "../Admin.css"
 
 function AllCoupons() {
   const dispatch = useDispatch();
@@ -18,10 +25,24 @@ function AllCoupons() {
   const { loading, error, Coupons } = useSelector((state) => state.allCoupon);
   const { isCreated } = useSelector((state) => state.createCoupon);
   const { isDeleted } = useSelector((state) => state.deleteCoupon);
+  const { isUpdated } = useSelector(
+    (state) => state.updateCoupon
+  );
+  const {visaCards} = useSelector((state) => state.visaCards);
+
+  useEffect(() => {
+    
+    if (isUpdated) {
+      alert.success("Coupon Updated Successfully");
+      dispatch({
+        type: COUPON_UPDATE_RESET,
+      });
+    }
+  }, [dispatch, alert, isUpdated, error]);
 
   const [show, setShow] = useState(false);
   const handleClose = () => {
-    setShow(false)
+    setShow(false);
   };
   const handleShow = () => {
     setShow(true);
@@ -29,18 +50,22 @@ function AllCoupons() {
 
   const [code, setCode] = useState("");
   const [discount, setDiscount] = useState("");
+  const [startDate, setStartDate] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [isMultiused, setisMultiused] = useState("false");
   const [maxUses, setMaxUses] = useState("1");
+  const [forVisaId, setforVisaId] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const myForm = new FormData();
     myForm.set("code", code);
     myForm.set("discount", discount);
+    myForm.set("startDate", startDate);
     myForm.set("expiryDate", expiryDate);
     myForm.set("isMultiUse", isMultiused);
     myForm.set("maxUses", maxUses);
+    myForm.set("forVisaId", forVisaId);
     dispatch(createCouponAction(myForm));
     handleClose();
   };
@@ -54,7 +79,7 @@ function AllCoupons() {
       dispatch(getAllCouponAction());
       setCode("");
       setDiscount("");
-      setExpiryDate("")
+      setExpiryDate("");
     }
     if (isDeleted) {
       alert.success("Coupon Deleted Successfully");
@@ -62,14 +87,16 @@ function AllCoupons() {
         type: DELETE_COUPON_RESET,
       });
       dispatch(getAllCouponAction());
+      dispatch(getVisaCard);
     }
-  }, [dispatch, alert, isCreated,isDeleted]);
+  }, [dispatch, alert, isCreated, isDeleted]);
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
     dispatch(getAllCouponAction());
+    dispatch(getVisaCard())
   }, [dispatch, error, alert]);
   return (
     <>
@@ -99,19 +126,25 @@ function AllCoupons() {
                     <table className="table table-hover border text-center">
                       <thead>
                         <tr className="bg-dark text-light">
+                          <th scope="col">Sr No</th>
                           <th scope="col">Code</th>
                           <th scope="col">Discount(INR)</th>
                           <th scope="col">Type</th>
                           <th scope="col">Max Uses</th>
-                          <th scope="col">No of Time Used</th>
+                          {/* <th scope="col">No of Time Used</th> */}
+                          <th scope="col">Start Date</th>
                           <th scope="col">Expiry Date</th>
                           <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         {Coupons &&
-                          Coupons.map((Coupon) => (
-                            <CouponCard key={Coupon._id} Coupon={Coupon} />
+                          Coupons.map((Coupon, index) => (
+                            <CouponCard
+                              key={Coupon._id}
+                              Coupon={Coupon}
+                              index={index + 1}
+                            />
                           ))}
                       </tbody>
                     </table>
@@ -151,6 +184,17 @@ function AllCoupons() {
               />
             </div>
             <div className="form-group mb-4">
+              <label htmlFor="expiryDate">Start Date</label>
+              <input
+                type="date"
+                className="form-control shadow-none"
+                id="startDate"
+                name="startDate"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+              />
+            </div>
+            <div className="form-group mb-4">
               <label htmlFor="expiryDate">Expiry Date</label>
               <input
                 type="date"
@@ -162,15 +206,16 @@ function AllCoupons() {
               />
             </div>
             <div className="form-group mb-3">
-              <label htmlFor="isMultiused">is Multiuse</label>
-              <input
-                type="text"
-                className="form-control shadow-none"
+              <select
                 id="isMultiused"
                 name="isMultiused"
-                checked={isMultiused}
+                className="couponSelect"
                 onChange={(e) => setisMultiused(e.target.value)}
-              />
+              >
+                <option>isMultiused :</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
             </div>
             <div className="form-group mb-3">
               <label htmlFor="maxUses">max Uses</label>
@@ -182,6 +227,24 @@ function AllCoupons() {
                 value={maxUses}
                 onChange={(e) => setMaxUses(e.target.value)}
               />
+            </div>
+            <div className="form-group mb-3">
+              <select
+                id="forVisaId"
+                name="forVisaId"
+                className="couponSelect"
+                onChange={(e) => setforVisaId(e.target.value)}
+              >
+                <option>Visa</option>
+                {visaCards &&
+                        visaCards.map((visaCards) => (
+                          <option key={visaCards._id} value={visaCards._id}>
+                            {visaCards.name}
+                          </option>
+                ))}
+                <option value="null">For All</option>
+
+              </select>
             </div>
 
             <hr />

@@ -19,13 +19,13 @@
     align-items: center;
     justify-content: center;
 }
-.social-login a{
+.social-login button{
     padding: 12px 30px;
 }
-.social-login a .google-icon{
+/* .social-login a .google-icon{
     height: 26px;
-}
-.social-login a .facebook-icon{
+} */
+.social-login button .facebook-icon{
     height: 26px;
 }
 .login-form-card .division{
@@ -53,3 +53,8 @@
     border: 0;
     box-shadow: 0 0 0 0.06rem #087A2E !important;
  }
+ /* .Profile-card{
+    width: 400px;
+    height: 80vh;
+    margin: auto;
+ } */

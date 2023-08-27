@@ -87,6 +87,17 @@
   border-left: none !important;
   border-right: none !important;
 }
+ div input[type=radio]{
+  accent-color: #087A2E!important;
+  height: 1.2rem;
+  width: 1.2rem;
+  
+}
+.board-body-div div label,.Insurance-body-div div label{
+  font-family: "Inter";
+  font-size: 17px;
+}
+
 
 .upload-doc label {
   background-color: rgb(255, 255, 255);
@@ -147,12 +158,24 @@ input[type="checkbox"] {
   font-weight: 700;
   font-size: 18px;
 }
+.trackApplication-head{
+  font-family: "Inter";
+}
+.trackApplicationInput{
+  width: 270px!important;
+}
+#trackApplicationBtn{
+  background: linear-gradient(180deg, #087A2E 0%, #2CAB57 100%)!important;
+}
+#trackApplicationBtn:hover{
+  background: linear-gradient(180deg, #2CAB57 0%, #087A2E 100%)!important;
+}
 @media screen and (max-width: 1246px) {
  
-  .Insurance-body {
+  .Insurance-body-div {
     flex-wrap: wrap;
   }
-  .board-body {
+  .board-body-div {
     flex-wrap: wrap;
   }
 }

@@ -12,13 +12,19 @@ const userSchema = new mongoose.Schema({
         validate:[validator.isEmail,"Please Enter a valid Email"]
     },
     password:{
-        required: true,
+        required: false,
         type: String,
-        minLength:[8,"Password should be 8 character or greater than 8"]
+        // minLength:[8,"Password should be 8 character or greater than 8"]
     },
     date:{
         required: true,
-        type: String
+        type: String,
+        default:Date.now()
+    },
+    plateform:{
+        required:false,
+        type: String,
+        default:"WebSite"
     },
 
     resetPasswordToken: String,

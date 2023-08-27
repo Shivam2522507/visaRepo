@@ -1,41 +1,17 @@
 const express= require("express");
 const post_route = express();
-const {isAuthenticatedUser,isAuthenticatedAdmin} = require("../middleware/auth")
+const {isAuthenticatedUser,isAuthenticatedAdmin} = require("../middleware/auth");
+
 
 const bodyParser = require('body-parser');
 
 post_route.use(bodyParser.json());
 post_route.use(bodyParser.urlencoded({extended: true}));
 
-const multer = require('multer');
-const path = require('path');
-
-post_route.use(express.static('public'));
-
-const storage = multer.diskStorage({
-    destination:function(req,file,cb){
-        cb(null,path.join(__dirname,'../public/userUploadFile'),function(error,success){
-            if(error){
-                console.log(error);
-            }
-        });
-    },
-    filename:function(){
-        const name = Date.now()+'-'+file.originalname;
-        cb(null,name,function(error,success){
-            if(error){
-                console.log(error);
-            }
-        })
-    }
-});
-
-const upload = multer({storage:storage});
 
 const postController = require('../controllers/postController');
 const postUser = require('../controllers/userController');
 const postAdmin = require('../controllers/adminController');
-const visaCard = require('../controllers/visaCardController');
 const roe = require('../controllers/roeController');
 const couponController = require('../controllers/couponController')
 
@@ -51,6 +27,7 @@ post_route.post('/admin/createCoupon',isAuthenticatedAdmin,couponController.crea
 post_route.get('/admin/getAllCoupon',isAuthenticatedAdmin,couponController.getAllCoupon);
 post_route.delete('/admin/deleteCoupon',isAuthenticatedAdmin,couponController.deleteCoupon);
 post_route.post('/validateCoupon',couponController.validateCoupon);
+post_route.put('/admin/updateCoupon/:id',isAuthenticatedAdmin,couponController.updateCoupon);
 
 
 //user routes
@@ -66,6 +43,8 @@ post_route.get('/admin/allUsers',isAuthenticatedAdmin,postUser.getAllUsers);
 post_route.get('/admin/user/:id',isAuthenticatedAdmin,postUser.getSingleUser);
 post_route.delete('/admin/user/:id',isAuthenticatedAdmin,postUser.deleteUser);
 
+post_route.post('/google/login',postUser.googleLoginUser); 
+
 
 
 //Admin routes
@@ -78,16 +57,6 @@ post_route.get('/admin',isAuthenticatedAdmin,postAdmin.getAdminDetails);
 post_route.put('/adminPassword/update',isAuthenticatedAdmin,postAdmin.updateAdminPassword); 
 post_route.put('/admin/update',isAuthenticatedAdmin,postAdmin.updateAdminProfile); 
  
-
-
-// visaCard Routes
-post_route.post('/createVisaCard',isAuthenticatedAdmin,visaCard.createVisaCard);   
-post_route.get('/getAllVisaCard',visaCard.getAllVisaCard);
-post_route.get('/getMultiAllVisaCard',visaCard.getMultiAllVisaCard);
-post_route.get('/getSigAllVisaCard',visaCard.getSigAllVisaCard);
-post_route.put('/VisaCard/:id',isAuthenticatedAdmin,visaCard.updateVisaCard);
-post_route.get('/VisaCard/:id',isAuthenticatedUser,visaCard.getVisaCardDetails);
-post_route.delete('/VisaCardDelete/:id',isAuthenticatedAdmin,visaCard.deleteVisaCard);  
 
 
 //Roe Routes

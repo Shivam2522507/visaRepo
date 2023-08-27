@@ -12,6 +12,10 @@ const visaCardSchema = new mongoose.Schema({
     price:{
         type:Number,
         required:[true,"Please Enter Price"]
+    },
+    processingFee:{
+        type:Number,
+        required:[true,"Please Enter Price"]
     }
 })
 

@@ -3,15 +3,18 @@ const Coupon = require("../models/couponModel");
 // Create a new coupon
 exports.createCoupon = async (req, res) => {
   try {
-    const { code, discount, expiryDate, isMultiUse, maxUses } = req.body;
+    const { code, discount,startDate, expiryDate, isMultiUse, maxUses, forVisaId } = req.body;
 
     const coupon = new Coupon({
       code,
       discount,
+      startDate,
       expiryDate,
       isMultiUse,
       maxUses,
+      forVisaId,
     });
+    
 
     await coupon.save();
 
@@ -44,6 +47,19 @@ exports.validateCoupon = async (req, res) => {
     }
 
     const currentDate = new Date();
+
+    if(coupon.forVisaId != "null"){
+      if(req.body.visaId != coupon.forVisaId ){
+        return res.status(400).json({ error: "This Coupon is not valid for this Visa" });
+      }
+  
+    }
+
+    // Check if the current date is before the start date of the coupon
+    if (currentDate < coupon.startDate) {
+      return res.status(400).json({ error: "Coupon is not yet valid" });
+    }
+
     if (currentDate > coupon.expiryDate) {
       return res.status(400).json({ error: "Coupon has expired" });
     }
@@ -93,3 +109,32 @@ exports.deleteCoupon = async (req, res) => {
     }
   };
   
+
+  // Update Coupon Card
+exports.updateCoupon= async (req,res,next) =>{
+    try {
+        let CouponData= await Coupon.findById(req.params.id);
+
+        if(!CouponData){
+            return res.status(500).json({
+                success:false,
+                message:"CouponCard Not Found"
+            })
+        }
+    
+        CouponData = await Coupon.findByIdAndUpdate(req.params.id,req.body,{
+            new:true,
+            runValidators:true,
+            useFindAndModify:false
+        })
+    
+        res.status(200).json({
+            success:true,
+            CouponData
+        }) 
+    } catch (error) {
+        res.status(400).send({ success:false,msg:error.message});
+    }
+    
+
+}

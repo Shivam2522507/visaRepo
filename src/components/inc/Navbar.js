@@ -84,14 +84,23 @@ function Navbar() {
                   Home
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link to="/ApplyVisa" class="nav-link active">
-                  Apply Visa
-                </Link>
-              </li>
+              {isAuthenticated ? (
+                <li class="nav-item">
+                  <Link to="/ApplyVisa/:id" class="nav-link active">
+                    Apply Visa
+                  </Link>
+                </li>
+              ) : (
+                <li class="nav-item">
+                  <Link to="/Login" class="nav-link active">
+                    Apply Visa
+                  </Link>
+                </li>
+              )}
+
               <li class="nav-item">
                 <Link to="/TrackApllication" class="nav-link active">
-                  Track Apllication
+                  Track Application
                 </Link>
               </li>
               <li class="nav-item">

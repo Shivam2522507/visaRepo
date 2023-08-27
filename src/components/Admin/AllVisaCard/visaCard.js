@@ -11,7 +11,7 @@ import {
 } from "../../../actions/visaAction";
 import Loader from "../../inc/Loader/Loader";
 
-const VisaCard = ({ visaCard }) => {
+const VisaCard = ({ visaCard , index}) => {
   const alert = useAlert();
   const roeData = useSelector((state) => state.roe.roe[0]?.roe);
   const { error, isUpdated, loading } = useSelector(
@@ -30,6 +30,7 @@ const VisaCard = ({ visaCard }) => {
   const [visaName, setVisaName] = useState("");
   const [visaType, setVisaType] = useState("");
   const [visaPrice, setVisaPrice] = useState("");
+  const [processingFee, setprocessingFee] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,6 +38,7 @@ const VisaCard = ({ visaCard }) => {
     myForm.set("name", visaName);
     myForm.set("visaType", visaType);
     myForm.set("price", visaPrice);
+    myForm.set("processingFee", processingFee);
     dispatch(updateVisa(visaCard._id, myForm));
     handleClose();
   };
@@ -61,10 +63,12 @@ const VisaCard = ({ visaCard }) => {
         <Loader />
       ) : (
         <tr className="align-middle">
+          <td>{index}</td>
           <td>{visaCard._id}</td>
           <td>{visaCard.name}</td>
           <td>{visaCard.visaType}</td>
           <td>{roeData * visaCard.price}</td>
+          <td>{visaCard.processingFee}</td>
           <td>
             <button
               type="button"
@@ -113,6 +117,17 @@ const VisaCard = ({ visaCard }) => {
                 name="price"
                 value={visaPrice}
                 onChange={(e) => setVisaPrice(e.target.value)}
+              />
+            </div>
+            <div className="form-group mb-4">
+              <label htmlFor="price">Processing Fee (INR)</label>
+              <input
+                type="number"
+                className="form-control"
+                id="price"
+                name="price"
+                value={processingFee}
+                onChange={(e) => setprocessingFee(e.target.value)}
               />
             </div>
             <hr />

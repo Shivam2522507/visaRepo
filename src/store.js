@@ -2,12 +2,14 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { VisaCardReducer,VisaCardDetailsReducer,VisaUpdateReducer } from "./reducers/visaReducer";
-import {userReducer,updateUserReducer } from "./reducers/userReducer"
+import {userReducer,updateUserReducer,updateUserPasswordReducer,forgetUserPasswordReducer,resetUserPasswordReducer } from "./reducers/userReducer"
 import {adminReducer, updateAdminReducer } from "./reducers/adminReducer"
 import {RoeReducer,RoeUpdateReducer} from "./reducers/roeReducers";
 import {allUserReducer, deleteUserReducer} from "./reducers/allUserReducer";
 import {allContactReducer, contactReducer, deleteContactReducer} from "./reducers/contactReducer";
-import {createCouponReducer,allCouponReducer,deleteCouponReducer} from "./reducers/couponReducer";
+import {createCouponReducer,allCouponReducer,deleteCouponReducer,couponUpdateReducer,validateCouponReducer} from "./reducers/couponReducer";
+import { addMainTravelerReducer,addCoTravelerReducer,allTravelerReducer,travelerDetailsReducer,addOtherFieldReducer,changeCoTravelerStatusReducer ,deleteTravelerReducer} from "./reducers/applyVisaReducer";
+
 
 const reducer = combineReducers({
   visaCards:VisaCardReducer,
@@ -27,6 +29,19 @@ const reducer = combineReducers({
   deleteCoupon:deleteCouponReducer,
   deleteContact:deleteContactReducer,
   deleteUser:deleteUserReducer,
+  updateCoupon:couponUpdateReducer,
+  mainTraveler:addMainTravelerReducer,
+  coTraveler:addCoTravelerReducer,
+  updateUserPassword:updateUserPasswordReducer,
+  travelerDetails:travelerDetailsReducer,
+  allTraveler:allTravelerReducer,
+  addOtherField:addOtherFieldReducer,
+  validateCoupon:validateCouponReducer,
+  forgetUserPassword:forgetUserPasswordReducer,
+  resetUserPassword:resetUserPasswordReducer,
+  changeCoTravelerStatus:changeCoTravelerStatusReducer,
+  deleteTraveler:deleteTravelerReducer,
+
 });
 
 let initialState = {};
