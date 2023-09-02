@@ -11,6 +11,11 @@ const userSchema = new mongoose.Schema({
         unique:true,
         validate:[validator.isEmail,"Please Enter a valid Email"]
     },
+    fbName:{
+        type: String,
+        required: true,
+        default: " ",
+    },
     password:{
         required: false,
         type: String,

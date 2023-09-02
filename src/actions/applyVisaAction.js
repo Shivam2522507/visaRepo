@@ -232,6 +232,8 @@ export const deleteTravelerAction = (id) => async (dispatch) => {
     });
   }
 };
+
+
   //clearing error
   export const clearErrors = () => async (dispatch) =>{
     dispatch({type: CLEAR_ERRORS});

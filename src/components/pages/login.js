@@ -8,6 +8,7 @@ import {
   clearErrors,
   forgetUserPassword,
   login,
+  loginFacebook,
   loginGoogle,
 } from "../../actions/userAction";
 import { useAlert } from "react-alert";
@@ -16,10 +17,9 @@ import { useNavigate } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import { Modal, Button } from "react-bootstrap";
 import { FORGET_PASSWORD_UPDATE_RESET } from "../../constants/userConstants";
-// import ReactFacebookLogin from "react-facebook-login";
-// import axios from "axios";
-import { LoginSocialFacebook } from "reactjs-social-login";
-// import { FacebookLoginButton } from "react-social-login-buttons";
+import ReactFacebookLogin from "react-facebook-login";
+
+// import { LoginSocialFacebook } from "reactjs-social-login";
 
 const Login = () => {
   const Navigate = useNavigate();
@@ -70,14 +70,9 @@ const Login = () => {
     handleClose();
   };
 
-  const handleFacebookResponse = (response) => {
-    console.log(response);
-    // Handle the response as needed (e.g., update user state, make API calls)
-  };
-
-  const handleFacebookError = (error) => {
-    console.log(error);
-    // Handle the error (e.g., show an error message to the user)
+  const responseFacebook = (response) => {
+    // console.log(response.name)
+    dispatch(loginFacebook(response.id));
   };
 
   useEffect(() => {
@@ -117,26 +112,21 @@ const Login = () => {
                     Google
                   </button>
 
-                  {/* <ReactFacebookLogin
-        appId="628909005894149"
-        autoLoad={false}
-        fields="email,public_profile"
-        callback={responseFacebook}
-      /> */}
-                  <LoginSocialFacebook
-                    appId={`628909005894149`}
-                    onResolve={handleFacebookResponse}
-                    onReject={handleFacebookError}
-                  >
-                    <button class="nav-link">
+                  <ReactFacebookLogin
+                    appId="628909005894149"
+                    autoLoad={false}
+                    fields="name,email,picture"
+                    callback={responseFacebook}
+                    textButton="Facebook"
+                    icon={
                       <img
                         src={FacebookImg}
-                        alt="facebookIcon"
-                        class="me-2 facebook-icon"
+                        alt="Facebook Icon"
+                        className="facebook-icon me-2"
                       />
-                      Facebook
-                    </button>
-                  </LoginSocialFacebook>
+                    }
+                    cssClass="ReactFacebookLoginbtn"
+                  />
                 </div>
                 <div className="division mt-3">
                   <div className="line">

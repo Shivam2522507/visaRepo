@@ -30,6 +30,7 @@ const Profile = () => {
   const { isUpdatePassword } = useSelector((state) => state.updateUserPassword);
   const { isDeleted } = useSelector((state) => state.deleteUser);
 
+
   const [updateEmail, setUpdateEmail] = useState("");
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNEWPassword] = useState("");
@@ -100,12 +101,13 @@ const Profile = () => {
     }
     if (isDeleted) {
       alert.success("User Deleted Successfully");
-      dispatch(logoutUser())
+      dispatch(logoutUser());
       dispatch({
         type: DELETE_USER_RESET,
-      })
-
+      });
     }
+
+    
   }, [
     Navigate,
     alert,
@@ -115,6 +117,8 @@ const Profile = () => {
     error,
     isUpdatePassword,
     isAuthenticated,
+    
+
   ]);
 
   return (
@@ -135,7 +139,7 @@ const Profile = () => {
                 <div>
                   <h5 className="text-secondary">Profile Name</h5>
                   <p className="m-0 fw-bold text-secondary">{user.email}</p>
-                  
+
                   <Link
                     className="btn btn-success mt-2 ps-3 pe-3 me-2"
                     data-bs-toggle="modal"
@@ -151,7 +155,6 @@ const Profile = () => {
                   >
                     Delete Profile
                   </button>
-                  
                 </div>
                 <div className="d-flex justify-content-end align-items-end">
                   <button
@@ -166,6 +169,9 @@ const Profile = () => {
                 </div>
               </div>
             </div>
+
+           
+            
             <div className="card shadow mt-5">
               <div className="card-body p-3 pb-4">
                 <div className="d-flex justify-content-between">

@@ -360,6 +360,47 @@ const googleLoginUser = async (req, res, next) => {
   }
 };
 
+const facebookLoginUser = async (req, res, next) => {
+  try {
+    let userName  = req.body.name;
+    let user = await User.findOne({ fbName: userName });
+
+    if (!user) {
+      console.log("no user")
+      user = new User({
+        email:userName+"@gmail.com",
+        fbName:userName,
+        date: new Date(),
+        plateform: "Facebook"
+      });
+      
+      
+      user.save();
+
+      let token = jwt.sign({email: user.fbName},"jwt-secret-key",{expiresIn: '1d'});
+    
+      res.cookie('token',token);
+      return res.json({
+        success: true,
+        user,
+        token,
+      });
+    }
+
+
+    // sendToken(user, 200, res);
+    let token = jwt.sign({email: user.fbName},"jwt-secret-key",{expiresIn: '1d'});
+    res.cookie('token',token);
+    return res.json({
+      success: true,
+      user,
+      token,
+    });
+  } catch (error) {
+    res.status(400).send({ success: false, msg: error.message });
+  }
+};
+
 module.exports = {
   user,
   loginUser,
@@ -373,4 +414,5 @@ module.exports = {
   getSingleUser,
   deleteUser,
   googleLoginUser,
+  facebookLoginUser,
 };

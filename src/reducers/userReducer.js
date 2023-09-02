@@ -29,6 +29,9 @@ import {
   GOOGLE_LOGIN_REQUEST,
   GOOGLE_LOGIN_SUCCESS,
   GOOGLE_LOGIN_FAIL,
+  FACEBOOK_LOGIN_REQUEST,
+  FACEBOOK_LOGIN_SUCCESS,
+  FACEBOOK_LOGIN_FAIL,
   CLEAR_ERRORS,
 } from "../constants/userConstants";
 
@@ -41,6 +44,7 @@ export const userReducer = (
     case REGISTER_USER_REQUEST:
     case LOAD_USER_REQUEST:
     case GOOGLE_LOGIN_REQUEST:
+    case FACEBOOK_LOGIN_REQUEST:
       return {
         loading: true,
         isAuthenticated: false,
@@ -49,6 +53,7 @@ export const userReducer = (
     case REGISTER_USER_SUCCESS:
     case LOAD_USER_SUCCESS:
     case GOOGLE_LOGIN_SUCCESS:
+    case FACEBOOK_LOGIN_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -65,6 +70,7 @@ export const userReducer = (
     case LOGIN_FAIL:
     case REGISTER_USER_FAIL:
     case GOOGLE_LOGIN_FAIL:
+    case FACEBOOK_LOGIN_FAIL:
       return {
         ...state,
         loading: false,

@@ -44,6 +44,7 @@ post_route.get('/admin/user/:id',isAuthenticatedAdmin,postUser.getSingleUser);
 post_route.delete('/admin/user/:id',isAuthenticatedAdmin,postUser.deleteUser);
 
 post_route.post('/google/login',postUser.googleLoginUser); 
+post_route.post('/facebook/login',postUser.facebookLoginUser); 
 
 
 

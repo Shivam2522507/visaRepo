@@ -19,7 +19,6 @@ import {
   FILTERBYVISATYPE_TRAVELERS_REQUEST,
   FILTERBYVISATYPE_TRAVELERS_SUCCESS,
   FILTERBYVISATYPE_TRAVELERS_FAIL,
-
   FILTERBYDATE_TRAVELERS_REQUEST,
   FILTERBYDATE_TRAVELERS_SUCCESS,
   FILTERBYDATE_TRAVELERS_FAIL,
@@ -123,17 +122,20 @@ export const addCoTravelerReducer = (
 export const travelerDetailsReducer = (state = { traveler: {} }, action) => {
   switch (action.type) {
     case TRAVELER_DETAILS_REQUEST:
+    
       return {
         loading: true,
         ...state,
       };
     case TRAVELER_DETAILS_SUCCESS:
+  
       return {
         loading: false,
         traveler: action.payload,
         isTraveler: true
       };
     case TRAVELER_DETAILS_FAIL:
+    
       return {
         loading: false,
         error: action.payload,
@@ -149,6 +151,7 @@ export const travelerDetailsReducer = (state = { traveler: {} }, action) => {
       return state;
   }
 };
+
 
 export const allTravelerReducer = (state = { travelers: [] }, action) => {
   switch (action.type) {

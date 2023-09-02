@@ -28,6 +28,16 @@
 .social-login button .facebook-icon{
     height: 26px;
 }
+.ReactFacebookLoginbtn{
+    padding: 12px 30px!important;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+    background:none!important;
+    border: none!important;
+    font-weight: 400!important;
+    color: black!important;
+}
 .login-form-card .division{
     position: relative;
 }

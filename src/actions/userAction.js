@@ -26,6 +26,9 @@ import {
   RESET_PASSWORD_UPDATE_SUCCESS,
   RESET_PASSWORD_UPDATE_FAIL,
   CLEAR_ERRORS,
+  FACEBOOK_LOGIN_REQUEST,
+  FACEBOOK_LOGIN_SUCCESS,
+  FACEBOOK_LOGIN_FAIL,
 } from "../constants/userConstants";
 import axios from "axios";
 // import {signInGoogle,signUpGoogle} from "../api/index"
@@ -144,6 +147,25 @@ export const loginGoogle = (accessToken) => async (dispatch) =>{
   dispatch({type: GOOGLE_LOGIN_SUCCESS, payload: data.user})
 } catch (error) {
    dispatch({type: GOOGLE_LOGIN_FAIL, payload: error.response.data.message})
+  
+ }
+}
+//login with google
+export const loginFacebook = (name) => async (dispatch) =>{
+ try {
+  dispatch({type: FACEBOOK_LOGIN_REQUEST});
+  const config = {
+    headers: { "Content-Type": "application/json" }
+  };
+  axios.defaults.withCredentials = true;
+  const { data } = await axios.post(
+    `http://localhost:8000/api/facebook/login`,
+    { name },
+    config
+  );
+  dispatch({type: FACEBOOK_LOGIN_SUCCESS, payload: data.user})
+} catch (error) {
+   dispatch({type: FACEBOOK_LOGIN_FAIL, payload: error.response.data.message})
   
  }
 }
