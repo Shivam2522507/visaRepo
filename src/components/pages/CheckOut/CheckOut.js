@@ -22,6 +22,7 @@ function CheckOut() {
   const { loading, error, traveler, isTraveler } = useSelector(
     (state) => state.travelerDetails
   );
+  const roeData = useSelector(state => state.roe.roe[0]?.roe)
   const { visaCard } = useSelector((state) => state.VisaCardDetails);
   const visaId = traveler.visaType;
   const [showCoTraveler, setShowCoTraveler] = useState(true);
@@ -252,30 +253,38 @@ function CheckOut() {
                   <div>
                   <h3>Price Breakdown</h3>
               <div className="mt-3">
+                <p >
+                  <span className="fw-bold">Visa Type:- </span>{" "}
+                  {visaCard.name} (₹ {roeData * visaCard.price})
+                </p>
                 <p>
-                  <span className="fw-bold">Processing Fee :- </span>{" "}
-                  {visaCard.processingFee}
+                  <span className="fw-bold">Service Fee :- </span>{" "}
+                  ₹ {visaCard.serviceFee}
+                </p>
+                <p>
+                  <span className="fw-bold">Tech Management Fee :- </span>{" "}
+                  ₹ {visaCard.managementFee}
                 </p>
                 <p>
                   <span className="fw-bold">Okay To Board :- </span>{" "}
-                  
+                  {traveler.okayToBoard === "YES" ? "YES(₹ 799)" : "NO"}
                 </p>
                 <p>
                   <span className="fw-bold">Insurance :- </span>{" "}
-                  
+                  {traveler.insuranceType === "Basic" ? "Basic(₹ 199)" : traveler.insuranceType === "Regular" ? "Regular(₹ 499)" : "Premium(₹ 999)" }
                 </p>
                 <p>
                   <span className="fw-bold">Tax Price :- </span>{" "}
-                  {traveler.taxPrice}
+                  ₹ {traveler.taxPrice}
                 </p>
                 <p>
                   <span className="fw-bold">Discount Price :- </span>{" "}
-                  {traveler.discountPrice}
+                  ₹ {traveler.discountPrice}
                 </p>
 
                 <p>
                   <span className="fw-bold">Total Price :- </span>{" "}
-                  {traveler.totalPrice}
+                  ₹ {traveler.totalPrice}
                 </p>
               </div>
                   </div>

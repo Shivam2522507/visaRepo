@@ -145,11 +145,11 @@ const OrderDetails = () => {
                 </p>
                 <p>
                   <span className="fw-bold">Okay To Board :- </span>{" "}
-                  {traveler.okayToBoard}
+                  {traveler.okayToBoard === "YES" ? "YES(799)" : "NO"}
                 </p>
                 <p>
                   <span className="fw-bold">Insurance Type :- </span>{" "}
-                  {traveler.insuranceType}
+                  {traveler.insuranceType === "Basic" ? "Basic(199)" : traveler.insuranceType === "Regular" ? "Regular(499)" : "Premium(999)" }
                 </p>
                 <p>
                   <span className="fw-bold">couponCode :- </span>{" "}
@@ -158,7 +158,10 @@ const OrderDetails = () => {
               </div>
               <div className="d-flex justify-content-evenly mt-3">
                 <p>
-                  <span className="fw-bold">Processing Fee :- </span> {visaCard.processingFee}
+                  <span className="fw-bold">Service Fee :- </span> {visaCard.serviceFee}
+                </p>
+                <p>
+                  <span className="fw-bold">Management Fee :- </span> {visaCard.managementFee}
                 </p>
                 <p>
                   <span className="fw-bold">Tax Price :- </span> {traveler.taxPrice}

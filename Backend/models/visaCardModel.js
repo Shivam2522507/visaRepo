@@ -13,7 +13,11 @@ const visaCardSchema = new mongoose.Schema({
         type:Number,
         required:[true,"Please Enter Price"]
     },
-    processingFee:{
+    serviceFee:{
+        type:Number,
+        required:[true,"Please Enter Price"]
+    },
+    managementFee:{
         type:Number,
         required:[true,"Please Enter Price"]
     }

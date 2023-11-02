@@ -29,6 +29,12 @@ import {
   CHANGE_COTRAVELERS_STATUS_REQUEST,
   CHANGE_COTRAVELERS_STATUS_SUCCESS,
   CHANGE_COTRAVELERS_STATUS_FAIL,
+  GET_BY_USER_REQUEST,
+  GET_BY_USER_SUCCESS,
+  GET_BY_USER_FAIL,
+  TRACK_TRAVELER_REQUEST,
+  TRACK_TRAVELER_SUCCESS,
+  TRACK_TRAVELER_FAIL,
   CLEAR_ERRORS,
 } from "../constants/applyVisaConstants";
 import axios from "axios";
@@ -233,6 +239,55 @@ export const deleteTravelerAction = (id) => async (dispatch) => {
   }
 };
 
+
+export const getTravelerByUser = (userId) => async (dispatch) => {
+  try {
+    dispatch({ type: GET_BY_USER_REQUEST });
+    const config = {
+      headers: { "Content-Type": "application/json" }
+    };
+    axios.defaults.withCredentials = true;
+    const { data } = await axios.post(
+      `http://localhost:8000/api/getByUserId`,
+      {userId},
+      config
+    );
+
+    dispatch({
+      type: GET_BY_USER_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_BY_USER_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+
+export const trackTravelerAction = (mainTravelerId) => async (dispatch) => {
+  try {
+    dispatch({ type: TRACK_TRAVELER_REQUEST });
+    const config = { headers: { "Content-Type": "application/json" } };
+    axios.defaults.withCredentials = true;
+    const { data } = await axios.post(
+      `http://localhost:8000/api/getTravelerById`,
+      mainTravelerId,
+      config
+    );
+
+    dispatch({
+      type: TRACK_TRAVELER_SUCCESS,
+      payload: data.mainTraveler,
+    });
+  } catch (error) {
+    dispatch({
+      type: TRACK_TRAVELER_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
 
   //clearing error
   export const clearErrors = () => async (dispatch) =>{

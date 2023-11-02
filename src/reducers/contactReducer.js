@@ -2,6 +2,7 @@ import {
     CONTACT_USER_REQUEST,
     CONTACT_USER_SUCCESS,
     CONTACT_USER_FAIL,
+    CONTACT_USER_RESET,
     ALL_CONTACT_REQUEST,
     ALL_CONTACT_SUCCESS,
     ALL_CONTACT_FAIL,
@@ -33,6 +34,11 @@ import {
           contact: null,
           contactSend: false,
           error: action.payload,
+        };
+      case CONTACT_USER_RESET:
+        return {
+          ...state,
+          contactSend: false,
         };
       case CLEAR_ERRORS:
         return {

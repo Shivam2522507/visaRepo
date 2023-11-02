@@ -104,15 +104,14 @@ function Navbar() {
                 </Link>
               </li>
               <li class="nav-item">
-                <a
-                  href="/"
-                  class="nav-link me-2"
-                  role="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#contact"
-                >
-                  Contact
-                </a>
+                <Link to="/AboutUs" class="nav-link active">
+                About Us
+                </Link>
+              </li>
+              <li class="nav-item">
+              <Link to="/Contact" class="nav-link active">
+              Contact
+                </Link>
               </li>
               {isAuthenticated ? (
                 <div class="btn-group">

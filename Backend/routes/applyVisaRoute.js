@@ -34,5 +34,6 @@ applyVisaRouter.get('/search/:key',applyVisaController.searchTraveler);
 applyVisaRouter.get('/filter/:key',applyVisaController.filterByVisaType);
 applyVisaRouter.post('/filter/date',applyVisaController.filterByDate);
 applyVisaRouter.delete('/deleteTraveler',applyVisaController.deleteTraveler);
+applyVisaRouter.post('/getByUserId',applyVisaController.getByUserId);
 
 module.exports = applyVisaRouter

@@ -7,6 +7,7 @@ import {useAlert} from "react-alert"
 import {useDispatch,useSelector} from "react-redux";
 import { clearErrors, conatctAction } from "../../actions/contactAction";
 import Loader from "./Loader/Loader";
+import { CONTACT_USER_RESET } from "../../constants/contactConstants";
 
 
 function Footer() {
@@ -53,6 +54,9 @@ function Footer() {
   }
  if(contactSend){
   alert.success("Your response has been submitted successfully.")
+  dispatch({
+    type: CONTACT_USER_RESET
+  })
  }
 
 },[dispatch,error,alert,contactSend])

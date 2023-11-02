@@ -34,6 +34,13 @@ import {
   DELETE_TRAVELER_SUCCESS,
   DELETE_TRAVELER_FAIL,
   DELETE_TRAVELER_RESET,
+  GET_BY_USER_REQUEST,
+  GET_BY_USER_SUCCESS,
+  GET_BY_USER_FAIL,
+  TRACK_TRAVELER_REQUEST,
+  TRACK_TRAVELER_SUCCESS,
+  TRACK_TRAVELER_FAIL,
+  TRACK_TRAVELER_RESET,
   CLEAR_ERRORS,
 } from "../constants/applyVisaConstants";
 
@@ -122,20 +129,17 @@ export const addCoTravelerReducer = (
 export const travelerDetailsReducer = (state = { traveler: {} }, action) => {
   switch (action.type) {
     case TRAVELER_DETAILS_REQUEST:
-    
       return {
         loading: true,
         ...state,
       };
     case TRAVELER_DETAILS_SUCCESS:
-  
       return {
         loading: false,
         traveler: action.payload,
-        isTraveler: true
+        isTraveler: true,
       };
     case TRAVELER_DETAILS_FAIL:
-    
       return {
         loading: false,
         error: action.payload,
@@ -151,7 +155,6 @@ export const travelerDetailsReducer = (state = { traveler: {} }, action) => {
       return state;
   }
 };
-
 
 export const allTravelerReducer = (state = { travelers: [] }, action) => {
   switch (action.type) {
@@ -191,8 +194,10 @@ export const allTravelerReducer = (state = { travelers: [] }, action) => {
   }
 };
 
-
-export const addOtherFieldReducer = (state = {loading: false, isOtherFieldsAdded: false}, action) => {
+export const addOtherFieldReducer = (
+  state = { loading: false, isOtherFieldsAdded: false },
+  action
+) => {
   switch (action.type) {
     case ADD_OTHER_FIELDS_REQUEST:
       return {
@@ -229,7 +234,10 @@ export const addOtherFieldReducer = (state = {loading: false, isOtherFieldsAdded
       return state;
   }
 };
-export const changeCoTravelerStatusReducer = (state = {loading: false, isCoTravelerStatusChanged: false}, action) => {
+export const changeCoTravelerStatusReducer = (
+  state = { loading: false, isCoTravelerStatusChanged: false },
+  action
+) => {
   switch (action.type) {
     case CHANGE_COTRAVELERS_STATUS_REQUEST:
       return {
@@ -253,6 +261,38 @@ export const changeCoTravelerStatusReducer = (state = {loading: false, isCoTrave
       return {
         ...state,
         isCoTravelerStatusChanged: false,
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const getTravelerByUserId = (state = { travelers: [] }, action) => {
+  switch (action.type) {
+    case GET_BY_USER_REQUEST:
+      return {
+        travelerLoading: true,
+        traveler: [],
+        isTraveler: false,
+      };
+    case GET_BY_USER_SUCCESS:
+      return {
+        travelerLoading: false,
+        travelers: action.payload.travelers,
+        isTraveler: true,
+      };
+    case GET_BY_USER_FAIL:
+      return {
+        travelerLoading: false,
+        error: action.payload,
+        isTraveler: false,
       };
 
     case CLEAR_ERRORS:
@@ -308,3 +348,39 @@ export const deleteTravelerReducer = (
   }
 };
 
+export const trackTravelerReducer = (state = { traveler: {} }, action) => {
+  switch (action.type) {
+    case TRACK_TRAVELER_REQUEST:
+      return {
+        trackLoading: true,
+        ...state,
+        isTravelerTrack: false,
+      };
+    case TRACK_TRAVELER_SUCCESS:
+      return {
+        trackLoading: false,
+        trackTraveler: action.payload,
+        isTravelerTrack: true,
+      };
+    case TRACK_TRAVELER_FAIL:
+      return {
+        trackLoading: false,
+        error: action.payload,
+        isTravelerTrack: false,
+      };
+    case TRACK_TRAVELER_RESET:
+      return {
+        ...state,
+        isTravelerTrack: false,
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    default:
+      return state;
+  }
+};

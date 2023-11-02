@@ -54,7 +54,8 @@ function AllVisaCards() {
                           <th scope="col">Visa Name</th>
                           <th scope="col">Visa Type</th>
                           <th scope="col">Price (INR) </th>
-                          <th scope="col">Processing Fee (INR) </th>
+                          <th scope="col">Service Fee (INR) </th>
+                          <th scope="col">Management Fee (INR) </th>
                           <th scope="col">Action</th>
                         </tr>
                       </thead>

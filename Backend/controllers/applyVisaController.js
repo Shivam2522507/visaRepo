@@ -350,3 +350,18 @@ exports.filterByDate = async (req, res) => {
     res.status(400).send({ success: false, msg: error.message });
   }
 };
+
+
+exports.getByUserId = async(req,res) =>{
+  try {
+    const {userId} = req.body;
+      const travelers = await Traveler.find({userId: userId});
+      res.status(200).json({
+          success:true,
+          travelers
+      })
+  } catch (error) {
+      res.status(400).send({ success:false,msg:error.message}); 
+  }
+ 
+}

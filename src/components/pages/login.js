@@ -99,7 +99,9 @@ const Login = () => {
           {loading ? (
             <Loader />
           ) : (
-            <div className="container login-form-cont">
+            <div className="container-fluid bg-light">
+
+            <div className="container login-form-cont pt-5">
               <div className="card login-form-card p-4 shadow">
                 <h2 className="text-center mt-2">Login</h2>
                 <div className="social-login mt-3 px-5">
@@ -192,6 +194,7 @@ const Login = () => {
                   </p>
                 </div>
               </div>
+            </div>
             </div>
           )}
         </>

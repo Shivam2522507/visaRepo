@@ -3,6 +3,9 @@
   padding: 0;
   scroll-behavior: smooth;
 }
+.Cross{
+  cursor: pointer!important;
+}
 .steps-no-form {
   height: 50px;
   width: 60px;

@@ -581,7 +581,7 @@ function PrivacyPolicy() {
             through the above session data.
           </p>
           <p>WITH WHOM YOUR PERSONAL INFORMATION IS SHARED</p>
-          <p>Service Providers and suppliers:</p>
+          {/* <p>Service Providers and suppliers:</p>
           <p>
             Your information shall be shared with the end service providers like
             airlines, hotels, bus service providers, cab rental, railways or any
@@ -625,7 +625,7 @@ function PrivacyPolicy() {
             engaged by us for providing various referral services and for
             sharing promotional and other benefits to our customers from time to
             time basis their booking history with us.
-          </p>
+          </p> */}
           <p>COMPANIES IN THE SAME GROUP:</p>
           <p>
             In the interests of improving personalization and service

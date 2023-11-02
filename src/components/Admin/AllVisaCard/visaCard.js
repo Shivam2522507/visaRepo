@@ -31,6 +31,7 @@ const VisaCard = ({ visaCard , index}) => {
   const [visaType, setVisaType] = useState("");
   const [visaPrice, setVisaPrice] = useState("");
   const [processingFee, setprocessingFee] = useState("");
+  const [managementFee, setmanagementFee] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +39,8 @@ const VisaCard = ({ visaCard , index}) => {
     myForm.set("name", visaName);
     myForm.set("visaType", visaType);
     myForm.set("price", visaPrice);
-    myForm.set("processingFee", processingFee);
+    myForm.set("serviceFee", processingFee);
+    myForm.set("managementFee", managementFee);
     dispatch(updateVisa(visaCard._id, myForm));
     handleClose();
   };
@@ -68,7 +70,8 @@ const VisaCard = ({ visaCard , index}) => {
           <td>{visaCard.name}</td>
           <td>{visaCard.visaType}</td>
           <td>{roeData * visaCard.price}</td>
-          <td>{visaCard.processingFee}</td>
+          <td>{visaCard.serviceFee}</td>
+          <td>{visaCard.managementFee}</td>
           <td>
             <button
               type="button"
@@ -120,7 +123,7 @@ const VisaCard = ({ visaCard , index}) => {
               />
             </div>
             <div className="form-group mb-4">
-              <label htmlFor="price">Processing Fee (INR)</label>
+              <label htmlFor="price">Service Fee (INR)</label>
               <input
                 type="number"
                 className="form-control"
@@ -128,6 +131,17 @@ const VisaCard = ({ visaCard , index}) => {
                 name="price"
                 value={processingFee}
                 onChange={(e) => setprocessingFee(e.target.value)}
+              />
+            </div>
+            <div className="form-group mb-4">
+              <label htmlFor="mprice">Management Fee (INR)</label>
+              <input
+                type="number"
+                className="form-control"
+                id="mprice"
+                name="mprice"
+                value={managementFee}
+                onChange={(e) => setmanagementFee(e.target.value)}
               />
             </div>
             <hr />

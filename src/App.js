@@ -5,7 +5,7 @@ import Footer from "./components/inc/Footer";
 import Home from "./components/pages/Home";
 import ApplyVisa from "./components/pages/ApplyVisa";
 import TrackApllication from "./components/pages/TrackApllication";
-import Contact from "./components/pages/Contact";
+// import Contact from "./components/pages/Contact";
 import Login from "./components/pages/login";
 import Signup from "./components/pages/Signup";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -16,7 +16,7 @@ import AdminDashbord from "./components/Admin/AdminDashbord";
 import { useSelector } from "react-redux";
 import { loadAdmin } from "./actions/adminAction";
 import AllUser from "./components/Admin/AllUser/AllUser";
-import Profile from "./components/pages/Profile";
+import Profile from "./components/pages/UserProfile/Profile";
 import AdminProfile from "./components/Admin/AdminProfile";
 import AdminRoe from "./components/Admin/AdminRoe";
 import AllVisaCards from "./components/Admin/AllVisaCard/allVisaCards";
@@ -29,6 +29,8 @@ import AllOrders from "./components/Admin/AllOrders/AllOrders";
 import OrderDetails from "./components/Admin/AllOrders/OrderDetails";
 import CheckOut from "./components/pages/CheckOut/CheckOut";
 import ResetPassword from "./components/pages/ForgetPassword/ResetPassword";
+import AboutUs from "./components/pages/AboutUs";
+import ContactUs from "./components/pages/Contact";
 
 
 function App() {
@@ -63,7 +65,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/ApplyVisa/:id" element={<ApplyVisa />} />
               <Route path="/TrackApllication" element={<TrackApllication />} />
-              <Route path="/Contact" element={<Contact />} />
+              <Route path="/Contact" element={<ContactUs />} />
               <Route path="/login" element={<Login />} />
               <Route path="/Signup" element={<Signup />} />
               <Route path="/AdminLogin" element={<AdminLogin />} />
@@ -71,6 +73,7 @@ function App() {
               <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
               <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
               <Route path="/RefundPolicy" element={<RefundPolicy />} />
+              <Route path="/AboutUs" element={<AboutUs />} />
               <Route path="/checkOut/:id" element={<CheckOut />} />
               <Route path="/api/password/reset/:token" element={<ResetPassword />} />
             </Routes>
