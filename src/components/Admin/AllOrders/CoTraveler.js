@@ -5,11 +5,16 @@ import { saveAs } from "file-saver";
 import { Modal, Button } from "react-bootstrap";
 import { useAlert } from "react-alert";
 import { changeCoTravelerStatus,clearErrors } from "../../../actions/applyVisaAction";
+import { addCoVisaData } from "../../../actions/getVisaAction";
+import { ADD_CO_VISA_RESET } from "../../../constants/getVisaConstant";
 // import { CHANGE_COTRAVELERS_STATUS_RESET } from "../../../constants/applyVisaConstants";
 
 const CoTravelersData = ({ coTraveler, index}) => {
   const { isTraveler } = useSelector((state) => state.travelerDetails);
   const { error } = useSelector((state) => state.changeCoTravelerStatus);
+  const { isCoVisaAdded } = useSelector(
+    (state) => state.CoVisa
+  );
   const dispatch = useDispatch();
   const alert = useAlert();
   const handleDownloadClick = (filename, name) => {
@@ -35,7 +40,31 @@ const CoTravelersData = ({ coTraveler, index}) => {
     setShow(true);
   };
 
-  
+  const [CoTravelerVisa, setCoTravelerVisa] = useState("");
+  const [VisaUploadshow, setVisaUploadShow] = useState(false);
+  const handleVisaUploadClose = () => setVisaUploadShow(false);
+  const handleVisaUploadShow = () => {
+    setVisaUploadShow(true);
+  };
+
+
+  const handleVisaFile = (e) => {
+    setCoTravelerVisa(e.target.files[0]);
+  };
+
+
+  const handleUploadVisa = (e) => {
+    e.preventDefault();
+    try {
+      const myForm = new FormData();
+      myForm.set("bookingId", coTraveler.bookingId);
+      myForm.set("visa", CoTravelerVisa);
+      dispatch(addCoVisaData(myForm));
+      handleVisaUploadClose();
+    } catch (error) {
+      console.log(error);
+    }
+  };  
 
   const handleStatusSubmit = (e) => {
     e.preventDefault();
@@ -61,7 +90,14 @@ const CoTravelersData = ({ coTraveler, index}) => {
     //     type: CHANGE_COTRAVELERS_STATUS_RESET
     //   })
     // }
-  },[dispatch,error,alert])
+    if (isCoVisaAdded) {
+      alert.success("Visa Added");
+      dispatch({
+        type: ADD_CO_VISA_RESET,
+      });
+      window.location.reload();
+    }
+  },[dispatch,error,alert,isCoVisaAdded])
 
   return (
     <>
@@ -290,6 +326,46 @@ const CoTravelersData = ({ coTraveler, index}) => {
               </button>
             </td>
           </tr>
+          {coTraveler.status === "Accepted" ? (
+                    <>
+                      <tr className="align-middle">
+                        <td>8</td>
+                        <td>Visa</td>
+                        <td>
+                          {coTraveler.visa === "null" ? "" : <>
+                          
+                          <img
+                            src={`http://localhost:8000/userUploadFile/${
+                              isTraveler
+                                ? coTraveler.visa
+                                : ""
+                            }`}
+                            alt="photograph"
+                            class="d-inline-block align-text-top documents-img"
+                          />
+                          </>}
+                        </td>
+                        <td>
+                          {coTraveler.visa === "null" ? <> <button
+                            type="button"
+                            className="btn btn-primary shadow-none  ms-4 ps-4 pe-4"
+                            onClick={handleVisaUploadShow}
+                          >
+                            Upload Visa
+                          </button></> : <> <button
+                            type="button"
+                            className="btn btn-primary shadow-none  ms-4 ps-4 pe-4"
+                            onClick={handleVisaUploadShow}
+                          >
+                           Edit
+                          </button></>}
+                          
+                        </td>
+                      </tr>
+                    </>
+                  ) : (
+                    ""
+                  )}
         </tbody>
       </table>
 
@@ -321,6 +397,34 @@ const CoTravelersData = ({ coTraveler, index}) => {
                 variant="secondary"
                 className="me-2"
                 onClick={handleClose}
+              >
+                Close
+              </Button>
+              <Button variant="primary" type="submit">
+                Save
+              </Button>
+            </div>
+          </form>
+        </Modal.Body>
+      </Modal>
+
+      <Modal show={VisaUploadshow} onHide={handleVisaUploadClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Upload VISA</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form onSubmit={handleUploadVisa}>
+            <div className="form-group mb-3">
+              <input type="file" id="visa" name="visa" onChange={handleVisaFile} />
+            </div>
+
+
+            <hr />
+            <div className="d-flex justify-content-end">
+              <Button
+                variant="secondary"
+                className="me-2"
+                onClick={handleVisaUploadClose}
               >
                 Close
               </Button>

@@ -1,0 +1,11 @@
+export const ADD_VISA_REQUEST = "ADD_VISA_REQUEST";
+export const ADD_VISA_SUCCESS = "ADD_VISA_SUCCESS";
+export const ADD_VISA_RESET = "ADD_VISA_RESET";
+export const ADD_VISA_FAIL = "ADD_VISA_FAIL";
+
+export const ADD_CO_VISA_REQUEST = "ADD_CO_VISA_REQUEST";
+export const ADD_CO_VISA_SUCCESS = "ADD_CO_VISA_SUCCESS";
+export const ADD_CO_VISA_RESET = "ADD_CO_VISA_RESET";
+export const ADD_CO_VISA_FAIL = "ADD_CO_VISA_FAIL";
+
+export const CLEAR_ERRORS = "CLEAR_ERRORS";

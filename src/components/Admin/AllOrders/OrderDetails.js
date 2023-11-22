@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getTravelerDetails,
@@ -14,35 +14,41 @@ import { Download } from "react-bootstrap-icons";
 import "../Admin.css";
 import CoTravelersData from "./CoTraveler";
 import { Modal, Button } from "react-bootstrap";
-import { ADD_OTHER_FIELDS_RESET, CHANGE_COTRAVELERS_STATUS_RESET } from "../../../constants/applyVisaConstants";
+import {
+  ADD_OTHER_FIELDS_RESET,
+  CHANGE_COTRAVELERS_STATUS_RESET,
+} from "../../../constants/applyVisaConstants";
+import { ADD_VISA_RESET } from "../../../constants/getVisaConstant";
+import { addVisaData } from "../../../actions/getVisaAction";
 
 const OrderDetails = () => {
   const params = useParams();
   const OrderID = params.id;
 
-
   const dispatch = useDispatch();
   const alert = useAlert();
-  const { loading,error,  traveler, isTraveler } = useSelector(
+  const { loading, error, traveler, isTraveler } = useSelector(
     (state) => state.travelerDetails
   );
-   const { isOtherFieldsAdded } = useSelector(
-    (state) => state.addOtherField
-  );
+  const { isOtherFieldsAdded } = useSelector((state) => state.addOtherField);
   const { visaCard } = useSelector((state) => state.VisaCardDetails);
-  const { isCoTravelerStatusChanged } = useSelector((state) => state.changeCoTravelerStatus);
+  const { isCoTravelerStatusChanged } = useSelector(
+    (state) => state.changeCoTravelerStatus
+  );
+  const { isVisaAdded } = useSelector(
+    (state) => state.Visa
+  );
 
- 
   const visaId = traveler.visaType;
 
   const [showCoTraveler, setShowCoTraveler] = useState(true);
 
   const handleDownloadClick = (filename, name) => {
     const imageUrl = `http://localhost:8000/userUploadFile/${filename}`;
-  
+
     // Customize the downloaded filename based on the associated name
     const downloadedFilename = `${name}.jpg`;
-  
+
     fetch(imageUrl)
       .then((response) => response.blob())
       .then((blob) => {
@@ -54,26 +60,50 @@ const OrderDetails = () => {
   };
 
   const [mainTravelerStatus, setMainTravelerStatus] = useState("");
+
+  const [mainTravelerVisa, setMainTravelerVisa] = useState("");
+  const [VisaUploadshow, setVisaUploadShow] = useState(false);
+  const handleVisaUploadClose = () => setVisaUploadShow(false);
+  const handleVisaUploadShow = () => {
+    setVisaUploadShow(true);
+  };
+
+
+  const handleVisaFile = (e) => {
+    setMainTravelerVisa(e.target.files[0]);
+  };
+
+
+  const handleUploadVisa = (e) => {
+    e.preventDefault();
+    try {
+      const myForm = new FormData();
+      myForm.set("bookingId", traveler.bookingId);
+      myForm.set("visa", mainTravelerVisa);
+      dispatch(addVisaData(myForm));
+      handleVisaUploadClose();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setShow(true);
   };
 
-  const handleStatus = (e) =>{
+  const handleStatus = (e) => {
     e.preventDefault();
     try {
       const myForm = new FormData();
-      myForm.set("status" , mainTravelerStatus);
-      dispatch(addOtherFields(OrderID,myForm));
+      myForm.set("status", mainTravelerStatus);
+      dispatch(addOtherFields(OrderID, myForm));
       handleClose();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-
-  
-  
+  };
 
   useEffect(() => {
     if (error) {
@@ -83,9 +113,17 @@ const OrderDetails = () => {
     if (isOtherFieldsAdded) {
       alert.success("Main Traveler Status changed Successfully");
       dispatch({
-        type: ADD_OTHER_FIELDS_RESET
-      })
-      
+        type: ADD_OTHER_FIELDS_RESET,
+      });
+    }
+    if (isVisaAdded) {
+      alert.success("Visa Added");
+      dispatch({
+        type: ADD_VISA_RESET,
+      });
+      const mainTravelerId = new FormData();
+      mainTravelerId.append("mainTravelerId", OrderID);
+      dispatch(getTravelerDetails(mainTravelerId));
     }
     if (OrderID) {
       const mainTravelerId = new FormData();
@@ -100,15 +138,23 @@ const OrderDetails = () => {
     } else {
       setShowCoTraveler(true);
     }
-    if(isCoTravelerStatusChanged){
+    if (isCoTravelerStatusChanged) {
       alert.success(`CoTraveler Status changed Successfully`);
       dispatch({
-        type: CHANGE_COTRAVELERS_STATUS_RESET
-      })
+        type: CHANGE_COTRAVELERS_STATUS_RESET,
+      });
     }
-  }, [dispatch, error, alert, OrderID, visaId, traveler.numberOfPassengers,isOtherFieldsAdded,isCoTravelerStatusChanged]);
-
- 
+  }, [
+    dispatch,
+    error,
+    alert,
+    OrderID,
+    visaId,
+    traveler.numberOfPassengers,
+    isOtherFieldsAdded,
+    isCoTravelerStatusChanged,
+    isVisaAdded,
+  ]);
 
   return (
     <>
@@ -141,7 +187,8 @@ const OrderDetails = () => {
               </div>
               <div className="d-flex justify-content-evenly mt-3">
                 <p>
-                  <span className="fw-bold">GSTInvoice :- </span> {traveler.GSTInvoice}
+                  <span className="fw-bold">GSTInvoice :- </span>{" "}
+                  {traveler.GSTInvoice}
                 </p>
                 <p>
                   <span className="fw-bold">Okay To Board :- </span>{" "}
@@ -149,7 +196,11 @@ const OrderDetails = () => {
                 </p>
                 <p>
                   <span className="fw-bold">Insurance Type :- </span>{" "}
-                  {traveler.insuranceType === "Basic" ? "Basic(199)" : traveler.insuranceType === "Regular" ? "Regular(499)" : "Premium(999)" }
+                  {traveler.insuranceType === "Basic"
+                    ? "Basic(199)"
+                    : traveler.insuranceType === "Regular"
+                    ? "Regular(499)"
+                    : "Premium(999)"}
                 </p>
                 <p>
                   <span className="fw-bold">couponCode :- </span>{" "}
@@ -158,19 +209,22 @@ const OrderDetails = () => {
               </div>
               <div className="d-flex justify-content-evenly mt-3">
                 <p>
-                  <span className="fw-bold">Service Fee :- </span> {visaCard.serviceFee}
+                  <span className="fw-bold">Service Fee :- </span>{" "}
+                  {visaCard.serviceFee}
                 </p>
                 <p>
-                  <span className="fw-bold">Management Fee :- </span> {visaCard.managementFee}
+                  <span className="fw-bold">Management Fee :- </span>{" "}
+                  {visaCard.managementFee}
                 </p>
                 <p>
-                  <span className="fw-bold">Tax Price :- </span> {traveler.taxPrice}
+                  <span className="fw-bold">Tax Price :- </span>{" "}
+                  {traveler.taxPrice}
                 </p>
                 <p>
                   <span className="fw-bold">Discount Price :- </span>{" "}
                   {traveler.discountPrice}
                 </p>
-               
+
                 <p>
                   <span className="fw-bold">Total Price :- </span>{" "}
                   {traveler.totalPrice}
@@ -178,8 +232,9 @@ const OrderDetails = () => {
               </div>
               <h3 className="text-center mt-5">Main Traveler Details</h3>
               <div className="d-flex justify-content-evenly mt-4">
-              <p>
-                  <span className="fw-bold">Booking Id :- </span> {traveler.bookingId}
+                <p>
+                  <span className="fw-bold">Booking Id :- </span>{" "}
+                  {traveler.bookingId}
                 </p>
                 <p>
                   <span className="fw-bold">Title :- </span> {traveler.title}
@@ -195,10 +250,9 @@ const OrderDetails = () => {
                   <span className="fw-bold">Contact No :- </span>{" "}
                   {traveler.contactNo}
                 </p>
-                
               </div>
               <div className="d-flex justify-content-evenly mt-2">
-              <p>
+                <p>
                   <span className="fw-bold">Nationality :- </span>{" "}
                   {traveler.nationality}
                 </p>
@@ -213,13 +267,13 @@ const OrderDetails = () => {
                   <span className="fw-bold">Status :- </span> {traveler.status}
                 </p>
                 <p>
-                <button
-              type="button"
-              className="btn btn-primary shadow-none btn-sm "
-              onClick={handleShow}
-            >
-            Change Status
-            </button>
+                  <button
+                    type="button"
+                    className="btn btn-primary shadow-none btn-sm "
+                    onClick={handleShow}
+                  >
+                    Change Status
+                  </button>
                 </p>
               </div>
               <h3 className="text-center mt-5">Main Traveler Documents</h3>
@@ -252,8 +306,12 @@ const OrderDetails = () => {
                         name="download"
                         id="status"
                         class="btn btn-success ms-4 ps-4 pe-4"
-                        onClick={() => handleDownloadClick(traveler.documents.photograph, `${traveler.firstName}-photograph`)}
-                        
+                        onClick={() =>
+                          handleDownloadClick(
+                            traveler.documents.photograph,
+                            `${traveler.firstName}-photograph`
+                          )
+                        }
                       >
                         <Download className="me-1 mb-1" /> Download
                       </button>
@@ -277,7 +335,12 @@ const OrderDetails = () => {
                         name="download"
                         id="status"
                         class="btn btn-success ms-4 ps-4 pe-4"
-                        onClick={() => handleDownloadClick(traveler.documents.passport, `${traveler.firstName}-passport`)}
+                        onClick={() =>
+                          handleDownloadClick(
+                            traveler.documents.passport,
+                            `${traveler.firstName}-passport`
+                          )
+                        }
                       >
                         <Download className="me-1 mb-1" /> Download
                       </button>
@@ -303,7 +366,12 @@ const OrderDetails = () => {
                         name="download"
                         id="status"
                         class="btn btn-success ms-4 ps-4 pe-4"
-                        onClick={() => handleDownloadClick(traveler.documents.qualifyingCriteria, `${traveler.firstName}-qualifyingCriteria`)}
+                        onClick={() =>
+                          handleDownloadClick(
+                            traveler.documents.qualifyingCriteria,
+                            `${traveler.firstName}-qualifyingCriteria`
+                          )
+                        }
                       >
                         <Download className="me-1 mb-1" /> Download
                       </button>
@@ -327,7 +395,12 @@ const OrderDetails = () => {
                         name="download"
                         id="status"
                         class="btn btn-success ms-4 ps-4 pe-4"
-                        onClick={() => handleDownloadClick(traveler.documents.addressProof, `${traveler.firstName}-addressProof`)}
+                        onClick={() =>
+                          handleDownloadClick(
+                            traveler.documents.addressProof,
+                            `${traveler.firstName}-addressProof`
+                          )
+                        }
                       >
                         <Download className="me-1 mb-1" /> Download
                       </button>
@@ -351,7 +424,12 @@ const OrderDetails = () => {
                         name="download"
                         id="status"
                         class="btn btn-success ms-4 ps-4 pe-4"
-                        onClick={() => handleDownloadClick(traveler.documents.panCard, `${traveler.firstName}-panCard`)}
+                        onClick={() =>
+                          handleDownloadClick(
+                            traveler.documents.panCard,
+                            `${traveler.firstName}-panCard`
+                          )
+                        }
                       >
                         <Download className="me-1 mb-1" /> Download
                       </button>
@@ -375,7 +453,12 @@ const OrderDetails = () => {
                         name="download"
                         id="status"
                         class="btn btn-success ms-4 ps-4 pe-4"
-                        onClick={() => handleDownloadClick(traveler.documents.returnTicket, `${traveler.firstName}-returnTicket`)}
+                        onClick={() =>
+                          handleDownloadClick(
+                            traveler.documents.returnTicket,
+                            `${traveler.firstName}-returnTicket`
+                          )
+                        }
                       >
                         <Download className="me-1 mb-1" /> Download
                       </button>
@@ -399,55 +482,132 @@ const OrderDetails = () => {
                         name="download"
                         id="status"
                         class="btn btn-success ms-4 ps-4 pe-4"
-                        onClick={() => handleDownloadClick(traveler.documents.hotelConfirmation, `${traveler.firstName}-hotelConfirmation`)}
+                        onClick={() =>
+                          handleDownloadClick(
+                            traveler.documents.hotelConfirmation,
+                            `${traveler.firstName}-hotelConfirmation`
+                          )
+                        }
                       >
                         <Download className="me-1 mb-1" /> Download
                       </button>
                     </td>
                   </tr>
+
+                  {traveler.status === "Accepted" ? (
+                    <>
+                      <tr className="align-middle">
+                        <td>8</td>
+                        <td>Visa</td>
+                        <td>
+                          {traveler.visa === "null" ? "" : <>
+                          
+                          <img
+                            src={`http://localhost:8000/userUploadFile/${
+                              isTraveler
+                                ? traveler.visa
+                                : ""
+                            }`}
+                            alt="photograph"
+                            class="d-inline-block align-text-top documents-img"
+                          />
+                          </>}
+                        </td>
+                        <td>
+                          {traveler.visa === "null" ? <><button
+                            type="button"
+                            className="btn btn-primary shadow-none  ms-4 ps-4 pe-4"
+                            onClick={handleVisaUploadShow}
+                          >
+                            Upload Visa
+                          </button></> : <><button
+                            type="button"
+                            className="btn btn-primary shadow-none  ms-4 ps-4 pe-4"
+                            onClick={handleVisaUploadShow}
+                          >
+                           Edit
+                          </button></>}
+                      
+                        </td>
+                      </tr>
+                    </>
+                  ) : (
+                    ""
+                  )}
                 </tbody>
               </table>
 
-              {showCoTraveler && 
-              <>
-               {traveler.coTravelers &&
-                          traveler.coTravelers.map((coTraveler, index) => (
-                            <CoTravelersData coTraveler={coTraveler} index={index + 1} />
-                ))}
-              </>
-              }
+              {showCoTraveler && (
+                <>
+                  {traveler.coTravelers &&
+                    traveler.coTravelers.map((coTraveler, index) => (
+                      <CoTravelersData
+                        coTraveler={coTraveler}
+                        index={index + 1}
+                      />
+                    ))}
+                </>
+              )}
             </div>
           </div>
         </div>
       )}
-       <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Visa Status</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleStatus}>
             <div className="form-group mb-3">
-              <label htmlFor="status" className="mb-1">Select Status</label>
+              <label htmlFor="status" className="mb-1">
+                Select Status
+              </label>
               <select
                 id="status"
                 name="status"
-                className="form-select form-select-md mb-2 shadow-none" 
+                className="form-select form-select-md mb-2 shadow-none"
                 onChange={(e) => setMainTravelerStatus(e.target.value)}
               >
-                <option >Status</option>
+                <option>Status</option>
                 <option value="Processing">Processing</option>
                 <option value="Accepted">Accepted</option>
                 <option value="Rejected">Rejected</option>
-
               </select>
             </div>
-           
+
             <hr />
             <div className="d-flex justify-content-end">
               <Button
                 variant="secondary"
                 className="me-2"
                 onClick={handleClose}
+              >
+                Close
+              </Button>
+              <Button variant="primary" type="submit">
+                Save
+              </Button>
+            </div>
+          </form>
+        </Modal.Body>
+      </Modal>
+      <Modal show={VisaUploadshow} onHide={handleVisaUploadClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Upload VISA</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form onSubmit={handleUploadVisa}>
+            <div className="form-group mb-3">
+              <input type="file" id="visa" name="visa" onChange={handleVisaFile} />
+            </div>
+
+
+            <hr />
+            <div className="d-flex justify-content-end">
+              <Button
+                variant="secondary"
+                className="me-2"
+                onClick={handleVisaUploadClose}
               >
                 Close
               </Button>

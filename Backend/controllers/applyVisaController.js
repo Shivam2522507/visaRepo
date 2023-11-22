@@ -149,6 +149,7 @@ exports.addCoTraveler = async (req, res) => {
         contactNo: coTravelersData.contactNo[i],
         email: coTravelersData.email[i],
         status: "Processing",
+        visa:"null",
         bookingId:
           "MGDBX" +
           day +

@@ -9,6 +9,7 @@ dotenv.config({path:"./config/config.env"})
 const errorMiddleware = require('./middleware/error');
 const cookieParser = require("cookie-parser");
 const applyVisaRouter = require('./routes/applyVisaRoute');
+const uploadVisaRouter = require('./routes/uploadVisaRouter')
 
 
 app.use(express.json());
@@ -42,6 +43,7 @@ mongoose.connect(process.env.DB_URI,{
     app.use('/api',visa_route);
     // app.use('/api',travelBookingRoute);
     app.use('/api',applyVisaRouter);
+    app.use('/api',uploadVisaRouter);
   
 
 })

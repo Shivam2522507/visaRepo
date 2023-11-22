@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Download, EmojiExpressionless } from "react-bootstrap-icons";
 import CoTraveler from "./CoTraveler";
 import axios from "axios";
+import { saveAs } from "file-saver";
 
 function TrackTraveler({ mainTraveler }) {
   const [showCoTraveler, setShowCoTraveler] = useState(true);
@@ -15,6 +16,23 @@ function TrackTraveler({ mainTraveler }) {
   if (!visaName) {
     getVisaCardName(mainTraveler.visaType);
   }
+
+
+  const handleDownloadClick = (filename, name) => {
+    const imageUrl = `http://localhost:8000/userUploadFile/${filename}`;
+
+    // Customize the downloaded filename based on the associated name
+    const downloadedFilename = `${name}.jpg`;
+
+    fetch(imageUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        saveAs(blob, downloadedFilename);
+      })
+      .catch((error) => {
+        console.error("Error downloading image:", error);
+      });
+  };
   useEffect(() => {
     if (mainTraveler.numberOfPassengers === 1) {
       setShowCoTraveler(false);
@@ -85,6 +103,12 @@ function TrackTraveler({ mainTraveler }) {
                         class="btn btn-success ms-4 ps-4 pe-4"
                         disabled={
                           mainTraveler.status === "Accepted" ? false : true
+                        }
+                        onClick={() =>
+                          handleDownloadClick(
+                            mainTraveler.visa,
+                            `${mainTraveler.firstName}-VISA`
+                          )
                         }
                       >
                         <Download className="me-1 mb-1" /> Download

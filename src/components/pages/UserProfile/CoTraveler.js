@@ -1,7 +1,23 @@
 import React from "react";
 import { Download,EmojiExpressionless } from "react-bootstrap-icons";
+import { saveAs } from "file-saver";
 
 function CoTraveler({ coTraveler }) {
+  const handleDownloadClick = (filename, name) => {
+    const imageUrl = `http://localhost:8000/userUploadFile/${filename}`;
+
+    // Customize the downloaded filename based on the associated name
+    const downloadedFilename = `${name}.jpg`;
+
+    fetch(imageUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        saveAs(blob, downloadedFilename);
+      })
+      .catch((error) => {
+        console.error("Error downloading image:", error);
+      });
+  };
   return (
     <>
       <tr className="align-middle">
@@ -29,6 +45,12 @@ function CoTraveler({ coTraveler }) {
                 name="download"
                 id="status"
                 class="btn btn-success ms-4 ps-4 pe-4"
+                onClick={() =>
+                  handleDownloadClick(
+                    coTraveler.visa,
+                    `${coTraveler.firstName}-VISA`
+                  )
+                }
                 disabled={coTraveler.status === "Accepted" ? false : true}
               >
                 <Download className="me-1 mb-1" /> Download

@@ -39,6 +39,7 @@ import {
   getTravelerByUserId,
   trackTravelerReducer,
 } from "./reducers/applyVisaReducer";
+import { addVisaReducer,addCoVisaReducer } from "./reducers/getVisaReducer";
 
 const reducer = combineReducers({
   visaCards: VisaCardReducer,
@@ -72,6 +73,8 @@ const reducer = combineReducers({
   deleteTraveler: deleteTravelerReducer,
   getTravelerByUser: getTravelerByUserId,
   trackTraveler: trackTravelerReducer,
+  Visa: addVisaReducer,
+  CoVisa: addCoVisaReducer
 });
 
 let initialState = {};

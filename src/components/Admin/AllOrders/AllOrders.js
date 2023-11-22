@@ -61,7 +61,7 @@ function AllOrders() {
   };
   const filterVisaDate = () => {
     
-    if (startDate&&endDate) {
+    if (startDate && endDate) {
       dispatch(filterByDate(startDate,endDate));
       handleCloseModel2();
     }
