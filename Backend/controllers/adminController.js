@@ -19,7 +19,7 @@ const admin = async(req,res)=>{
       }
  }
 
- 
+
 
  //Login admin
  const loginadmin = async(req,res,next)=>{

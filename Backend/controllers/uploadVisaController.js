@@ -1,4 +1,3 @@
-const UploadVisa = require("../models/uploadVisaModel");
 const Traveler = require("../models/applyVisaModel");
 
 exports.addUploadVisa = async (req, res) => {

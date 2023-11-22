@@ -145,34 +145,45 @@ const Profile = () => {
                 <div>
                   <h5 className="text-secondary">Profile Name</h5>
                   <p className="m-0 fw-bold text-secondary">{user.email}</p>
-
-                  <Link
-                    className="btn btn-success mt-2 ps-3 pe-3 me-2"
-                    data-bs-toggle="modal"
-                    data-bs-target="#edit-email"
-                    onClick={showEditEmailModal}
-                  >
-                    Change Email{" "}
-                  </Link>
-                  <button
-                    type="button"
-                    className="btn btn-danger mt-2 ps-3 pe-3 shadow-none "
-                    onClick={handleDelete}
-                  >
-                    Delete Profile
-                  </button>
+                  {user.plateform === "WebSite" ? (
+                    <>
+                      <Link
+                        className="btn btn-success mt-2 ps-3 pe-3 me-2"
+                        data-bs-toggle="modal"
+                        data-bs-target="#edit-email"
+                        onClick={showEditEmailModal}
+                      >
+                        Change Email{" "}
+                      </Link>
+                      <button
+                        type="button"
+                        className="btn btn-danger mt-2 ps-3 pe-3 shadow-none "
+                        onClick={handleDelete}
+                      >
+                        Delete Profile
+                      </button>
+                    </>
+                  ) : (
+                    <>Login Using {user.plateform}</>
+                  )}
                 </div>
-                <div className="d-flex justify-content-end align-items-end">
-                  <button
-                    type="button"
-                    name="changePassword"
-                    id="changePassword"
-                    class="btn btn-secondary ps-4 pe-4"
-                    onClick={handleShow}
-                  >
-                    Change Password
-                  </button>
-                </div>
+                {user.plateform === "WebSite" ? (
+                  <>
+                    <div className="d-flex justify-content-end align-items-end">
+                      <button
+                        type="button"
+                        name="changePassword"
+                        id="changePassword"
+                        class="btn btn-secondary ps-4 pe-4"
+                        onClick={handleShow}
+                      >
+                        Change Password
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
 
@@ -181,10 +192,11 @@ const Profile = () => {
             ) : (
               <>
                 {travelers &&
-                  travelers.map((mainTraveler) => <Traveler mainTraveler={mainTraveler}/>)}
+                  travelers.map((mainTraveler) => (
+                    <Traveler mainTraveler={mainTraveler} />
+                  ))}
               </>
             )}
-
           </div>
         </div>
       )}
