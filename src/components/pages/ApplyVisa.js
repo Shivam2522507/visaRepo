@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../inc/css/ApplyVisa.css";
-import whatsappIcon from "../images/whatsappIcon.png";
+import whatsappIcon from "../images/whatsapp.png";
 import creditCardIMG from "../images/credit-card-img.png";
 import googleDocsIMG from "../images/google-docs-img.png";
 import passportIMG from "../images/passport-img.png";
@@ -78,32 +78,75 @@ function ApplyVisa() {
   const [hotelConfirmationFile, sethotelConfirmationFile] = useState("");
 
   const photographHandleFile = (e) => {
-    setPhotograph(e.target.files[0]);
-    setPhotographFile(e.target.files[0].name);
+  
+    if(e.target.files[0].type !== 'image/jpeg'){
+      alert.error("Please Upload JPG of below 100kb");
+    }else if(e.target.files[0].size >= 100001){
+      alert.error("Please Upload JPG of below 100kb");
+    }else{
+      setPhotograph(e.target.files[0]);
+      setPhotographFile(e.target.files[0].name);
+    }
   };
   const passportHandleFile = (e) => {
-    setpassport(e.target.files[0]);
-    setpassportFile(e.target.files[0].name);
+    if(e.target.files[0].type !== 'image/jpeg'){
+      alert.error("Please Upload JPG of below 100kb");
+    }else if(e.target.files[0].size >= 100001){
+      alert.error("Please Upload JPG of below 100kb");
+    }else{
+      setpassport(e.target.files[0]);
+      setpassportFile(e.target.files[0].name);
+    }
   };
   const qualifyingCriteriaHandleFile = (e) => {
-    setqualifyingCriteria(e.target.files[0]);
-    setqualifyingCriteriaFile(e.target.files[0].name);
+    if(e.target.files[0].type !== 'image/jpeg'){
+      alert.error("Please Upload JPG of below 100kb");
+    }else if(e.target.files[0].size >= 100001){
+      alert.error("Please Upload JPG of below 100kb");
+    }else{
+      setqualifyingCriteria(e.target.files[0]);
+      setqualifyingCriteriaFile(e.target.files[0].name);
+    }
   };
   const addressProofHandleFile = (e) => {
-    setaddressProof(e.target.files[0]);
-    setaddressProofFile(e.target.files[0].name);
+    if(e.target.files[0].type !== 'image/jpeg'){
+      alert.error("Please Upload JPG of below 100kb");
+    }else if(e.target.files[0].size >= 100001){
+      alert.error("Please Upload JPG of below 100kb");
+    }else{   
+      setaddressProof(e.target.files[0]);
+      setaddressProofFile(e.target.files[0].name);
+    }
   };
   const PANCardHandleFile = (e) => {
-    setPANCard(e.target.files[0]);
-    setPANCardFile(e.target.files[0].name);
+    if(e.target.files[0].type !== 'image/jpeg'){
+      alert.error("Please Upload JPG of below 100kb");
+    }else if(e.target.files[0].size >= 100001){
+      alert.error("Please Upload JPG of below 100kb");
+    }else{
+      setPANCard(e.target.files[0]);
+      setPANCardFile(e.target.files[0].name);
+    }
   };
   const returnTicketHandleFile = (e) => {
-    setreturnTicket(e.target.files[0]);
-    setreturnTicketFile(e.target.files[0].name);
+    if(e.target.files[0].type !== 'image/jpeg'){
+      alert.error("Please Upload JPG of below 100kb");
+    }else if(e.target.files[0].size >= 100001){
+      alert.error("Please Upload JPG of below 100kb");
+    }else{     
+      setreturnTicket(e.target.files[0]);
+      setreturnTicketFile(e.target.files[0].name);
+    }
   };
   const hotelConfirmationHandleFile = (e) => {
-    sethotelConfirmation(e.target.files[0]);
-    sethotelConfirmationFile(e.target.files[0].name);
+    if(e.target.files[0].type !== 'image/jpeg'){
+      alert.error("Please Upload JPG of below 100kb");
+    }else if(e.target.files[0].size >= 100001){
+      alert.error("Please Upload JPG of below 100kb");
+    }else{
+      sethotelConfirmation(e.target.files[0]);
+      sethotelConfirmationFile(e.target.files[0].name);
+    }
   };
 
 

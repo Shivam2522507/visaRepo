@@ -127,6 +127,7 @@ const applyVisaSchema = new mongoose.Schema({
   bookingDate:{
     type:Date,
   },
+  
 
 
 });

@@ -22,9 +22,9 @@
 .social-login button{
     padding: 12px 30px;
 }
-/* .social-login a .google-icon{
+.social-login button .google-icon{
     height: 26px;
-} */
+}
 .social-login button .facebook-icon{
     height: 26px;
 }

@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import "../inc/css/Login.css";
 import { Link } from "react-router-dom";
-import GoogleImg from "../images/google-Logo.png";
-import FacebookImg from "../images/facebookLogo.png";
+import GoogleImg from "../images/google.png";
+import FacebookImg from "../images/facebook.png";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearErrors,

@@ -1,6 +1,6 @@
 import React from "react";
 import herosecimg from "../images/hero-sec-img.png";
-import whatsappIcon from "../images/whatsappIcon.png";
+import whatsappIcon from "../images/whatsapp.png";
 import "../inc/css/Home.css";
 import { Link } from "react-router-dom";
 import { BoxArrowInRight, PersonRolodex} from "react-bootstrap-icons";

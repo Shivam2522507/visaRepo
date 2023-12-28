@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import scannerIMG from "../../images/qr.jpg";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +11,7 @@ import {
 import { useAlert } from "react-alert";
 import Loader from "../../inc/Loader/Loader";
 import { getVisaCardDetails } from "../../../actions/visaAction";
-import { BoxArrowUpRight} from "react-bootstrap-icons"
+import { BoxArrowUpRight } from "react-bootstrap-icons";
 
 function CheckOut() {
   const params = useParams();
@@ -22,10 +23,16 @@ function CheckOut() {
   const { loading, error, traveler, isTraveler } = useSelector(
     (state) => state.travelerDetails
   );
-  const roeData = useSelector(state => state.roe.roe[0]?.roe)
+  const roeData = useSelector((state) => state.roe.roe[0]?.roe);
   const { visaCard } = useSelector((state) => state.VisaCardDetails);
   const visaId = traveler.visaType;
   const [showCoTraveler, setShowCoTraveler] = useState(true);
+  const [checked, setChecked] = useState(false);
+
+  const handleCheckOutPay = () => {
+    Navigate(`/Profile`);
+    
+  };
 
   useEffect(() => {
     if (isAuthenticated === false) {
@@ -137,7 +144,6 @@ function CheckOut() {
                     <th scope="col">Sr. No.</th>
                     <th scope="col">Name</th>
                     <th scope="col">Images</th>
-                    
                   </tr>
                 </thead>
                 <tbody>
@@ -249,61 +255,86 @@ function CheckOut() {
                 </>
               )}
 
-                <div className="mt-5 d-flex justify-content-evenly">
-                  <div>
+              <div className="mt-5 d-flex justify-content-evenly">
+                <div>
                   <h3>Price Breakdown</h3>
-              <div className="mt-3">
-                <p >
-                  <span className="fw-bold">Visa Type:- </span>{" "}
-                  {visaCard.name} (₹ {roeData * visaCard.price})
-                </p>
-                <p>
-                  <span className="fw-bold">Service Fee :- </span>{" "}
-                  ₹ {visaCard.serviceFee}
-                </p>
-                <p>
-                  <span className="fw-bold">Tech Management Fee :- </span>{" "}
-                  ₹ {visaCard.managementFee}
-                </p>
-                <p>
-                  <span className="fw-bold">Okay To Board :- </span>{" "}
-                  {traveler.okayToBoard === "YES" ? "YES(₹ 799)" : "NO"}
-                </p>
-                <p>
-                  <span className="fw-bold">Insurance :- </span>{" "}
-                  {traveler.insuranceType === "Basic" ? "Basic(₹ 199)" : traveler.insuranceType === "Regular" ? "Regular(₹ 499)" : "Premium(₹ 999)" }
-                </p>
-                <p>
-                  <span className="fw-bold">Tax Price :- </span>{" "}
-                  ₹ {traveler.taxPrice}
-                </p>
-                <p>
-                  <span className="fw-bold">Discount Price :- </span>{" "}
-                  ₹ {traveler.discountPrice}
-                </p>
+                  <div className="mt-3">
+                    <p>
+                      <span className="fw-bold">Visa Type:- </span>{" "}
+                      {visaCard.name} (₹ {roeData * visaCard.price})
+                    </p>
+                    <p>
+                      <span className="fw-bold">Service Fee :- </span> ₹{" "}
+                      {visaCard.serviceFee}
+                    </p>
+                    <p>
+                      <span className="fw-bold">Tech Management Fee :- </span> ₹{" "}
+                      {visaCard.managementFee}
+                    </p>
+                    <p>
+                      <span className="fw-bold">Okay To Board :- </span>{" "}
+                      {traveler.okayToBoard === "YES" ? "YES(₹ 799)" : "NO"}
+                    </p>
+                    <p>
+                      <span className="fw-bold">Insurance :- </span>{" "}
+                      {traveler.insuranceType === "Basic"
+                        ? "Basic(₹ 199)"
+                        : traveler.insuranceType === "Regular"
+                        ? "Regular(₹ 499)"
+                        : "Premium(₹ 999)"}
+                    </p>
+                    <p>
+                      <span className="fw-bold">Tax Price :- </span> ₹{" "}
+                      {traveler.taxPrice}
+                    </p>
+                    <p>
+                      <span className="fw-bold">Discount Price :- </span> ₹{" "}
+                      {traveler.discountPrice}
+                    </p>
 
-                <p>
-                  <span className="fw-bold">Total Price :- </span>{" "}
-                  ₹ {traveler.totalPrice}
-                </p>
-              </div>
-                  </div>
-                  <div className="d-flex align-items-end">
-                  <button
-                    type="button"
-                    name="Step-4-Pay"
-                    class="btn btn-success ms-4"
-                   
-                  >
-                    Pay Now{" "}
-                    <BoxArrowUpRight
-                      className="ms-2 text-white mb-1"
-                      size={16}
-                    />
-                  </button>
+                    <p>
+                      <span className="fw-bold">Total Price :- </span> ₹{" "}
+                      {traveler.totalPrice}
+                    </p>
                   </div>
                 </div>
-              
+                <div className="d-flex flex-column justify-content-between">
+                  <div className="d-flex flex-column justify-content-center align-items-center">
+                  <img src={scannerIMG} alt="Hero-img"  width="150" height="150" />
+                  <div className="mt-2">
+                    <h5 className="text-center">MERKABAH BANK DETAILS </h5>
+                    <p className="mb-1"><span className="fw-bold">COMPANY :-</span> MERKABAH PLANNING SERVICES LLP</p>
+                    <p className="mb-1"><span className="fw-bold">GSTIN :-</span> 07ABUFM4198A1ZX</p>
+                    <p className="mb-1"><span className="fw-bold">HDFC CURRENT ACCOUNT :-</span> 502 0007 096 7688</p>
+                    <p className="mb-3"><span className="fw-bold">IFSC CODE :-</span> HDFC 00 02 830</p>
+                  </div>
+                  </div>
+                  <div className="d-flex justify-content-end align-items-center">
+                  <input
+                      class="form-check-input mt-0 shadow-none me-2"
+                      type="checkbox"
+                      checked={checked}
+                      onChange={(event) => setChecked(event.target.checked)}
+                      aria-label="Checkbox for following text input"
+                    />
+                    Payment Successfully
+                  
+                    <button
+                      type="button"
+                      name="Step-4-Pay"
+                      class="btn btn-success ms-4"
+                      disabled={checked ? false : true}
+                      onClick={handleCheckOutPay}
+                    >
+                      Submit{" "}
+                      <BoxArrowUpRight
+                        className="ms-2 text-white mb-1"
+                        size={16}
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

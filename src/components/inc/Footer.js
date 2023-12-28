@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from "react";
-import logo from "../images/logo.png";
+import logo from "../images/visa-logo.svg";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter } from "react-bootstrap-icons";
 import sepratorIMG from "../images/seprator.svg";

@@ -44,15 +44,22 @@ function AddCoTraveler() {
 
   const handleFileChange = (e, index,field) => {
     const fileInput = e.target;
-    const fileName = fileInput.files[0].name;
-  
-    const fileChosenSpan = document.getElementById(`file-chosen-${field}-${index}`);
-    if (fileChosenSpan) {
-      fileChosenSpan.textContent = fileName;
+    if(fileInput.files[0].type !== 'image/jpeg'){
+      alert.error("Please Upload JPG of below 100kb");
+    }else if(fileInput.files[0].size >= 100001){
+      alert.error("Please Upload JPG of below 100kb");
+    }else{
+      
+      const fileName = fileInput.files[0].name;
+    
+      const fileChosenSpan = document.getElementById(`file-chosen-${field}-${index}`);
+      if (fileChosenSpan) {
+        fileChosenSpan.textContent = fileName;
+      }
+      const newCoTravelers = [...coTravelers];
+      newCoTravelers[index][field] = e.target.files[0];
+      setCoTravelers(newCoTravelers);
     }
-    const newCoTravelers = [...coTravelers];
-    newCoTravelers[index][field] = e.target.files[0];
-    setCoTravelers(newCoTravelers);
   };
 
   const handleAddCoTraveler = () => {
