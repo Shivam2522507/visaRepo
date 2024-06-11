@@ -10,6 +10,7 @@ const errorMiddleware = require('./middleware/error');
 const cookieParser = require("cookie-parser");
 const applyVisaRouter = require('./routes/applyVisaRoute');
 const uploadVisaRouter = require('./routes/uploadVisaRouter')
+// const payment_Route = require('./routes/payment_Route')
 
 
 app.use(express.json());
